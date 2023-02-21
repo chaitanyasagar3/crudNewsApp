@@ -29,7 +29,7 @@ Test Plan
 
 1.1 Scope
 	
-	Create a personal news feed app in a group agile enviornment. The first sprint will consist of creation and testing of sign up and sign in pages with a 	generic home page. The test plan cases will be manual. The team will follow a MERN stack to work on the project. 
+	Create a personal news feed app in a group agile enviornment. The first sprint will consist of creation and testing of sign up and sign in pages with a generic home page. The test plan cases will be manual. The team will follow a MERN stack to work on the project. 
 	
 	Client/Web side: react.js.
 	Server side: Express.js, Node.js
@@ -110,8 +110,8 @@ Test Plan
 4.	Project Milestones
 		
 		1. Sprint 1 	(2/20/2023 - 3/6/2023)
-	    	2. Project/Test Planing  (2/21/2023)
-	    	3. 
+	    		- Project/Test Planing  (2/21/2023)
+
 
 5.	Resources
 		
