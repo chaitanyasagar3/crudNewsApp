@@ -62,9 +62,14 @@ Test Plan
 		• Requirement 2
 			– When a correct combination of user id and password have been submitted, navigate to 
 			the Landing Page as signed in
+            
 		• Requirement 3
 			– When an incorrect combination of user id and password have been submitted, display 
 			an appropriate message
+            
+        • Requirement 4
+            – The sign in page shall include a link to the sign-up page for new users who do not yet have an account.         
+            
 			
 	Sign up Page
 		• UX
@@ -95,6 +100,8 @@ Test Plan
 			Landing Page as signed in
 		• Requirement 5
 			– When an incorrect entry is made, display an appropriate message
+        • Requirement 5         
+            – The sign-up form shall include a "Cancel" button that allows users to cancel their sign-up process and return to the landing page.
 
 3.    Test Strategy
 	
