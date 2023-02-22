@@ -123,7 +123,7 @@ Test Plan
 5.	Resources
 		
 		Uditanshu Khatri:
-		Chaitanya Sagar:
+		Chaitanya Sagar: Development- codebase
 		Rini:
 		Deepak: 
 
