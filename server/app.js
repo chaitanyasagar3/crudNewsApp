@@ -1,6 +1,7 @@
 // Import all dependencies & middleware here
 import express from 'express';
 import bodyParser from 'body-parser';
+import {userController} from './controller';
 
 // Init an Express App. 
 const app = express();
@@ -9,12 +10,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Use your dependencies here// use all controllers(APIs) here
-app.get('/', (req, res) => {
-   res.status(200).json({
-      status: "Server Run successfully"
-   });
-});
+// Use all controllers(APIs) here
+app.use('/', userController);
 
 // Start Server here
 app.listen(8080, () => {
