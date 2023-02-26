@@ -21,7 +21,7 @@ const UserInfo = styled.div`
   }
 `;
 
-function LandingScreen(props) {
+function LandingPage(props) {
   const { username, onLogout } = props;
 
   console.log(username);
@@ -40,4 +40,4 @@ function LandingScreen(props) {
   );
 }
 
-export default LandingScreen;
+export default LandingPage;
