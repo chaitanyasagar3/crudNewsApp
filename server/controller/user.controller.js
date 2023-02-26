@@ -6,4 +6,5 @@ userController.get('/', (req, res) => {
        status: 'user Controller API call successfully'
     });
  });
+ 
  export default userController;
