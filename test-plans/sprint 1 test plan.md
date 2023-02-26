@@ -7,7 +7,7 @@ Version 0.1
 
 Table of Contents
 
-    Objectives
+    Objectives 
     Scope
     Test Strategy
     Project Milestones
@@ -127,4 +127,3 @@ Test Plan
 		Rini:
 		Deepak: 
 
- 
