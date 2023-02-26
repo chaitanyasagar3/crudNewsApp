@@ -1,6 +1,7 @@
 import express from "express";
 import { User } from "../database/models";
 import sha256 from "sha256";
+
 const userController = express.Router();
 /**
  * GET/
@@ -13,14 +14,15 @@ userController.get("/", (req, res) => {
     });
   });
 });
+
 /**
  * POST/
  * Add a new User to your database
  */
 userController.post("/add-user", (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 const userData = {
-    email,
+    username,
     hashedPassword: sha256(password)
   };
   const newUser = new User(userData);
@@ -33,4 +35,6 @@ const userData = {
       res.status(400).send("unable to save to database");
     });
 });
+
+
 export default userController;
