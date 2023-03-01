@@ -1,141 +1,36 @@
-// import React, { useState } from "react";
-// import styled from "styled-components";
-// import { Routes, Route, Link } from "react-router-dom";
-// import SignInPage from "./SignInPage";
-// import LandingPage from "./LandingPage";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-// const AppWrapper = styled.div`
-//   height: 100%;
-// `;
+import "./App.css";
+import { AuthProvider, RequiresAuth } from "./hoc/Authentication";
 
-// const LogoutButton = styled.button`
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   padding: 10px;
-//   border-radius: 5px;
-//   border: none;
-//   background-color: #0077ff;
-//   color: #fff;
-//   cursor: pointer;
-//   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-// `;
+import Layout from "./components/Layout";
+import Signup from "./components/Authentication/Signup";
+import LandingPage from "./components/LandingPage/LandingPage";
+import SignInPage from "./components/Authentication/SignInPage";
 
-// const App = () => {
-//   const [authenticated, setAuthenticated] = useState(false);
-//   const [username, setUsername] = useState("");
 
-//   const handleLogin = (username) => {
-//     setUsername(username);
-//     setAuthenticated(true);
-//   };
-
-//   const handleLogout = () => {
-//     setAuthenticated(false);
-//     setUsername("");
-//   };
-
-//   return (
-//     <AppWrapper>
-//       <Routes>
-//         <Route path="/" element={<SignInPage onLogin={handleLogin} />} />
-//         <Route
-//           path="/landing-page"
-//           element={<LandingPage username={username} onLogout={handleLogout} />}
-//         />
-//       </Routes>
-//       {authenticated && (
-//         <LogoutButton onClick={handleLogout}>
-//           <Link to="/">Log Out</Link>
-//         </LogoutButton>
-//       )}
-//     </AppWrapper>
-//   );
-// };
-
-// export default App;
-
-// import React, { useState } from "react";
-// import styled from "styled-components";
-// import { Routes, Route, Link, useHistory } from "react-router-dom";
-// import SignInPage from "./SignInPage";
-// import LandingPage from "./LandingPage";
-
-// const AppWrapper = styled.div`
-//   height: 100%;
-// `;
-
-// const LogoutButton = styled.button`
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   padding: 10px;
-//   border-radius: 5px;
-//   border: none;
-//   background-color: #0077ff;
-//   color: #fff;
-//   cursor: pointer;
-//   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-// `;
-
-// const App = () => {
-//   const [authenticated, setAuthenticated] = useState(false);
-//   const [username, setUsername] = useState("");
-
-//   const handleLogin = (username) => {
-//     setUsername(username);
-//     setAuthenticated(true);
-//   };
-
-//   const handleLogout = () => {
-//     setAuthenticated(false);
-//     setUsername("");
-//   };
-
-//   return (
-//     <AppWrapper>
-//       <Routes>
-//         <Route path="/" element={<SignInPage onLogin={handleLogin} />} />
-//         <Route
-//           path="/landing-screen"
-//           element={<LandingPage username={username} onLogout={handleLogout} />}
-//         />
-//       </Routes>
-//       {authenticated && (
-//         <LogoutButton onClick={handleLogout}>
-//           <Link to="/">Log Out</Link>
-//         </LogoutButton>
-//       )}
-//     </AppWrapper>
-//   );
-// };
-
-// export default App;
-
-import React, { useState } from "react";
-import LandingPage from "./LandingPage";
-import SignInPage from "./SignInPage";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("Rini Joseph");
+  return (
+    <AuthProvider>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index  element={<LandingPage />} />
+          <Route path="/login" element={<SignInPage />} />
+          <Route path="/sign-up" element={<Signup />} />
+        </Route>
+      </Routes>
+    </AuthProvider>
+  );
+}
 
-  const handleLogin = (username) => {
-    setLoggedIn(true);
-    setUsername(username);
-  };
+export default App;
 
-  const handleLogout = () => {
-    setLoggedIn(false);
-    setUsername("");
-  };
-  return <SignInPage username={username} onLogout={handleLogout} />;
+  // return <SignInPage username={username} onLogout={handleLogout} />;
   // if (loggedIn) {
   //   return <LandingPage username={username} onLogout={handleLogout} />;
   // } else {
   //   return <LandingPage username={username} onLogout={handleLogout} />;
   // }
-}
-
-export default App;

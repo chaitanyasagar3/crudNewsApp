@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 import styled from "styled-components";
+import { Alert } from "react-bootstrap";
 
 const SignInWrapper = styled.div`
   display: flex;
@@ -42,6 +45,11 @@ const SubmitButton = styled.button`
 const SignInPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const auth = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -52,12 +60,30 @@ const SignInPage = () => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission here
+    try {
+      if (!username || !password) {
+        throw new Error("Username and password are required.");
+      }
+      event.preventDefault();
+
+      // Handle form submission here
+      auth.signIn({username: "CS"}, () => {
+        // Send them back to the page they tried to visit when they were
+        // redirected to the login page. Use { replace: true } so we don't create
+        // another entry in the history stack for the login page.  This means that
+        // when they get to the protected page and click the back button, they
+        // won't end up back on the login page, which is also really nice for the
+        // user experience.
+        navigate(from , { replace: true });
+      }); 
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
     <SignInWrapper>
+      {error && <Alert variant="danger" dismissible>{error}</Alert>}
       <Title>Sign In</Title>
       <Form onSubmit={handleSubmit}>
         <InputField
