@@ -9,6 +9,10 @@ const SignInWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgb(127, 21, 21);
+  padding: 100px;
+  // background-color: black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   height: 100%;
 `;
 
@@ -34,9 +38,10 @@ const InputField = styled.input`
 const SubmitButton = styled.button`
   margin: 10px;
   padding: 10px;
+  width: 150px;
   border-radius: 5px;
   border: none;
-  background-color: #0077ff;
+  background-color: gray;
   color: #fff;
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -67,40 +72,46 @@ const SignInPage = () => {
       event.preventDefault();
 
       // Handle form submission here
-      auth.signIn({username: "CS"}, () => {
+      auth.signIn({ username: "CS" }, () => {
         // Send them back to the page they tried to visit when they were
         // redirected to the login page. Use { replace: true } so we don't create
         // another entry in the history stack for the login page.  This means that
         // when they get to the protected page and click the back button, they
         // won't end up back on the login page, which is also really nice for the
         // user experience.
-        navigate(from , { replace: true });
-      }); 
+        navigate(from, { replace: true });
+      });
     } catch (error) {
       setError(error.message);
     }
   };
 
   return (
-    <SignInWrapper>
-      {error && <Alert variant="danger" dismissible>{error}</Alert>}
-      <Title>Sign In</Title>
-      <Form onSubmit={handleSubmit}>
-        <InputField
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-        <InputField
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <SubmitButton type="submit">Submit</SubmitButton>
-      </Form>
-    </SignInWrapper>
+    <div>
+      <SignInWrapper>
+        {error && (
+          <Alert variant="danger" dismissible>
+            {error}
+          </Alert>
+        )}
+        <Title>Sign In</Title>
+        <Form onSubmit={handleSubmit}>
+          <InputField
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={handleUsernameChange}
+          />
+          <InputField
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          <SubmitButton type="submit">Submit</SubmitButton>
+        </Form>
+      </SignInWrapper>
+    </div>
   );
 };
 

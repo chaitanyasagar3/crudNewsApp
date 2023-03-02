@@ -1,0 +1,21 @@
+.Navlink > p {
+    
+    margin: 3px;
+}
+
+.HeadingTitle {
+    position: relative;
+    left: 20%;
+    /* display: inline-block;
+  margin-left: 10px; */
+}
+.custom-button {
+    background-color: rgb(127, 21, 21);
+    color: white;
+    border-color: blue;
+  }
+  
+  .custom-button:hover {
+    background-color: rgb(29, 29, 34);
+    border-color: darkblue;
+  }
