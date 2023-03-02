@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<LandingPage />} />
-          <Route path="/login" element={<SignUpPage />} />
+          <Route path="/login" element={<SignInPage />} />
           <Route path="/sign-up" element={<SignUpPage />} />
         </Route>
       </Routes>

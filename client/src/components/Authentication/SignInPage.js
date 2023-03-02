@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import styled from "styled-components";
 import { Alert } from "react-bootstrap";
+import SignUpPage from "./SignUpPage";
 
 const SignInWrapper = styled.div`
   display: flex;
@@ -46,7 +47,19 @@ const SubmitButton = styled.button`
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 `;
-
+const SignUpLink = styled(Link)`
+  margin: 10px;
+  padding: 10px;
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+  background-color: gray;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-decoration: none;
+`;
 const SignInPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -109,6 +122,7 @@ const SignInPage = () => {
             onChange={handlePasswordChange}
           />
           <SubmitButton type="submit">Submit</SubmitButton>
+          <SignUpLink to="/sign-up">Sign Up</SignUpLink>
         </Form>
       </SignInWrapper>
     </div>
