@@ -1,10 +1,9 @@
 // Import all dependencies & middleware here
 import express from 'express';
 import bodyParser from 'body-parser';
-import {userController} from './controller';
+import {userController} from './controller/index.js';
 import mongoose from "mongoose";
 
-import {userController} from "./controller";
 // Init an Express App. 
 const app = express();
 

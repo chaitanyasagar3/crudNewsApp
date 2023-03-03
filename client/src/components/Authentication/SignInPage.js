@@ -86,7 +86,7 @@ const SignInPage = () => {
         throw new Error("Username and password are required.");
       }
       event.preventDefault();
-
+      
       // Handle form submission here
       auth.signIn({ username: "CS" }, () => {
         // Send them back to the page they tried to visit when they were
