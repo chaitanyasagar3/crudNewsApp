@@ -4,14 +4,16 @@ import useAuth from "../../hooks/useAuth";
 import styled from "styled-components";
 import { Alert } from "react-bootstrap";
 import SignUpPage from "./SignUpPage";
+import img from "../../assests/news.png";
 
 const SignInWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(127, 21, 21);
-  padding: 100px;
+  background-color: rgb(85, 105, 152);
+  background-image: url(${img});
+  padding: 200px;
   // background-color: black;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   height: 100%;
@@ -19,6 +21,7 @@ const SignInWrapper = styled.div`
 
 const Title = styled.h1`
   text-align: center;
+  color: white;
 `;
 
 const Form = styled.form`
@@ -42,7 +45,7 @@ const SubmitButton = styled.button`
   width: 150px;
   border-radius: 5px;
   border: none;
-  background-color: gray;
+  background-color: lightskyblue;
   color: #fff;
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -53,7 +56,7 @@ const SignUpLink = styled(Link)`
   width: 150px;
   border-radius: 5px;
   border: none;
-  background-color: gray;
+  background-color: lightskyblue;
   color: #fff;
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -107,7 +110,7 @@ const SignInPage = () => {
             {error}
           </Alert>
         )}
-        <Title>Sign In</Title>
+        <Title>Welcome To CRUDNews</Title>
         <Form onSubmit={handleSubmit}>
           <InputField
             type="text"
@@ -121,8 +124,12 @@ const SignInPage = () => {
             value={password}
             onChange={handlePasswordChange}
           />
-          <SubmitButton type="submit">Submit</SubmitButton>
-          <SignUpLink to="/sign-up">Sign Up</SignUpLink>
+          <SubmitButton type="submit" className="btn btn-primary">
+            Sign In
+          </SubmitButton>
+          <SignUpLink to="/sign-up" className="btn btn-primary">
+            Sign Up
+          </SignUpLink>
         </Form>
       </SignInWrapper>
     </div>

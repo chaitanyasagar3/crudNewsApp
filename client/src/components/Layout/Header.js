@@ -18,10 +18,10 @@ const Header = () => {
   return (
     <Navbar>
       <Container className="text-center">
-        <img src={headerlogo} width="100" height="100" />
-        <div className="HeadingTitle">
+        {/* <img src={headerlogo} width="100" height="100" /> */}
+        {/* <div className="HeadingTitle">
           <h3>CRUDNEWSAPP</h3>
-        </div>
+        </div> */}
       </Container>
       <Container>
         <Navbar.Collapse className="justify-content-end">

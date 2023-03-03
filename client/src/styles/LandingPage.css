@@ -2,7 +2,7 @@
     /* display: flex;
   flex-direction: column;
   align-items: center; */
-  background-color: #f1f1f1;
+  background-color: #789ecf;
   padding: 40px;
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@
     /* text-align: center;
     padding-top: 150px; */
   background-color: rgb(164, 149, 149);
-  padding: 250px;
+  padding: 350px;
   border-radius: 0px;
   background-image: url('../assests/news.png') ;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -27,7 +27,7 @@
 .header {
     font-size: 50px;
     font-weight: bold;
-    color: #2F4F4F;
+    color: 'red';
     display: grid;
     height: 100%;
     width: 100%;

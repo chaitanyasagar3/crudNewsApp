@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import img from "../../assests/news.png";
+import "../../styles/Signup.css";
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -56,10 +58,12 @@ const SignUpPage = () => {
     >
       <form onSubmit={handleSubmit} className="signup-form">
         <div
-          className="<form-group mb-3 d-flex flex-column align-items-center"
+          className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "100%" }}
         >
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username" style={{ color: "white" }}>
+            Username
+          </label>
           <input
             type="text"
             className="form-control"
@@ -68,14 +72,16 @@ const SignUpPage = () => {
             value={formData.username}
             onChange={handleInputChange}
             required
-            style={{ width: "300px" }}
+            style={{ width: "300px", height: "50px" }}
           />
         </div>
         <div
-          className="<form-group mb-3 d-flex flex-column align-items-center"
+          className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "300px" }}
         >
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" style={{ color: "white" }}>
+            Password
+          </label>
           <input
             type="password"
             className="form-control"
@@ -84,14 +90,16 @@ const SignUpPage = () => {
             value={formData.password}
             onChange={handleInputChange}
             required
-            style={{ width: "300px" }}
+            style={{ width: "300px", height: "50px" }}
           />
         </div>
         <div
-          className="<form-group mb-3 d-flex flex-column align-items-center"
+          className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "300px" }}
         >
-          <label htmlFor="confirmPassword">Confirm Password</label>
+          <label htmlFor="confirmPassword" style={{ color: "white" }}>
+            Confirm Password
+          </label>
           <input
             type="password"
             className="form-control"
@@ -100,7 +108,7 @@ const SignUpPage = () => {
             value={formData.confirmPassword}
             onChange={handleInputChange}
             required
-            style={{ width: "300px" }}
+            style={{ width: "300px", height: "50px" }}
           />
         </div>
         <div className="d-flex justify-content-center">
