@@ -6,20 +6,19 @@ import "./App.css";
 import { AuthProvider, RequiresAuth } from "./hoc/Authentication";
 
 import Layout from "./components/Layout";
-import Signup from "./components/Authentication/Signup";
+// import Signup from "./components/Authentication/Signup";
 import LandingPage from "./components/LandingPage/LandingPage";
 import SignInPage from "./components/Authentication/SignInPage";
-
-
+import SignUpPage from "./components/Authentication/SignUpPage";
 
 function App() {
   return (
     <AuthProvider>
       <Routes>
         <Route element={<Layout />}>
-          <Route index  element={<LandingPage />} />
+          <Route index element={<LandingPage />} />
           <Route path="/login" element={<SignInPage />} />
-          <Route path="/sign-up" element={<Signup />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
         </Route>
       </Routes>
     </AuthProvider>
@@ -28,9 +27,9 @@ function App() {
 
 export default App;
 
-  // return <SignInPage username={username} onLogout={handleLogout} />;
-  // if (loggedIn) {
-  //   return <LandingPage username={username} onLogout={handleLogout} />;
-  // } else {
-  //   return <LandingPage username={username} onLogout={handleLogout} />;
-  // }
+// return <SignInPage username={username} onLogout={handleLogout} />;
+// if (loggedIn) {
+//   return <LandingPage username={username} onLogout={handleLogout} />;
+// } else {
+//   return <LandingPage username={username} onLogout={handleLogout} />;
+// }
