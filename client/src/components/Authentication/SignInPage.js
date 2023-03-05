@@ -5,6 +5,9 @@ import styled from "styled-components";
 import { Alert } from "react-bootstrap";
 import SignUpPage from "./SignUpPage";
 import img from "../../assests/news.png";
+import axios from "../../api/axios";
+import { ErrorResponse } from "@remix-run/router";
+import { login } from "../../api/auth";
 
 const SignInWrapper = styled.div`
   display: flex;
@@ -80,25 +83,39 @@ const SignInPage = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    try {
-      if (!username || !password) {
-        throw new Error("Username and password are required.");
-      }
-      event.preventDefault();
+  const handleSubmit = async (event) => {
+    if (!username || !password) {
+      throw new Error("Username and password are required.");
+    }
+    event.preventDefault();
 
+    try {
+      const response = await login(username, password);
       // Handle form submission here
-      auth.signIn({ username: "CS" }, () => {
+
+      const { user } = response?.data;
+      console.log(user);
+      auth.signIn( user , () => {
         // Send them back to the page they tried to visit when they were
         // redirected to the login page. Use { replace: true } so we don't create
         // another entry in the history stack for the login page.  This means that
         // when they get to the protected page and click the back button, they
         // won't end up back on the login page, which is also really nice for the
         // user experience.
+        console.log(user.username);
         navigate(from, { replace: true });
       });
     } catch (error) {
-      setError(error.message);
+      console.log(error);
+      if (!error?.response) {
+        setError("No server Response");
+      } else if (error.response?.status == 400) {
+        setError("Missing Username or password");
+      } else if (error.response?.status == 401) {
+        setError("Unauthorised");
+      } else {
+        setError("Log in Failed");
+      }
     }
   };
 

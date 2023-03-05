@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import img from "../../assests/news.png";
 import "../../styles/Signup.css";
+import { signup } from "../../api/auth";
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -18,9 +19,15 @@ const SignUpPage = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const passwordError = validatePassword(formData.password);
+    try {
+      const response = await signup(formData.username, formData.password);
+      const user = response?.data;
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
     if (formData.password !== formData.confirmPassword) {
       setErrorMessage("Passwords do not match");
     } else if (passwordError) {
