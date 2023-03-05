@@ -83,15 +83,6 @@ const SignInPage = () => {
     setPassword(event.target.value);
   };
 
-<<<<<<< HEAD
-  const handleSubmit = (event) => {
-    try {
-      if (!username || !password) {
-        throw new Error("Username and password are required.");
-      }
-      event.preventDefault();
-      
-=======
   const handleSubmit = async (event) => {
     if (!username || !password) {
       throw new Error("Username and password are required.");
@@ -100,12 +91,11 @@ const SignInPage = () => {
 
     try {
       const response = await login(username, password);
->>>>>>> main
       // Handle form submission here
 
       const { user } = response?.data;
       console.log(user);
-      auth.signIn( user , () => {
+      auth.signIn(user, () => {
         // Send them back to the page they tried to visit when they were
         // redirected to the login page. Use { replace: true } so we don't create
         // another entry in the history stack for the login page.  This means that
