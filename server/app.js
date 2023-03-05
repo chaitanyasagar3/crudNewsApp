@@ -3,11 +3,14 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import {userController} from './controller/index.js';
 import mongoose from "mongoose";
+import cors from 'cors';
 
-// Init an Express App. 
+
+// Init an Express App.
 const app = express();
 
 // Use your dependencies here
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
