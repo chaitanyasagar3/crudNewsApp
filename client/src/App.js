@@ -27,9 +27,3 @@ function App() {
 
 export default App;
 
-// return <SignInPage username={username} onLogout={handleLogout} />;
-// if (loggedIn) {
-//   return <LandingPage username={username} onLogout={handleLogout} />;
-// } else {
-//   return <LandingPage username={username} onLogout={handleLogout} />;
-// }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import img from "../../assests/news.png";
+import { useNavigate } from "react-router-dom";
 import "../../styles/Signup.css";
 import { signup } from "../../api/auth";
 
@@ -11,6 +11,7 @@ const SignUpPage = () => {
   });
 
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setFormData((prevFormData) => ({
@@ -25,6 +26,10 @@ const SignUpPage = () => {
     try {
       const response = await signup(formData.username, formData.password);
       const user = response?.data;
+      if(user) {
+        navigate("/login");
+      }
+      navigate("/login");
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -37,6 +42,11 @@ const SignUpPage = () => {
       console.log("Form submitted");
     }
   };
+
+  const handleCancel = () => {
+    navigate("/login");
+  };
+
   const validatePassword = (password) => {
     if (password.includes(" ")) {
       return "Password cannot contain spaces";
@@ -64,11 +74,12 @@ const SignUpPage = () => {
       onClick={handleFormClick}
     >
       <form onSubmit={handleSubmit} className="signup-form">
+        <h1>Welcome To CRUDNews</h1>
         <div
           className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "100%" }}
         >
-          <label htmlFor="username" style={{ color: "white" }}>
+          <label htmlFor="username" style={{ color: "white", padding: "10px" }}>
             Username
           </label>
           <input
@@ -76,6 +87,7 @@ const SignUpPage = () => {
             className="form-control"
             id="username"
             name="username"
+            placeholder="Username"
             value={formData.username}
             onChange={handleInputChange}
             required
@@ -86,7 +98,7 @@ const SignUpPage = () => {
           className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "300px" }}
         >
-          <label htmlFor="password" style={{ color: "white" }}>
+          <label htmlFor="password" style={{ color: "white", padding: "10px" }}>
             Password
           </label>
           <input
@@ -94,6 +106,7 @@ const SignUpPage = () => {
             className="form-control"
             id="password"
             name="password"
+            placeholder="Password"
             value={formData.password}
             onChange={handleInputChange}
             required
@@ -104,7 +117,10 @@ const SignUpPage = () => {
           className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "300px" }}
         >
-          <label htmlFor="confirmPassword" style={{ color: "white" }}>
+          <label
+            htmlFor="confirmPassword"
+            style={{ color: "white", padding: "10px" }}
+          >
             Confirm Password
           </label>
           <input
@@ -112,6 +128,7 @@ const SignUpPage = () => {
             className="form-control"
             id="confirmPassword"
             name="confirmPassword"
+            placeholder="Confirm Password"
             value={formData.confirmPassword}
             onChange={handleInputChange}
             required
@@ -121,6 +138,14 @@ const SignUpPage = () => {
         <div className="d-flex justify-content-center">
           <button type="submit" className="btn btn-primary">
             Sign Up
+          </button>
+        </div>
+        <div
+          className="d-flex justify-content-center"
+          style={{ paddingTop: "20px" }}
+        >
+          <button onClick={handleCancel} className="btn btn-primary">
+            Cancel
           </button>
         </div>
         {errorMessage && (

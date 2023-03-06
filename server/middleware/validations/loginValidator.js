@@ -4,7 +4,6 @@ const loginValidator = (req, res, next) => {
     return res.status(400).send("Username or password is missing");
   }
   next();
-}
+};
 
 export default loginValidator;
-  

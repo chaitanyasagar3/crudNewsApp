@@ -60,10 +60,8 @@ userController.post("/add-user", async (req, res) => {
   }
 });
 
-userController
-  .use(authentication)
-  .get("/me", async (req, res) => {
-    res.json(req.user);
-  });
+userController.use(authentication).get("/me", async (req, res) => {
+  res.json(req.user);
+});
 
 export default userController;
