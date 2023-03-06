@@ -26,6 +26,9 @@ const SignUpPage = () => {
     try {
       const response = await signup(formData.username, formData.password);
       const user = response?.data;
+      if(user) {
+        navigate("/login");
+      }
       navigate("/login");
     } catch (error) {
       setErrorMessage(error.message);
@@ -38,8 +41,12 @@ const SignUpPage = () => {
       // handle form submission here
       console.log("Form submitted");
     }
-
   };
+
+  const handleCancel = () => {
+    navigate("/login");
+  };
+
   const validatePassword = (password) => {
     if (password.includes(" ")) {
       return "Password cannot contain spaces";
@@ -72,7 +79,7 @@ const SignUpPage = () => {
           className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "100%" }}
         >
-          <label htmlFor="username" style={{ color: "white" }}>
+          <label htmlFor="username" style={{ color: "white", padding: "10px" }}>
             Username
           </label>
           <input
@@ -91,7 +98,7 @@ const SignUpPage = () => {
           className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "300px" }}
         >
-          <label htmlFor="password" style={{ color: "white" }}>
+          <label htmlFor="password" style={{ color: "white", padding: "10px" }}>
             Password
           </label>
           <input
@@ -110,7 +117,10 @@ const SignUpPage = () => {
           className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "300px" }}
         >
-          <label htmlFor="confirmPassword" style={{ color: "white" }}>
+          <label
+            htmlFor="confirmPassword"
+            style={{ color: "white", padding: "10px" }}
+          >
             Confirm Password
           </label>
           <input
@@ -128,6 +138,14 @@ const SignUpPage = () => {
         <div className="d-flex justify-content-center">
           <button type="submit" className="btn btn-primary">
             Sign Up
+          </button>
+        </div>
+        <div
+          className="d-flex justify-content-center"
+          style={{ paddingTop: "20px" }}
+        >
+          <button onClick={handleCancel} className="btn btn-primary">
+            Cancel
           </button>
         </div>
         {errorMessage && (

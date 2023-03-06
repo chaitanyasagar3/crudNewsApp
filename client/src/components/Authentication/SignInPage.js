@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import "../../styles/SignInPage.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import styled from "styled-components";
 import { Alert } from "react-bootstrap";
-import { Form, Button } from "react-bootstrap";
 import { login } from "../../api/auth";
 
 const SignInPage = () => {
@@ -49,9 +47,9 @@ const SignInPage = () => {
       console.log(error);
       if (!error?.response) {
         setError("No server Response");
-      } else if (error.response?.status == 400) {
+      } else if (error.response?.status === 400) {
         setError("Missing Username or password");
-      } else if (error.response?.status == 401) {
+      } else if (error.response?.status === 401) {
         setError("Unauthorised");
       } else {
         setError("Log in Failed");
@@ -63,15 +61,23 @@ const SignInPage = () => {
     <div>
       <div className="signin-container">
         {error && (
-          <Alert className="alert alert-danger mt-3" role="alert" variant="danger" dismissible>
+          <Alert
+            className="alert alert-danger mt-3"
+            role="alert"
+            variant="danger"
+            dismissible
+          >
             {error}
           </Alert>
-        )}     
-          <h1>Welcome To CRUDNews</h1>
+        )}
+        <h1>Welcome To CRUDNews</h1>
         <div className="signin-form">
           <form onSubmit={handleSubmit}>
             <div className="<form-group mb-4 d-flex flex-column align-items-center">
-              <label htmlFor="username" style={{ color: "white" ,padding: "20px"}}>
+              <label
+                htmlFor="username"
+                style={{ color: "white", padding: "10px" }}
+              >
                 Username
               </label>
               <input
@@ -80,13 +86,16 @@ const SignInPage = () => {
                 placeholder="Username"
                 value={username}
                 onChange={handleUsernameChange}
-                style={{ width: "300px", height: "50px"}}
+                style={{ width: "300px", height: "50px" }}
               />
               <div
                 className="<form-group mb-4 d-flex flex-column align-items-center"
                 // style={{ width: "300px" }}
               >
-                <label htmlFor="password" style={{ color: "white" , padding: "20px" }}>
+                <label
+                  htmlFor="password"
+                  style={{ color: "white", padding: "10px" }}
+                >
                   Password
                 </label>
                 <input
@@ -97,12 +106,15 @@ const SignInPage = () => {
                   onChange={handlePasswordChange}
                   style={{ width: "300px", height: "50px" }}
                 />
-                <div className="form-group mb-4 d-flex flex-column align-items-center"style={{paddingTop:"30px"}}>
+                <div
+                  className="form-group mb-4 d-flex flex-column align-items-center"
+                  style={{ paddingTop: "30px" }}
+                >
                   <button type="submit" className="btn btn-primary">
                     Sign In
                   </button>
                 </div>
-                <div className="form-group mb-4 d-flex flex-column align-items-center " >
+                <div className="form-group mb-4 d-flex flex-column align-items-center ">
                   <Link to="/sign-up" className="btn btn-primary">
                     Sign Up
                   </Link>

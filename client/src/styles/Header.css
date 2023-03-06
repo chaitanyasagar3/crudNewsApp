@@ -10,7 +10,6 @@
   margin-left: 10px; */
 }
 .custom-button {
-  background-color: rgb(31, 54, 82);
   color: white;
   border-color: rgb(209, 209, 228);
 }
@@ -18,10 +17,13 @@
 .custom-button:hover {
   background-color: rgb(85, 105, 152);
   color: white;
-  border-color: darkblue;
 }
 
 .navbar {
   /* background-color:rgb(218, 93, 93) */
-  background-color: lightskyblue;
+  background-color: darkcyan;
+}
+
+.navbar-brand {
+  color: white;
 }
