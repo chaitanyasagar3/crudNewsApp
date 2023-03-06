@@ -63,11 +63,14 @@ const SignUpPage = () => {
       className="signup-container d-flex justify-content-center"
       onClick={handleFormClick}
     >
+      
       <form onSubmit={handleSubmit} className="signup-form">
+      <h1>Welcome To CRUDNews</h1>
         <div
           className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "100%" }}
         >
+          
           <label htmlFor="username" style={{ color: "white" }}>
             Username
           </label>
@@ -76,6 +79,7 @@ const SignUpPage = () => {
             className="form-control"
             id="username"
             name="username"
+            placeholder="Username"
             value={formData.username}
             onChange={handleInputChange}
             required
@@ -94,6 +98,7 @@ const SignUpPage = () => {
             className="form-control"
             id="password"
             name="password"
+            placeholder="Password"
             value={formData.password}
             onChange={handleInputChange}
             required
@@ -112,6 +117,7 @@ const SignUpPage = () => {
             className="form-control"
             id="confirmPassword"
             name="confirmPassword"
+            placeholder="Confirm Password"
             value={formData.confirmPassword}
             onChange={handleInputChange}
             required

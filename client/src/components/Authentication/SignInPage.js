@@ -1,71 +1,12 @@
 import React, { useState } from "react";
+import "../../styles/SignInPage.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import styled from "styled-components";
 import { Alert } from "react-bootstrap";
-import SignUpPage from "./SignUpPage";
-import img from "../../assests/news.png";
-import axios from "../../api/axios";
-import { ErrorResponse } from "@remix-run/router";
+import { Form, Button } from "react-bootstrap";
 import { login } from "../../api/auth";
 
-const SignInWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(85, 105, 152);
-  background-image: url(${img});
-  padding: 200px;
-  // background-color: black;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  height: 100%;
-`;
-
-const Title = styled.h1`
-  text-align: center;
-  color: white;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const InputField = styled.input`
-  margin: 20px;
-  padding: 20px;
-  width: 300px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-`;
-
-const SubmitButton = styled.button`
-  margin: 10px;
-  padding: 10px;
-  width: 150px;
-  border-radius: 5px;
-  border: none;
-  background-color: lightskyblue;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-`;
-const SignUpLink = styled(Link)`
-  margin: 10px;
-  padding: 10px;
-  width: 150px;
-  border-radius: 5px;
-  border: none;
-  background-color: lightskyblue;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  text-decoration: none;
-`;
 const SignInPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -94,7 +35,6 @@ const SignInPage = () => {
       // Handle form submission here
 
       const { user } = response?.data;
-      console.log(user);
       auth.signIn(user, () => {
         // Send them back to the page they tried to visit when they were
         // redirected to the login page. Use { replace: true } so we don't create
@@ -121,34 +61,57 @@ const SignInPage = () => {
 
   return (
     <div>
-      <SignInWrapper>
+      <div className="signin-container">
         {error && (
-          <Alert variant="danger" dismissible>
+          <Alert className="alert alert-danger mt-3" role="alert" variant="danger" dismissible>
             {error}
           </Alert>
-        )}
-        <Title>Welcome To CRUDNews</Title>
-        <Form onSubmit={handleSubmit}>
-          <InputField
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={handleUsernameChange}
-          />
-          <InputField
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-          <SubmitButton type="submit" className="btn btn-primary">
-            Sign In
-          </SubmitButton>
-          <SignUpLink to="/sign-up" className="btn btn-primary">
-            Sign Up
-          </SignUpLink>
-        </Form>
-      </SignInWrapper>
+        )}     
+          <h1>Welcome To CRUDNews</h1>
+        <div className="signin-form">
+          <form onSubmit={handleSubmit}>
+            <div className="<form-group mb-4 d-flex flex-column align-items-center">
+              <label htmlFor="username" style={{ color: "white" ,padding: "20px"}}>
+                Username
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Username"
+                value={username}
+                onChange={handleUsernameChange}
+                style={{ width: "300px", height: "50px"}}
+              />
+              <div
+                className="<form-group mb-4 d-flex flex-column align-items-center"
+                // style={{ width: "300px" }}
+              >
+                <label htmlFor="password" style={{ color: "white" , padding: "20px" }}>
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  style={{ width: "300px", height: "50px" }}
+                />
+                <div className="form-group mb-4 d-flex flex-column align-items-center"style={{paddingTop:"30px"}}>
+                  <button type="submit" className="btn btn-primary">
+                    Sign In
+                  </button>
+                </div>
+                <div className="form-group mb-4 d-flex flex-column align-items-center " >
+                  <Link to="/sign-up" className="btn btn-primary">
+                    Sign Up
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
