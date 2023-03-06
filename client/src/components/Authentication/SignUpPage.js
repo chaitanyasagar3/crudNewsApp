@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import img from "../../assests/news.png";
+import { useNavigate } from "react-router-dom";
 import "../../styles/Signup.css";
 import { signup } from "../../api/auth";
 
@@ -11,6 +11,7 @@ const SignUpPage = () => {
   });
 
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setFormData((prevFormData) => ({
@@ -25,6 +26,7 @@ const SignUpPage = () => {
     try {
       const response = await signup(formData.username, formData.password);
       const user = response?.data;
+      navigate("/login");
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -36,6 +38,7 @@ const SignUpPage = () => {
       // handle form submission here
       console.log("Form submitted");
     }
+
   };
   const validatePassword = (password) => {
     if (password.includes(" ")) {
@@ -63,14 +66,12 @@ const SignUpPage = () => {
       className="signup-container d-flex justify-content-center"
       onClick={handleFormClick}
     >
-      
       <form onSubmit={handleSubmit} className="signup-form">
-      <h1>Welcome To CRUDNews</h1>
+        <h1>Welcome To CRUDNews</h1>
         <div
           className="<form-group mb-4 d-flex flex-column align-items-center"
           // style={{ width: "100%" }}
         >
-          
           <label htmlFor="username" style={{ color: "white" }}>
             Username
           </label>
