@@ -45,7 +45,7 @@ const SignInPage = () => {
       });
     } catch (error) {
       console.log(error);
-      if (!error?.response) {
+      if (!error.response) {
         setError("No server Response");
       } else if (error.response?.status === 400) {
         setError("Missing Username or password");
