@@ -8,6 +8,7 @@ Table of Contents
 
     Objectives
     Scope
+    Requirements
     Test Strategy
     Project Milestones
     Resources
@@ -23,13 +24,13 @@ Test Plan
    • Execute the tests
    • Report the results
 
-1.1 Scope
+2. Scope
 Create a personal news feed app in a group agile enviornment. The first sprint will consist of creation and testing of sign up and sign in pages with a generic home page. The test plan cases will be manual. The team will follow a MERN stack to work on the project.
 Client/Web side: react.js.
 Server side: Express.js, Node.js
 Database: MongoDB
 
-2. Requirements for Test:
+3. Requirements for Test:
 
    Landing Page
 
@@ -40,9 +41,10 @@ Database: MongoDB
    • Requirement 2
    – When signed in, the landing page shall display the user’s name
 
-   - When signed in, the landing page shall display a method to sign out (button or link)
+   -When signed in, the landing page shall display a method to sign out (button or link)
 
    Sign in Page
+
    • UX
    • Build a sign in page for your app
    • Requirement 1
@@ -54,9 +56,7 @@ Database: MongoDB
    – The form shall use a button to submit the form
    • Requirement 2
    – When a correct combination of user id and password have been submitted, navigate to
-   the Landing Page as signed in
-
-   • Requirement 3
+   the Landing Page as signed in• Requirement 3
    – When an incorrect combination of user id and password have been submitted, display
    an appropriate message
 
@@ -95,27 +95,27 @@ Database: MongoDB
    • Requirement 5
    – The sign-up form shall include a "Cancel" button that allows users to cancel their sign-up process and return to the landing page.
 
-   1. Test Strategy
+   Test Strategy
 
-      Design Verification
-      – Verify the software meets the design requirements
-      Production test
-      – Verify the software will perform its’ functions properly
-      Acceptance test
+   Design Verification
+   – Verify the software meets the design requirements
+   Production test
+   – Verify the software will perform its’ functions properly
+   Acceptance test
 
-      -Stakeholders acknowledge the software’s feature
+   -Stakeholders acknowledge the software’s feature
 
-      Regression test
+   Regression test
 
-      -Verify that existing functionality not negatively affected by changes
-3. Project Milestones
+   -Verify that existing functionality not negatively affected by changes
+4. Project Milestones
 
    1. Sprint 1 (2/20/2023 - 3/6/2023)-
       * Project/Test Planing (2/21/2023)
       * Design/Development (Client) (2/22/2023 - 2/27/2023)
       * Design/Development (Server) (2/28/2023 - 3/5/2023)
       * Testing (2/24/2023-3/5/2023)
-4. Resources
+5. Resources
    Uditanshu Khatri: Development- Backend, Middleware, Testing
    Chaitanya Sagar: Development - Full Stack, Scrum Master
    Rini: Development- Frontend, Testing
