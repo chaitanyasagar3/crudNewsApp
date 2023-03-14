@@ -351,15 +351,9 @@ Submitting the form with correct details navigates to the Landing Page as signed
 | 3 | The form should have a button to submit the form. |
 | 4 | [DESCRIPTION] |
 
-### Test Scenario:
-
+## Test Scenario:
 Submitting the form with correct details navigates to the Landing Page as signed in.
 
-| S # | Test Data |
-| --- | --- |
-| 1 | Userid = xyz |
-| 2 | Pass = ***** |
-| 3 |  |
 
 ### Steps:
 
@@ -382,16 +376,14 @@ Submitting the form with correct details navigates to the Landing Page as signed
 | --- | --- | --- |
 |     | [Date] | [Pass/Fail/Not Executed] |
 
-
 **Prerequisites:**
-| S # | **Prerequisites:** | **S #** | **Test Data** |
-| --- | --- | --- | --- |
-| 1 | The sign-up page should be accessible and functioning properly. | 1 | Userid = xyz |
-| 2 | The form should have fields to collect the required information (username, password, and confirmation password). | 2 | Pass = ***** |
-| 3 | The form should have a button to submit the form. | 3 |  |
-| 4 |  | 4 |  |
+| S # | Prerequisites |
+| --- | --- |
+| 1 | The sign-up page should be accessible and functioning properly. |
+| 2 | The form should have fields to collect the required information (username, password, and confirmation password). |
+| 3 | The form should have a button to submit the form. |
 
-#### Test Scenario
+##Test Scenario
 Canceling sign-up process
 
 #### Step #
