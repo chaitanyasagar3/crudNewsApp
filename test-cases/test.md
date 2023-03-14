@@ -135,18 +135,21 @@ To verify that submitting the form with correct details navigates to the Landing
 | 4 | Verify that no data is submitted. | No data should be submitted when the user clicks on the "Cancel" button. | | |
 
 
-#Test Case ID: BU_001 - Missing username
+#Test Case ID: BU_002 - Missing username
 
 
-| Created By | Reviewed By | Version |
-|------------|-------------|---------|
-| Rini       |             | 1.0     |
+* Created By: Rini
+* Reviewed By:
+* Version: 1.0
 
-#### QA Tester's Log
+### QA Tester’s Log
 
-| Tester's Name | Date Tested | Test Case (Pass/Fail/Not Executed) |
-|---------------|-------------|-----------------------------------|
-|           |             |                                   |
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+
+
 
 ##### Prerequisites:
 
@@ -166,3 +169,36 @@ To verify that the system displays an appropriate error message when the usernam
 | 2      | Leave the username field blank.                            | The username field should be left blank.                       |                |                                        |
 | 3      | Enter a valid password and confirmation password.          | The password and confirmation password fields should be entered correctly. |                |                                        |
 | 4      | Click on the "Sign Up" button.                             | The system should validate the input fields and display an appropriate error message indicating that the username field is required. |                |                                        |
+
+
+
+#Test Case ID: BU_001 - Password and confirmation password mismatch
+
+* Created By: Rini
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+
+
+
+S #    Prerequisites:      S #    Test Data                
+1    The sign up page should be accessible and functioning properly.      1    Userid = xyz              
+2    The form should have fields to collect the required information (username, password, and confirmation password).      2    Pass = *****              
+3    The form should have a button to submit the form.      3                      
+4                      4                      
+
+##### Test Scenario:
+   To verify that the system displays an appropriate error message when the password and confirmation password fields do not match.
+
+Step #    Step Details        Expected Results        Actual Results        Pass / Fail / Not executed / Suspended
+
+1    Open the sign up page.        The sign up page should be displayed.                            
+2    Enter a valid username and password.        The username and password fields should be entered correctly.                            
+3    Enter a confirmation password that does not match the password field.        The confirmation password should not match the password field.                            
+4    Click on the "Sign Up" button.        The system should validate the input fields and display an appropriate error message indicating that the password and confirmation password fields do not match.                            
