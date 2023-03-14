@@ -135,7 +135,7 @@ To verify that submitting the form with correct details navigates to the Landing
 | 4 | Verify that no data is submitted. | No data should be submitted when the user clicks on the "Cancel" button. | | |
 
 
-#Test Case ID: BU_002 - Missing username
+# Test Case ID: BU_002 - Missing username
 
 
 * Created By: Rini
@@ -172,7 +172,7 @@ To verify that the system displays an appropriate error message when the usernam
 
 
 
-#Test Case ID: BU_003 - Password and confirmation password mismatch
+#  Test Case ID: BU_003 - Password and confirmation password mismatch
 
 * Created By: Rini
 * Reviewed By:
@@ -199,7 +199,7 @@ To verify that the system displays an appropriate error message when the passwor
 
 
 
-#Test Case ID: BU_004 - Username too short
+#  Test Case ID: BU_004 - Username too short
 
 * Created By: Rini
 * Reviewed By:
@@ -232,7 +232,7 @@ To verify that the system displays an appropriate error message when the usernam
 | 4      | Click on the "Sign Up" button.                             | The form should not be submitted.                               |                |                                        |
 
 
-#Test Case ID: BU_005 - Username contains spaces
+#  Test Case ID: BU_005 - Username contains spaces
 
 * Created By: Rini
 * Reviewed By:
@@ -264,7 +264,7 @@ To verify that the system displays an appropriate error message when the usernam
 | 4      | Click on the "Sign Up" button.                              | The system should validate the input fields and display an appropriate error message indicating that the username cannot contain spaces. | |                                      |
 
 
-#Test Case ID: BU_006 - Username with leading or trailing spaces
+#  Test Case ID: BU_006 - Username with leading or trailing spaces
 
 * Created By: Rini
 * Reviewed By:
@@ -297,7 +297,7 @@ To verify that the system automatically trims leading and trailing spaces from t
 
 
 
-#Test Case ID: BU_007 - Submitting the sign up form with correct details
+#  Test Case ID: BU_007 - Submitting the sign up form with correct details
 
 * Created By: Rini
 * Reviewed By:
@@ -328,7 +328,7 @@ Submitting the form with correct details navigates to the Landing Page as signed
 | 4 | Verify that the user is navigated to the Landing Page as signed in | The user should be navigated to the Landing Page as signed in after submitting the form with the correct details. | | |
 
 
-#Test Case ID: BU_008 - Submitting the sign up form with correct details
+#  Test Case ID: BU_008 - Submitting the sign up form with correct details
 
 
 * Created By: Rini
@@ -364,7 +364,7 @@ Submitting the form with correct details navigates to the Landing Page as signed
 | 3 | Wait for the application to process the form submission. | The application should process the form submission correctly. |  |  |
 | 4 | Verify that an appropriate error message is displayed on the screen. | An appropriate error message should be displayed on the screen informing the user that the data entered is incorrect. |  |  |
 
-#Test Case ID: BU_009 - Canceling sign-up process
+#  Test Case ID: BU_009 - Canceling sign-up process
 
 * Created By: Rini
 * Reviewed By:
