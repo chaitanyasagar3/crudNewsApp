@@ -11,7 +11,7 @@ To verify that a new user can be added to the database by sending a POST request
 ## QA Tester's Log
 
 Tester's Name: Rini  
-Date Tested: [Date]
+Date Tested: []
 
 | S # | Test Case (Pass/Fail/Not Executed) |
 |---|---|
@@ -32,8 +32,6 @@ Send a POST request to the "add-user" endpoint with the following details:
 "password": "12345"
 }
 
-vbnet
-Copy code
 
 ## Test Steps
 
