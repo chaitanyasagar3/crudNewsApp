@@ -1,6 +1,15 @@
 
 # Test Case PM_001: Add User to Database
 
+* Created By: Rini
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
 **Prerequisites:**
 1. The API is running and accessible.
 2. The "add-user" endpoint is available and can receive POST requests.
@@ -29,6 +38,16 @@ To verify that a new user can be added to the database by sending a POST request
 
 # Test Case PM_002: User Authentication and Access Token Retrieval
 
+* Created By: Rini
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
 **Prerequisites:**
 
 1. The API is running and accessible.
@@ -37,6 +56,8 @@ To verify that a new user can be added to the database by sending a POST request
 
 ## Test Scenario
 To verify that a user can be authenticated and an access token can be retrieved by sending a POST request to the "login" endpoint with the correct credentials.
+
+### Test Steps
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail/Not executed/Suspended |
 | --- | --- | --- | --- | --- |
@@ -47,4 +68,101 @@ To verify that a user can be authenticated and an access token can be retrieved 
 
 
 
+# Test Case: PM_003 - User Authentication Failure and Error Message Retrieval
 
+* Created By: Rini
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+**Prerequisites:**
+
+1. The API is running and accessible.
+2. The "login" endpoint is available and can receive POST requests.
+3. There is at least one user in the database with the provided username and password.
+
+## Test Scenario
+To verify that user authentication failure is handled correctly by sending a POST request to the "login" endpoint with incorrect credentials.
+
+
+### Test Steps:
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail/Not executed/Suspended |
+| ----- | ------------ | ---------------- | -------------- | -------------------------------- |
+| 1 | Send a POST request to the "add-user" endpoint from POSTMAN with the following details:<br>Endpoint: localhost:8080/login<br>Method: POST<br>Headers: Content-Type: application/json<br>Request Body: {<br>&nbsp;&nbsp;&nbsp;&nbsp;""username"": ""Rini"",<br>&nbsp;&nbsp;&nbsp;&nbsp;""password"": ""19345""<br>} | POST is successful | [RESULT] | [Pass/Fail/Not executed/Suspended] |
+| 2 | Verify that the response status code is 401. | Credentials are incorrect, the API returns status code 401 | [RESULT] | [Pass/Fail/Not executed/Suspended] |
+| 3 | The API should return an error message. Verify that the response body contains an error message. | The response body contains an error message as expected. | [RESULT] | [Pass/Fail/Not executed/Suspended] |
+
+
+# Test Case ID: BU_001 - Canceling sign up process
+
+
+* Created By: Rini
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+**Prerequisites:**
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The sign up page should be accessible and functioning properly. | |
+| 2 | The form should have fields to collect the required information (username, password, and confirmation password). | |
+| 3 | The form should have a button to submit the form. | |
+| 4 | | |
+
+## Test Scenario
+
+To verify that submitting the form with correct details navigates to the Landing Page as signed in.
+
+### Test Steps:
+
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Navigate to the sign-up form page. | The user should be able to navigate to the sign-up form page successfully. | | |
+| 2 | Fill out some of the required fields. | The user should be able to fill out some of the required fields. | | |
+| 3 | Click on the "Cancel" button. | The user should be able to click on the "Cancel" button. | | |
+| 4 | Verify that no data is submitted. | No data should be submitted when the user clicks on the "Cancel" button. | | |
+
+
+#Test Case ID: BU_001 - Missing username
+
+
+| Created By | Reviewed By | Version |
+|------------|-------------|---------|
+| Rini       |             | 1.0     |
+
+#### QA Tester's Log
+
+| Tester's Name | Date Tested | Test Case (Pass/Fail/Not Executed) |
+|---------------|-------------|-----------------------------------|
+|           |             |                                   |
+
+##### Prerequisites:
+
+1. The sign up page should be accessible and functioning properly.
+2. The form should have fields to collect the required information (username, password, and confirmation password).
+3. The form should have a button to submit the form.
+
+##### Test Scenario:
+
+To verify that the system displays an appropriate error message when the username field is left blank.
+
+##### Step Details:
+
+| Step # | Step Details                                               | Expected Results                                               | Actual Results | Pass / Fail / Not executed / Suspended |
+|--------|------------------------------------------------------------|----------------------------------------------------------------|----------------|----------------------------------------|
+| 1      | Open the sign up page.                                     | The sign up page should be displayed.                          |                |                                        |
+| 2      | Leave the username field blank.                            | The username field should be left blank.                       |                |                                        |
+| 3      | Enter a valid password and confirmation password.          | The password and confirmation password fields should be entered correctly. |                |                                        |
+| 4      | Click on the "Sign Up" button.                             | The system should validate the input fields and display an appropriate error message indicating that the username field is required. |                |                                        |
