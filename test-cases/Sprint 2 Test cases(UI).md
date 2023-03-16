@@ -360,3 +360,4 @@ To verify that When User is signed in, and on Settings page at least one prefere
 | 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology ) | | |		
 | 8 | Click on submit | By default at least one category should be selected and The user should be able to navigate to landing page | | | 		
 
+
