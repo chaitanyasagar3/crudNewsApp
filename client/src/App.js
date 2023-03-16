@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import NewsList from "./api/NewsList";
 
 import "./App.css";
 import { AuthProvider, RequiresAuth } from "./hoc/Authentication";
@@ -13,15 +14,18 @@ import SignUpPage from "./components/Authentication/SignUpPage";
 
 function App() {
   return (
-    <AuthProvider>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<LandingPage />} />
-          <Route path="/login" element={<SignInPage />} />
-          <Route path="/sign-up" element={<SignUpPage />} />
-        </Route>
-      </Routes>
-    </AuthProvider>
+    <div>
+      <NewsList/>
+    </div>
+    // <AuthProvider>
+    //   <Routes>
+    //     <Route element={<Layout />}>
+    //       <Route index element={<LandingPage />} />
+    //       <Route path="/login" element={<SignInPage />} />
+    //       <Route path="/sign-up" element={<SignUpPage />} />
+    //     </Route>
+    //   </Routes>
+    // </AuthProvider>
   );
 }
 
