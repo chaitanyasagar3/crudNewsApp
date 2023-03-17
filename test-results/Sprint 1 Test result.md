@@ -9,7 +9,7 @@
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|   Rini | 03/02/2023 | [Pass] |
+|   Rini | 03/02/2023 | Pass |
 **Prerequisites:**
 1. The API is running and accessible.
 2. The "add-user" endpoint is available and can receive POST requests.
@@ -31,9 +31,9 @@ To verify that a new user can be added to the database by sending a POST request
 
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 |---|---|---|---|---|
-| 1 | Send a POST request to the "add-user" endpoint from POSTMAN with the details provided in the Test Scenario section. | The POST request is successful and returns a 200 status code. |  | PASS |
-| 2 | Verify that the response body contains the success message "Accepted". | The response body contains the success message "Accepted". |  | PASS |
-| 3 | Verify that the new user was added to the database by checking the database for the user with the provided username and password. | The new user is added to the database. |  |  PASS |
+| 1 | Send a POST request to the "add-user" endpoint from POSTMAN with the details provided in the Test Scenario section. | The POST request is successful and returns a 200 status code. |  The POST request is successful and returns a 200 status code.| PASS |
+| 2 | Verify that the response body contains the success message "Accepted". | The response body contains the success message "Accepted". | The response body contains the success message "Accepted". | PASS |
+| 3 | Verify that the new user was added to the database by checking the database for the user with the provided username and password. | The new user is added to the database. |  The new user is added to the database.|  PASS |
 
 
 # Test Case PM_002: User Authentication and Access Token Retrieval
@@ -46,7 +46,7 @@ To verify that a new user can be added to the database by sending a POST request
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|    Rini | [03/02/2023] | [Pass] |
+|    Rini | 03/02/2023 | Pass |
 
 **Prerequisites:**
 
@@ -61,9 +61,9 @@ To verify that a user can be authenticated and an access token can be retrieved 
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail/Not executed/Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Send a POST request to the "login" endpoint from POSTMAN with the following details:<br>Endpoint: localhost:8080/login<br>Method: POST<br>Headers: Content-Type: application/json<br>Request Body:{<br>&nbsp;&nbsp;""username"": ""Rini"",<br>&nbsp;&nbsp;""password"": ""12345""<br>} | POST is successful | PASS|
-| 2 | Verify that the response status code is either 200. | Credentials are correct, the API authenticates the user and returns status code 200 | PASS|
-| 3 | If the response status code is 200, verify that the response body contains an access token | The response body contains an access token | PASS |
+| 1 | Send a POST request to the "login" endpoint from POSTMAN with the following details:<br>Endpoint: localhost:8080/login<br>Method: POST<br>Headers: Content-Type: application/json<br>Request Body:{<br>&nbsp;&nbsp;""username"": ""Rini"",<br>&nbsp;&nbsp;""password"": ""12345""<br>} | POST is successful | POST is successful |Pass|
+| 2 | Verify that the response status code is either 200. | Credentials are correct, the API authenticates the user and returns status code 200 |Credentials are correct, the API authenticates the user and returns status code 200| PASS|
+| 3 | If the response status code is 200, verify that the response body contains an access token | The response body contains an access token |The response body contains an access token| PASS |
 
 
 
