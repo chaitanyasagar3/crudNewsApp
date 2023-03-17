@@ -78,7 +78,7 @@ To verify that a user can be authenticated and an access token can be retrieved 
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|    Rini | 03/02/2023 | Pass |
 
 **Prerequisites:**
 
@@ -94,9 +94,9 @@ To verify that user authentication failure is handled correctly by sending a POS
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail/Not executed/Suspended |
 | ----- | ------------ | ---------------- | -------------- | -------------------------------- |
-| 1 | Send a POST request to the "add-user" endpoint from POSTMAN with the following details:<br>Endpoint: localhost:8080/login<br>Method: POST<br>Headers: Content-Type: application/json<br>Request Body: {<br>&nbsp;&nbsp;&nbsp;&nbsp;""username"": ""Rini"",<br>&nbsp;&nbsp;&nbsp;&nbsp;""password"": ""19345""<br>} | POST is successful | [RESULT] | [Pass/Fail/Not executed/Suspended] |
-| 2 | Verify that the response status code is 401. | Credentials are incorrect, the API returns status code 401 | [RESULT] | [Pass/Fail/Not executed/Suspended] |
-| 3 | The API should return an error message. Verify that the response body contains an error message. | The response body contains an error message as expected. | [RESULT] | [Pass/Fail/Not executed/Suspended] |
+| 1 | Send a POST request to the "add-user" endpoint from POSTMAN with the following details:<br>Endpoint: localhost:8080/login<br>Method: POST<br>Headers: Content-Type: application/json<br>Request Body: {<br>&nbsp;&nbsp;&nbsp;&nbsp;""username"": ""Rini"",<br>&nbsp;&nbsp;&nbsp;&nbsp;""password"": ""19345""<br>} | POST is successful | POST is successful  | PASS |
+| 2 | Verify that the response status code is 401. | Credentials are incorrect, the API returns status code 401 | the API returns status code 401 | PASS |
+| 3 | The API should return an error message. Verify that the response body contains an error message. | The response body contains an error message as expected. |  The response body contains an error message as expected | PASS |
 
 
 # Test Case ID: BU_001 - Canceling sign up process
@@ -110,7 +110,7 @@ To verify that user authentication failure is handled correctly by sending a POS
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|   Rini  | 03/02/2023 |PASS|
 
 **Prerequisites:**
 
@@ -129,10 +129,10 @@ To verify that submitting the form with correct details navigates to the Landing
 
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the sign-up form page. | The user should be able to navigate to the sign-up form page successfully. | | |
-| 2 | Fill out some of the required fields. | The user should be able to fill out some of the required fields. | | |
-| 3 | Click on the "Cancel" button. | The user should be able to click on the "Cancel" button. | | |
-| 4 | Verify that no data is submitted. | No data should be submitted when the user clicks on the "Cancel" button. | | |
+| 1 | Navigate to the sign-up form page. | The user should be able to navigate to the sign-up form page successfully. | The user is able to navigate to the sign-up form page successfully.|PASS |
+| 2 | Fill out some of the required fields. | The user should be able to fill out some of the required fields. | The user is able to fill out some of the required fields. |PASS |
+| 3 | Click on the "Cancel" button. | The user should be able to click on the "Cancel" button. | The user is  able to click on the "Cancel" button| PASS|
+| 4 | Verify that no data is submitted. | No data should be submitted when the user clicks on the "Cancel" button. | Data not submitted on clicking cancel button |PASS |
 
 
 # Test Case ID: BU_002 - Missing username
@@ -146,7 +146,7 @@ To verify that submitting the form with correct details navigates to the Landing
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|   Rini  | 03/02/2023|PASS|
 
 
 
@@ -165,10 +165,10 @@ To verify that the system displays an appropriate error message when the usernam
 
 | Step # | Step Details                                               | Expected Results                                               | Actual Results | Pass / Fail / Not executed / Suspended |
 |--------|------------------------------------------------------------|----------------------------------------------------------------|----------------|----------------------------------------|
-| 1      | Open the sign up page.                                     | The sign up page should be displayed.                          |                |                                        |
-| 2      | Leave the username field blank.                            | The username field should be left blank.                       |                |                                        |
-| 3      | Enter a valid password and confirmation password.          | The password and confirmation password fields should be entered correctly. |                |                                        |
-| 4      | Click on the "Sign Up" button.                             | The system should validate the input fields and display an appropriate error message indicating that the username field is required. |                |                                        |
+| 1      | Open the sign up page.                                     | The sign up page should be displayed. |  The sign up page is displayed.                       |     PASS           |                                        |
+| 2      | Leave the username field blank.                            | The username field should be left blank.                       |      The username field is  left blank.           | PASS                                       |
+| 3      | Enter a valid password and confirmation password.          | The password and confirmation password fields should be entered correctly. |     The password and confirmation password fields should be entered correctly.           |    PASS                                    |
+| 4      | Click on the "Sign Up" button.                             | The system should validate the input fields and display an appropriate error message indicating that the username field is required. |    The system  validates the input fields and display an appropriate error message indicating that the username field is required.            |                             PASS           |
 
 
 
