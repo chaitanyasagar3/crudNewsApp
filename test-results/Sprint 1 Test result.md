@@ -182,7 +182,7 @@ To verify that the system displays an appropriate error message when the usernam
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|   Rini  | 03/02/2023| PASS|
 
 
 ##Test Scenario:
@@ -193,9 +193,11 @@ To verify that the system displays an appropriate error message when the passwor
 
 | Step # | Step Details                                               | Expected Results                                               | Actual Results | Pass / Fail / Not executed / Suspended |
 |--------|------------------------------------------------------------|----------------------------------------------------------------|----------------|----------------------------------------|
-| 1      | Open the sign up page.                                     | The sign up page should be displayed.                          |                |                                        |
-| 2      | Enter a valid username and password.                        | The username and password fields should be entered correctly.   |                |                                        |
-| 3      | Enter a confirmation password that does not
+| 1      | Open the sign up page.                                     | The sign up page should be displayed.                          |        The sign up page is  displayed.         |  PASS                                      |
+| 2      | Enter a valid username and password.                        | The username and password fields should be entered correctly.   |     The username and password fields are entered correctly.             |   PASS                                     |
+| 3      | Enter a confirmation password that does not match with the password|Confirm password should be entered|Confirm password is entered|PASS|
+| 4      | Click on sign up button|system displays an appropriate error message when the password and confirmation password fields do not match|system displays an appropriate error message when the password and confirmation password fields do not match|PASS
+
 
 
 
