@@ -393,3 +393,277 @@ Canceling sign-up process
 | 2 | Fill out some of the required fields. | The user should be able to fill out some of the required fields. |  |
 | 3 | Click on the "Cancel" button. | The user should be able to click on the "Cancel" button. |  |
 | 4 | Verify that no data is submitted. | No data should be submitted when the user clicks on the "Cancel" button. |  |
+
+
+# Test Case PM_001: Landing page
+* Created By: Deepak
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The landing page should be accessible  properly.| |
+| 2 | The landing page should have sign in button| |
+
+## Test Scenario
+To verify that if user not login they can see the option to sign in when  open the landing page.
+
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Open the landing page |  The landing should be displayed. | | |		
+| 2 | Check the sign in option | The user is not login and able to see the Sign in button   | | |
+| 3 | Click on the "Sign in" button. | The user is able to click on sign in button and redirect to sign in page | | |	
+
+
+
+# Test Case PM_002: Landing page
+* Created By: Deepak
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The landing page should be accessible  properly.| |
+| 2 | The landing page should have sign in button| |
+
+## Test Scenario
+To verify that if user is signed in, the landing page display the user’s name
+
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Open the landing page |  The landing should be displayed. | | |		
+| 2 | Check the sign in option | The user is not login and able to see the Sign in button   | | |
+| 3 | Click on the "Sign in" button. | The user is able to click on sign in button and redirect to sign in page | | |	
+| 4 | Enter a valid username and  password. | The username and password should be accepted by the system. | | |	
+| 5 | Click on the "Sign in" button. | The system should validate the username and password and allow user to sign in | | |	
+| 6 | Verify that the user is redirected to the appropriate page. | The user should be redirected to landing page. | | |	
+| 7 | Verify that the user is able to see their name on landing page | The user's name is displayed on the landing page after signed in  | | |	
+
+
+# Test Case PM_003: Landing page
+* Created By: Deepak
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The landing page should be accessible  properly.| |
+| 2 | The landing page should have sign in button| |
+
+## Test Scenario
+To verify that if user is signed in, the landing page display the button/link to sign out
+
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Open the landing page |  The landing should be displayed. | | |		
+| 2 | Check the sign in option | The user is not login and able to see the Sign in button   | | |
+| 3 | Click on the "Sign in" button. | The user is able to click on sign in button and redirect to sign in page | | |	
+| 4 | Enter a valid username and  password. | The username and password should be accepted by the system. | | |	
+| 5 | Click on the "Sign in" button. | The system should validate the username and password and allow user to sign in | | |	
+| 6 | Verify that the user is redirected to the appropriate page. | The user should be redirected to landing page. | | |	
+| 7 | Verify that the user is able to see Sign out button | The user is able to click on sign out button to redirect to landing page (with sign in option) | | |	
+
+
+
+# Test Case PM_001: Sign in page
+* Created By: Deepak
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The sign in page should be accessible and functioning properly.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| |
+| 3 | The form should have a Sign in button to submit the form.| |
+
+## Test Scenario
+To verify that a user can successfully sign in when  required username and password are entered correctly.
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Open the sign in page |   The sign in page should be displayed. | | |		
+| 2 | Enter a valid username and  password. | The username and password should be accepted by the system.   | | |
+| 3 | Click on the "Sign in" button. | The system should validate the username and password and allow user to sign in | | |	
+
+
+
+# Test Case PM_002: Sign in page
+* Created By: Deepak
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The sign in page should be accessible and functioning properly.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| |
+| 3 | The form should have a Sign in button to submit the form.| |
+
+## Test Scenario
+To verify that a user can successfully sign in and navigated to landing page
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Open the sign in page |   The sign in page should be displayed. | | |		
+| 2 | Enter a valid username and  password. | The username and password should be accepted by the system.   | | |
+| 3 | Click on the "Sign in" button. | The system should validate the username and password and allow user to sign in | | |	
+| 4 | Verify that the user is redirected to the appropriate page. | The user should be redirected to landing page. | | |	
+
+
+
+
+# Test Case PM_003: Sign in page
+* Created By: Deepak
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The sign in page should be accessible and functioning properly.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| |
+| 3 | The form should have a Sign in button to submit the form.| |
+
+## Test Scenario
+To verify that the system displays an appropriate error message when the username and  password enter incorrectly.
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Open the sign in page |   The sign in page should be displayed. | | |		
+| 2 | Enter a username and  password. | The username and password should be accepted by the system.   | | |
+| 3 | Click on the "Sign in" button. | The system should validate the Username and password and display an appropriate error message indicating that the username and password do not match. | | |	
+
+
+
+# Test Case PM_004: Sign in page
+* Created By: Deepak
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The sign in page should be accessible and functioning properly.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| |
+| 3 | The form should have a Sign in button to submit the form.| |
+
+## Test Scenario
+To verify that the system displays an appropriate error message when the password field is left blank.
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Open the sign in page |   The sign in page should be displayed. | | |		
+| 2 | Enter a username  | The username  should be accepted by the system.   | | |
+| 3 | Leave the Password field blank. | The Password field should be left blank. | | |	
+| 4 | Click on the "Sign in" button. | The system should validate the input and display an appropriate error message indicating that the Please enter password. | | |	
+
+
+# Test Case PM_005: Sign in page
+* Created By: Deepak
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The sign in page should be accessible and functioning properly.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| |
+| 3 | The form should have a Sign in button to submit the form.| |
+
+## Test Scenario
+To verify that the system display error message if user not exist and try to login
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Open the sign in page |   The sign in page should be displayed. | | |		
+| 2 | Enter a valid username and  password. | The username and password should be accepted by the system.   | | |
+| 3 | Click on the "Sign in" button. | The system should validate the username and password and If user not exist then  display the appropriate message indicating that the user not exist, please sign up | | |	
+
+
+
+# Test Case PM_005: Sign in page
+* Created By: Deepak
+* Reviewed By:
+* Version: 1.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|     | [Date] | [Pass/Fail/Not Executed] |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The sign in page should be accessible and functioning properly.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| |
+| 3 | The form should have a Sign in button to submit the form.| |
+
+## Test Scenario
+To verify that the sign in page has button to redirect to sign up page
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Open the sign in page |   The sign in page should be displayed. | | |		
+| 2 | Display the sign up button on sign in page  | The sign in page  should have button to redirect to sign up page    | | |
+| 3 | Click on 'sign up' button | The user should be redirect to the sign up page. | | |	
+
+
+
+
+
