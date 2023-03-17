@@ -211,7 +211,8 @@ To verify that the system displays an appropriate error message when the passwor
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|   Rini  | 03/02/2023| PASS|
+
 
 
 **Prerequisites:**
@@ -228,10 +229,10 @@ To verify that the system displays an appropriate error message when the usernam
 
 | Step # | Step Details                                               | Expected Results                                               | Actual Results | Pass / Fail / Not executed / Suspended |
 |--------|------------------------------------------------------------|----------------------------------------------------------------|----------------|----------------------------------------|
-| 1      | Open the sign up page.                                     | The sign up page should be displayed.                          |                |                                        |
-| 2      | Enter a username that is less than 8 characters long.       | The system should validate the input fields and display an appropriate error message indicating that the username is too short. |                |                                        |
-| 3      | Enter a valid password and confirmation password.          | The password and confirmation password fields should be entered correctly. |                |                                        |
-| 4      | Click on the "Sign Up" button.                             | The form should not be submitted.                               |                |                                        |
+| 1      | Open the sign up page.                                     | The sign up page should be displayed.                          |   The sign up page is displayed.             |      PASS                                  |
+| 2      | Enter a username that is less than 8 characters long.       | The system should validate the input fields and display an appropriate error message indicating that the username is too short. |   The system validates the input fields and displays an appropriate error message indicating that the username is too short.              |   PASS                                     |
+| 3      | Enter a valid password and confirmation password.          | The password and confirmation password fields should be entered correctly. |  The password and confirmation password fields are entered correctly.              |      PASS                                  |
+| 4      | Click on the "Sign Up" button.                             | The form should not be submitted.                               |        The form is not submitted.            |   PASS                                     |
 
 
 #  Test Case ID: BU_005 - Username contains spaces
@@ -244,7 +245,8 @@ To verify that the system displays an appropriate error message when the usernam
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|   Rini  | 03/02/2023| PASS|
+
 
 **Prerequisites:**
 
@@ -260,10 +262,10 @@ To verify that the system displays an appropriate error message when the usernam
 
 | Step # | Step Details                                               | Expected Results                                               | Actual Results | Pass / Fail / Not executed / Suspended |
 |--------|------------------------------------------------------------|----------------------------------------------------------------|----------------|----------------------------------------|
-| 1      | Open the sign up page.                                     | The sign up page should be displayed.                          |                |                                        |
-| 2      | Enter a username that contains spaces.                      | The username should contain spaces.                            |                |                                        |
-| 3      | Enter a valid password and confirmation password.           | The password and confirmation password fields should be entered correctly. |            |                                        |
-| 4      | Click on the "Sign Up" button.                              | The system should validate the input fields and display an appropriate error message indicating that the username cannot contain spaces. | |                                      |
+| 1      | Open the sign up page.                                     | The sign up page should be displayed.                          |  The sign up page is displayed.               |     PASS                                   |
+| 2      | Enter a username that contains spaces.                      | The username should contain spaces.                            |         The username contains spaces.       |   PASS                                     |
+| 3      | Enter a valid password and confirmation password.           | The password and confirmation password fields should be entered correctly. |   The password and confirmation password fields are entered correctly.         |           PASS                             |
+| 4      | Click on the "Sign Up" button.                              | The system should validate the input fields and display an appropriate error message indicating that the username cannot contain spaces. | The system  validates the input fields and displays an appropriate error message indicating that the username cannot contain spaces. |     PASS                                 |
 
 
 #  Test Case ID: BU_006 - Username with leading or trailing spaces
@@ -276,7 +278,7 @@ To verify that the system displays an appropriate error message when the usernam
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|   Rini  | 03/02/2023| PASS|
 
 **Prerequisites:**
 
@@ -292,10 +294,10 @@ To verify that the system automatically trims leading and trailing spaces from t
 
 | Step # | Step Details                                               | Expected Results                                                                 | Actual Results | Pass / Fail / Not executed / Suspended |
 |--------|------------------------------------------------------------|--------------------------------------------------------------------------------|----------------|----------------------------------------|
-| 1      | Open the sign up page.                                     | The sign up page should be displayed.                                          |                |                                        |
-| 2      | Enter a username with leading or trailing spaces.          | The username should have leading or trailing spaces.                            |                |                                        |
-| 3      | Enter a valid password and confirmation password.          | The password and confirmation password fields should be entered correctly.     |                |                                        |
-| 4      | Click on the "Sign Up" button.                             | The system should validate the input fields, trim any leading or trailing spaces from the username field, and create a new user account. |                |                                        |
+| 1      | Open the sign up page.                                     | The sign up page should be displayed.                                          |  The sign up page is displayed.              |                     PASS                   |
+| 2      | Enter a username with leading or trailing spaces.          | The username should have leading or trailing spaces.                            | The username have leading or trailing spaces.  |            PASS                            |
+| 3      | Enter a valid password and confirmation password.          | The password and confirmation password fields should be entered correctly.     |     The password and confirmation password fields are entered correctly           | PASS                                       |
+| 4      | Click on the "Sign Up" button.                             | The system should validate the input fields, trim any leading or trailing spaces from the username field, and create a new user account. |  The system  validates the input fields, trims any leading or trailing spaces from the username field, and creates a new user account.              |  PASS                                      |
 
 
 
@@ -309,7 +311,8 @@ To verify that the system automatically trims leading and trailing spaces from t
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|   Rini  | 03/02/2023| PASS|
+
 
 **Prerequisites:**
 | S # | Prerequisites: |
@@ -317,17 +320,17 @@ To verify that the system automatically trims leading and trailing spaces from t
 | 1 | The sign-up page should be accessible and functioning properly. |
 | 2 | The form should have fields to collect the required information (username, password, and confirmation password). |
 | 3 | The form should have a button to submit the form. |
-| 4 | |
+
 
 ## Test Scenario
 Submitting the form with correct details navigates to the Landing Page as signed in.
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail/Not Executed/Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Enter correct details in all the required fields | The user should be able to fill out all the required fields correctly. | | |
-| 2 | Click on the "Sign up" button | The user should be able to click on the "Submit" button. | | |
-| 3 | Wait for the application to process the form submission | The application should process the form submission correctly. | | |
-| 4 | Verify that the user is navigated to the Landing Page as signed in | The user should be navigated to the Landing Page as signed in after submitting the form with the correct details. | | |
+| 1 | Enter correct details in all the required fields | The user should be able to fill out all the required fields correctly. |  The user is able to fill out all the required fields correctly.| PASS|
+| 2 | Click on the "Sign up" button | The user should be able to click on the "Submit" button. |The user is able to click on the "Submit" button. | PASS|
+| 3 | Wait for the application to process the form submission | The application should process the form submission correctly. |The application processes the form submission correctly.  |PASS |
+| 4 | Verify that the user is navigated to the Landing Page as signed in | The user should be navigated to the Landing Page as signed in after submitting the form with the correct details. |The user is navigated to the Landing Page as signed in after submitting the form with the correct details. | PASS|
 
 
 #  Test Case ID: BU_008 - Submitting the sign up form with correct details
@@ -341,7 +344,7 @@ Submitting the form with correct details navigates to the Landing Page as signed
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|   Rini  | 03/02/2023| PASS|
 
 
 **Prerequisites:**
@@ -351,7 +354,7 @@ Submitting the form with correct details navigates to the Landing Page as signed
 | 1 | The sign-up page should be accessible and functioning properly. |
 | 2 | The form should have fields to collect the required information (username, password, and confirmation password). |
 | 3 | The form should have a button to submit the form. |
-| 4 | [DESCRIPTION] |
+
 
 ## Test Scenario:
 Submitting the form with correct details navigates to the Landing Page as signed in.
@@ -361,10 +364,10 @@ Submitting the form with correct details navigates to the Landing Page as signed
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail/Not executed/Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Enter incorrect details in any of the required fields. | The user should be able to fill out all the required fields correctly. |  |  |
-| 2 | Click on the "Sign up" button. | The user should be able to click on the "Submit" button. |  |  |
-| 3 | Wait for the application to process the form submission. | The application should process the form submission correctly. |  |  |
-| 4 | Verify that an appropriate error message is displayed on the screen. | An appropriate error message should be displayed on the screen informing the user that the data entered is incorrect. |  |  |
+| 1 | Enter incorrect details in any of the required fields. | The user should be able to fill out all the required fields correctly. |The user is able to fill out all the required fields correctly.   | PASS |
+| 2 | Click on the "Sign up" button. | The user should be able to click on the "Submit" button. |The user is able to click on the "Submit" button.  | PASS|
+| 3 | Wait for the application to process the form submission. | The application should process the form submission correctly. | The application processes the form submission correctly.  |PASS  |
+| 4 | Verify that an appropriate error message is displayed on the screen. | An appropriate error message should be displayed on the screen informing the user that the data entered is incorrect. |An appropriate error message is displayed on the screen informing the user that the data entered is incorrect.   | PASS |
 
 #  Test Case ID: BU_009 - Canceling sign-up process
 
@@ -376,7 +379,8 @@ Submitting the form with correct details navigates to the Landing Page as signed
 
 | Tester's Name | Date Tested | Test Case |
 | --- | --- | --- |
-|     | [Date] | [Pass/Fail/Not Executed] |
+|   Rini  | 03/02/2023| PASS|
+
 
 **Prerequisites:**
 | S # | Prerequisites |
@@ -391,10 +395,10 @@ Canceling sign-up process
 #### Step #
 | **Step Details** | **Expected Results** | **Actual Results** | **Pass / Fail / Not executed / Suspended** |
 | --- | --- | --- | --- |
-| 1 | Navigate to the sign-up form page. | The user should be able to navigate to the sign-up form page successfully. |  |
-| 2 | Fill out some of the required fields. | The user should be able to fill out some of the required fields. |  |
-| 3 | Click on the "Cancel" button. | The user should be able to click on the "Cancel" button. |  |
-| 4 | Verify that no data is submitted. | No data should be submitted when the user clicks on the "Cancel" button. |  |
+| 1 | Navigate to the sign-up form page. | The user should be able to navigate to the sign-up form page successfully. | The user is able to navigate to the sign-up form page successfully. |PASS
+| 2 | Fill out some of the required fields. | The user should be able to fill out some of the required fields. | The user is able to fill out some of the required fields.  |PASS
+| 3 | Click on the "Cancel" button. | The user should be able to click on the "Cancel" button. | The user is able to click on the "Cancel" button. |PASS
+| 4 | Verify that no data is submitted. | No data should be submitted when the user clicks on the "Cancel" button. |Data is not submitted when the user clicks on the "Cancel" button.  |PASS
 
 
 
