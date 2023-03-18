@@ -1,16 +1,12 @@
 // Import all dependencies & middleware here
 import express from "express";
-import * as dotenv from "dotenv";
 import bodyParser from "body-parser";
 import { userController } from "./controller/index.js";
 import mongoose from "mongoose";
 import cors from "cors";
 
-
 // Init an Express App.
 const app = express();
-dotenv.config();
-
 
 // Use your dependencies here
 app.use(cors());
@@ -21,9 +17,9 @@ app.use(bodyParser.json());
 app.use("/", userController);
 
 // Start Server here
-app.listen(process.env.SERVER_PORT, () => {
+app.listen(8080, () => {
   console.log("Server is running on port 8080!");
-  mongoose.connect(process.env.DB_URL).then(() => {
+  mongoose.connect("mongodb://localhost/test").then(() => {
     console.log(`Conneted to mongoDB at port 27017`);
   });
 });
