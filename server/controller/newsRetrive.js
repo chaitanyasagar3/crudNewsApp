@@ -1,5 +1,6 @@
-const NewsAPI = require('newsapi');
+import NewsAPI from 'newsapi';
 const newsapi = new NewsAPI('d14ab07bf14c4d76b0ec22664d41e33e');
+
 // To query /v2/top-headlines
 // All options passed to topHeadlines are optional, but you need to include at least one of them
 newsapi.v2.topHeadlines({
@@ -17,6 +18,7 @@ newsapi.v2.topHeadlines({
     }
   */
 });
+
 // To query /v2/everything
 // You must include at least one q, source, or domain
 newsapi.v2.everything({
@@ -37,6 +39,7 @@ newsapi.v2.everything({
     }
   */
 });
+
 // To query sources
 // All options are optional
 newsapi.v2.sources({
