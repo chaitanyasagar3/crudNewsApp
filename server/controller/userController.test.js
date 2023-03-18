@@ -1,95 +1,110 @@
+// userController.test.js
+
 import request from "supertest";
-const server = require("../app");
-import app from "../app";
+import express from "express";
+import userController from "../controller/user.controller.js";
 import { User } from "../database/models/index.js";
 import sha256 from "sha256";
-import http from "http";
-process.env.SERVER_PORT = 8080;
+import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.test" });
+
+const app = express();
+app.use(express.json());
+app.use("/api/users", userController);
+
 describe("User Controller", () => {
-  let accessToken;
-  let user;
-  let server;
-
   beforeAll(async () => {
-    // server = http.createServer(app);
-    //server.listen(process.env.SERVER_PORT);
-
-    user = await User.create({
-      username: "testuser",
-      hashedPassword: sha256("testpassword@123"),
+    await mongoose.connect("mongodb://localhost/CRUDBoard", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
-
-    const newUser = new User(user);
-    await newUser.save();
-
-    console.log(newUser);
-
-    const response = await request(app)
-      .post("/api/users/login")
-      .send({ username: "testuser", password: "testpassword@123" });
-    console.log("Rinii", response);
-    accessToken = response.body.data.user.accessToken;
   });
 
   afterAll(async () => {
+    await mongoose.connection.close();
+  });
+
+  beforeEach(async () => {
     await User.deleteMany({});
+  });
+
+  describe("POST /api/users/add-user", () => {
+    it("should add a new user to the database", async () => {
+      const response = await request(app)
+        .post("/api/users/add-user")
+        .send({ username: "newuser", password: "newpassword@123" });
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body.username).toBe("newuser");
+    });
   });
 
   describe("POST /api/users/login", () => {
     it("should return a 400 status code when no user is found", async () => {
       const response = await request(app)
         .post("/api/users/login")
-        .send({ username: "unknownuser", hashedPassword: "password" });
+        .send({ username: "unknownuser", password: "password" });
 
       expect(response.statusCode).toBe(400);
       expect(response.text).toBe("No user found");
     });
 
-    // it("should return a 400 status code when an incorrect password is provided", async () => {
-    //   const response = await request(app)
-    //     .post("/api/users/login")
-    //     .send({ username: "testuser", password: "wrongpassword" });
+    it("should return a 400 status code when an incorrect password is provided", async () => {
+      await request(app)
+        .post("/api/users/add-user")
+        .send({ username: "testuser", password: "testpassword@123" });
 
-    //   expect(response.statusCode).toBe(400);
-    //   expect(response.text).toBe("Incorrect password");
-    // });
+      const response = await request(app)
+        .post("/api/users/login")
+        .send({ username: "testuser", password: "wrongpassword" });
 
-    // it("should return a 200 status code and an access token when a valid login is provided", async () => {
-    //   const response = await request(app)
-    //     .post("/api/users/login")
-    //     .send({ username: "testuser", password: "testpassword@123" });
+      expect(response.statusCode).toBe(400);
+      expect(response.text).toBe("Incorrect password");
+    });
 
-    //   expect(response.statusCode).toBe(200);
-    //   expect(response.body.data.user.accessToken).toBeDefined();
-    // });
+    it("should return a 200 status code and an access token when a valid login is provided", async () => {
+      await request(app)
+        .post("/api/users/add-user")
+        .send({ username: "testuser", password: "testpassword@123" });
+
+      const response = await request(app)
+        .post("/api/users/login")
+        .send({ username: "testuser", password: "testpassword@123" });
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body.data.user.accessToken).toBeDefined();
+    });
   });
 
-  //   describe("POST /api/users/add-user", () => {
-  //     it("should add a new user to the database", async () => {
-  //       const response = await request(app)
-  //         .post("/api/users/add-user")
-  //         .send({ username: "newuser", password: "newpassword@123" })
-  //         .set("Authorization", `Bearer ${accessToken}`);
+  // describe("GET /api/users/me", () => {
+  //   it("should return the authenticated user", async () => {
+  //     await request(app)
+  //       .post("/api/users/add-user")
+  //       .send({ username: "testuser", password: "testpassword@123" });
 
-  //       expect(response.statusCode).toBe(200);
-  //       expect(response.body.username).toBe("newuser");
-  //     });
+  //     const loginResponse = await request(app)
+  //       .post("/api/users/login")
+  //       .send({ username: "testuser", password: "testpassword@123" });
+
+  //     const accessToken = loginResponse.body.data.user.accessToken;
+
+  //     console.log("accessToken", accessToken);
+
+  //     const response = await request(app)
+  //       .get("/api/users/me")
+  //       .set("Authorization", `Bearer ${accessToken}`);
+
+  //     expect(response.statusCode).toBe(200);
+  //     expect(response.body.username).toBe("testuser");
   //   });
 
-  //   describe("GET /api/users/me", () => {
-  //     it("should return the authenticated user", async () => {
-  //       const response = await request(app)
-  //         .get("/api/users/me")
-  //         .set("Authorization", `Bearer ${accessToken}`);
+  //   it("should return a 401 status code when no authentication token is provided", async () => {
+  //     const response = await request(app).get("/api/users/me");
 
-  //       expect(response.statusCode).toBe(200);
-  //       expect(response.body.username).toBe("testuser");
-  //     });
-
-  //     it("should return a 401 status code when no authentication token is provided", async () => {
-  //       const response = await request(app).get("/api/users/me");
-
-  //       expect(response.statusCode).toBe(401);
-  //     });
+  //     expect(response.statusCode).toBe(401);
   //   });
+  //});
 });
