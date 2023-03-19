@@ -2,15 +2,13 @@
 import express from "express";
 import * as dotenv from "dotenv";
 import bodyParser from "body-parser";
-import { newsController, userController } from "./controller/index.js";
+import configureRoutes from "./controller/index.js";
 import mongoose from "mongoose";
 import cors from "cors";
-
 
 // Init an Express App.
 const app = express();
 dotenv.config();
-
 
 // Use your dependencies here
 app.use(cors());
@@ -18,8 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Use all controllers(APIs) here
-app.use("/", userController);
-app.use("/", newsController);
+configureRoutes(app);
 
 // Start Server here
 app.listen(process.env.SERVER_PORT, () => {
