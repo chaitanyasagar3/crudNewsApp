@@ -26,10 +26,10 @@ const SignUpPage = () => {
     try {
       const response = await signup(formData.username, formData.password);
       const user = response?.data;
-      if(user) {
+      if (user) {
         navigate("/login");
       }
-      navigate("/login");
+      //navigate("/login");
     } catch (error) {
       setErrorMessage(error.message);
     }
