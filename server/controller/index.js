@@ -3,10 +3,11 @@ import newsController from "./news.controller.js";
 
 
 const configureRoutes = (app) => {
+  app.use("/api", userController);
   app.use("/api/news", newsController);
-  app.use("/api/", userController);
 
   app.use("*", (req, res) => {
+    console.log(req);
     res.status(404).json({ error: "Not found" });
   });
 };
