@@ -1,5 +1,8 @@
-.Navlink > p {
-  margin: 3px;
+p {
+  margin-top: 13px;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 15px;
 }
 
 .HeadingTitle {
@@ -25,5 +28,9 @@
 }
 
 .navbar-brand {
+  color:black;
+}
+
+.navbar-brand:hover {
   color: white;
 }

@@ -7,7 +7,6 @@ import cors from "cors";
 
 // Init an Express App.
 const app = express();
-
 dotenv.config();
 
 
