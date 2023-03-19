@@ -60,37 +60,6 @@ userController.post("/add-user", async (req, res) => {
   }
 });
 
-userController.post('/news', async (req, res) => {
-  try {
-    const { apiKey, category } = req.body;
-
-    const newsapi = new NewsAPI(apiKey);
-
-    const response = await newsapi.v2.topHeadlines({
-      category,
-      language: 'en',
-      country: 'us'
-    });
-
-    // Format the response into HTML
-    let newsHtml = '';
-    response.articles.forEach(article => {
-      newsHtml += `<div>
-        <h2>${article.title}</h2>
-        <p>${article.description}</p>
-        <img src="${article.urlToImage}" />
-        <a href="${article.url}" target="_blank">Read more</a>
-      </div>`;
-    });
-
-    // Send the HTML response to the client
-    res.send(newsHtml);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal server error');
-  }
-});
-
 userController.use(authentication).get("/me", async (req, res) => {
   res.json(req.user);
 });

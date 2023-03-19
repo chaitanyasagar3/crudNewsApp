@@ -2,7 +2,7 @@
 import express from "express";
 import * as dotenv from "dotenv";
 import bodyParser from "body-parser";
-import { userController } from "./controller/index.js";
+import { newsController, userController } from "./controller/index.js";
 import mongoose from "mongoose";
 import cors from "cors";
 
@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 
 // Use all controllers(APIs) here
 app.use("/", userController);
+app.use("/", newsController);
 
 // Start Server here
 app.listen(process.env.SERVER_PORT, () => {

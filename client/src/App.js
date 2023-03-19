@@ -14,18 +14,15 @@ import SignUpPage from "./components/Authentication/SignUpPage";
 
 function App() {
   return (
-    <div>
-      <NewsList/>
-    </div>
-    // <AuthProvider>
-    //   <Routes>
-    //     <Route element={<Layout />}>
-    //       <Route index element={<LandingPage />} />
-    //       <Route path="/login" element={<SignInPage />} />
-    //       <Route path="/sign-up" element={<SignUpPage />} />
-    //     </Route>
-    //   </Routes>
-    // </AuthProvider>
+    <AuthProvider>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<LandingPage />} />
+          <Route path="/login" element={<SignInPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+        </Route>
+      </Routes>
+    </AuthProvider>
   );
 }
 
