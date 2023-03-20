@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NewsList from "./api/NewsList";
 
 import "./App.css";
 import { AuthProvider, RequiresAuth } from "./hoc/Authentication";
