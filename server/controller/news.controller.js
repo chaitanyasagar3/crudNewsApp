@@ -5,7 +5,6 @@ const newsController = express.Router();
 
 newsController.get("/", async (req, res) => {
   try {
-    console.log("in news controller")
     const { category } = req.query;
     console.log(category);
     const newsapi = new NewsAPI(process.env.NEWS_API_KEY);

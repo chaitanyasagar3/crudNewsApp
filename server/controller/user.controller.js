@@ -11,7 +11,6 @@ const userController = express.Router();
  * retrieve and display all Users in the User Model
  */
 userController.post("/login", async (req, res) => {
-  console.log("inside login controller");
   const { username, password } = req.body || {};
 
   try {
@@ -63,7 +62,6 @@ userController.post("/add-user", async (req, res) => {
 
 userController.get("/me", authentication, async (req, res) => {
   res.json(req.user);
-  console.log("inside me controller");
 });
 
 export default userController;
