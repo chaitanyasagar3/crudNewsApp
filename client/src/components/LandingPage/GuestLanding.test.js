@@ -2,11 +2,13 @@ import React from "react";
 import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import GuestLanding from "./GuestLanding";
+import { BrowserRouter } from "react-router-dom";
+import { act } from "react-dom/test-utils";
 
 const mockUseAuth = jest.fn();
 
-jest.mock("../../api/auth", () => ({
-  login: jest.fn(),
+jest.mock("../../api/news", () => ({
+  getGeneralNews: jest.fn({}),
 }));
 
 const mockNavigate = jest.fn((path, options) => {
@@ -33,26 +35,15 @@ jest.mock("../../hooks/useAuth", () => ({
   default: () => mockUseAuth(),
 }));
 
-describe ("GuestLanding", () => {
-    beforeEach(() => {
-        render(<GuestLanding />);
-    });
-    
-    test("renders the form and its elements", () => {
-        expect(screen.getByText("Welcome To CRUDNews")).toBeInTheDocument();
-        expect(screen.getByRole("button", { name: "Sign In" })).toBeInTheDocument();
-        expect(screen.getByRole("button", { name: "Sign Up" })).toBeInTheDocument();
-    });
-    
-    test("shows an error when login fails", async () => {
-        const { login } = require("../../api/auth");
-        login.mockRejectedValueOnce({ response: { status: 401 } });
-    
-        userEvent.type(screen.getByLabelText("Username"), "user1");
-        userEvent.type(screen.getByLabelText("Password"), "Password1!");
-    
-        fireEvent.click(screen.getByRole("button", { name: "Sign In" }));
-    
-        expect(await screen.findByText("Unauthorized")).toBeInTheDocument();
-    });
+describe("GuestLanding", () => {
+  let renderValue;
+  beforeEach(async() => {
+    renderValue = await act( async () => render(<GuestLanding/>));
+  });
+
+  test("renders the form and its elements", async() => {
+      expect(await renderValue.getByText("Welcome Guest!")).toBeInTheDocument();
+  });
+
+
 });
