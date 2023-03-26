@@ -54,13 +54,14 @@ const GuestLanding = () => {
                   <Card.Img
                     variant="top"
                     src={article.urlToImage || brokenNewspaper}
+                    alt={article.title}
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src = brokenNewspaper;
                     }}
                   />
                   <Card.Subtitle className="mb-2 source">
-                    {article.source.name}
+                    {article.source && article.source.name}
                   </Card.Subtitle>
                   <Card.Text>
                     {sanitizeDescription(article.description)}
