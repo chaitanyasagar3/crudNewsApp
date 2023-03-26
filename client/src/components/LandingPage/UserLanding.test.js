@@ -15,6 +15,10 @@ jest.mock("../../api/news", () => ({
   getGeneralNews: jest.fn(),
 }));
 
+jest.mock("../../api/auth", () => ({
+    updatePreferences: jest.fn(),
+  }));
+
 const mockNavigate = jest.fn((path, options) => {
   return { path, options };
 });
