@@ -4,14 +4,19 @@ import { getGeneralNews } from "../../api/news";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import "../../styles/UserLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
-
+import SettingsModal from "../Settings/SettingsModal";
+import { updatePreferences } from "../../api/auth";
 const UserLanding = () => {
+  const auth = useAuth();
   const [articles, setArticles] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+
   useEffect(() => {
     const fetchArticles = async () => {
       const response = await getGeneralNews();
       setArticles(response);
+      console.log(auth.user.preferences);
     };
     fetchArticles();
   }, [refresh]);
@@ -20,8 +25,22 @@ const UserLanding = () => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
     return stripped.length > 150 ? stripped.slice(0, 150) + "..." : stripped;
   };
+  const handleSettingsSubmit = async (categories) => {
+    try {
+      console.log(auth.user);
+      const response = await updatePreferences(auth.user._id, categories);
+      const { preferences } = response;
+      auth.updatePreferences(preferences);
+    } catch (error) {
+      console.log(error);
+    }
+    setShowSettings(false);
+  };
 
-  let auth = useAuth();
+  const handleSettingsCancel = () => {
+    setShowSettings(false);
+  };
+
   return (
     <>
       <div className="userLanding">
@@ -37,7 +56,12 @@ const UserLanding = () => {
                 <h1>Welcome {auth.user.username}!</h1>
               </Col>
               <Col sm md="auto">
-                <Button variant="outline-light">Settings</Button>
+                <Button
+                  variant="outline-light"
+                  onClick={() => setShowSettings(true)}
+                >
+                  Settings
+                </Button>
               </Col>
             </Row>
           </Card.Body>
@@ -74,6 +98,11 @@ const UserLanding = () => {
           ))}
         </Row>
       </div>
+      <SettingsModal
+        show={showSettings}
+        onHide={handleSettingsCancel}
+        onSubmit={handleSettingsSubmit}
+      />
     </>
   );
 };
