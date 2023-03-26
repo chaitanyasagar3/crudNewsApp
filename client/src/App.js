@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
-import { AuthProvider, RequiresAuth } from "./hoc/Authentication";
+import { AuthProvider} from "./hoc/Authentication";
 
 import Layout from "./components/Layout";
 // import Signup from "./components/Authentication/Signup";
