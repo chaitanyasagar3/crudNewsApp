@@ -64,4 +64,12 @@ describe("SettingsModal", () => {
     fireEvent.click(cancelButton);
     expect(onHide).toHaveBeenCalled();
   });
+
+  it("should select General category by default", () => {
+    const { getByLabelText } = render(
+      <SettingsModal show onHide={onHide} onSubmit={onSubmit} />
+    );
+    const generalCheckbox = getByLabelText("General");
+    expect(generalCheckbox.checked).toBe(true);
+  });
 });
