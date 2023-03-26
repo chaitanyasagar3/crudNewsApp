@@ -3,16 +3,23 @@ import { render, screen, waitFor } from "@testing-library/react";
 import UserLanding from "./UserLanding";
 import { getGeneralNews } from "../../api/news";
 import { act } from "react-dom/test-utils";
+import useAuth from "../../hooks/useAuth";
+import AuthProvider from "../../hoc/Authentication/AuthProvider";
 
-const mockUseAuth = jest.fn(() => ({ user: { username: "testuser" } }));
+
+const mockUseAuth = jest.fn(() => ({ user: { username: "test1" } }));
 
 jest.mock("../../hooks/useAuth", () => ({
   __esModule: true,
-  default: () => mockUseAuth(),
+  default: () => ({user: { username: "test1" }}),
+  useAuth: jest.fn(() => ({
+    user:{ username: "test1" }
+  })),
 }));
 
 jest.mock("../../api/news", () => ({
   getGeneralNews: jest.fn(),
+
 }));
 
 jest.mock("../../api/auth", () => ({
@@ -41,8 +48,9 @@ jest.mock("react-router-dom", () => ({
 describe("UserLanding", () => {
   let renderValue;
   beforeEach(async () => {
+    // const auth = useAuth();
     await act(async () => {
-      renderValue = render(<UserLanding user={{ username: "testuser" }} />);
+      renderValue = render(<UserLanding/>, { wrapper: AuthProvider });
     });
   });
 
@@ -51,7 +59,6 @@ describe("UserLanding", () => {
   });
 
   // Test that getGeneralNews is called when the component mounts.
-
   test("getGeneralNews is called on mount", async () => {
     expect(getGeneralNews).toHaveBeenCalledTimes(1);
   });
