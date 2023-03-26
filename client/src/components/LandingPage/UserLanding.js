@@ -4,10 +4,21 @@ import { getGeneralNews } from "../../api/news";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import "../../styles/UserLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
-
+import SettingsModal from "../Settings/SettingsModal";
 const UserLanding = () => {
   const [articles, setArticles] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState({
+    general: true,
+    business: true,
+    entertainment: true,
+    health: true,
+    science: true,
+    sports: true,
+    technology: true,
+  });
+
   useEffect(() => {
     const fetchArticles = async () => {
       const response = await getGeneralNews();
@@ -20,7 +31,14 @@ const UserLanding = () => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
     return stripped.length > 150 ? stripped.slice(0, 150) + "..." : stripped;
   };
+  const handleSettingsSubmit = (categories) => {
+    setSelectedCategories(categories);
+    setShowSettings(false);
+  };
 
+  const handleSettingsCancel = () => {
+    setShowSettings(false);
+  };
   let auth = useAuth();
   return (
     <>
@@ -37,7 +55,12 @@ const UserLanding = () => {
                 <h1>Welcome {auth.user.username}!</h1>
               </Col>
               <Col sm md="auto">
-                <Button variant="outline-light">Settings</Button>
+                <Button
+                  variant="outline-light"
+                  onClick={() => setShowSettings(true)}
+                >
+                  Settings
+                </Button>
               </Col>
             </Row>
           </Card.Body>
@@ -74,6 +97,11 @@ const UserLanding = () => {
           ))}
         </Row>
       </div>
+      <SettingsModal
+        show={showSettings}
+        onHide={handleSettingsCancel}
+        onSubmit={handleSettingsSubmit}
+      />
     </>
   );
 };
