@@ -57,6 +57,7 @@ const UserLanding = () => {
               </Col>
               <Col sm md="auto">
                 <Button
+                  className="settings-button"
                   variant="outline-light"
                   onClick={() => setShowSettings(true)}
                 >
