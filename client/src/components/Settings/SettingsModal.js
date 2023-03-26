@@ -2,8 +2,10 @@
 
 import { React, useState } from "react";
 import { Modal, Form, FormGroup, Button } from "react-bootstrap";
+import useAuth from "../../hooks/useAuth";
 
 const SettingsModal = ({ show, onHide, onSubmit }) => {
+  const {user:{preferences}} = useAuth() || {user:{preferences:{}}};
   const [selectedCategories, setSelectedCategories] = useState({
     general: true,
     business: false,
@@ -12,6 +14,7 @@ const SettingsModal = ({ show, onHide, onSubmit }) => {
     science: false,
     sports: false,
     technology: false,
+    ...preferences,
   });
 
   const handleCategoryChange = (e) => {

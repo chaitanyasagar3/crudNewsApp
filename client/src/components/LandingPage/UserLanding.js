@@ -5,24 +5,18 @@ import { Card, Button, Row, Col } from "react-bootstrap";
 import "../../styles/UserLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
 import SettingsModal from "../Settings/SettingsModal";
+import { updatePreferences } from "../../api/auth";
 const UserLanding = () => {
+  const auth = useAuth();
   const [articles, setArticles] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [selectedCategories, setSelectedCategories] = useState({
-    general: true,
-    business: true,
-    entertainment: true,
-    health: true,
-    science: true,
-    sports: true,
-    technology: true,
-  });
 
   useEffect(() => {
     const fetchArticles = async () => {
       const response = await getGeneralNews();
       setArticles(response);
+      console.log(auth.user.preferences);
     };
     fetchArticles();
   }, [refresh]);
@@ -31,15 +25,22 @@ const UserLanding = () => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
     return stripped.length > 150 ? stripped.slice(0, 150) + "..." : stripped;
   };
-  const handleSettingsSubmit = (categories) => {
-    setSelectedCategories(categories);
+  const handleSettingsSubmit = async (categories) => {
+    try {
+      console.log(auth.user);
+      const response = await updatePreferences(auth.user._id, categories);
+      const { preferences } = response;
+      auth.updatePreferences(preferences);
+    } catch (error) {
+      console.log(error);
+    }
     setShowSettings(false);
   };
 
   const handleSettingsCancel = () => {
     setShowSettings(false);
   };
-  let auth = useAuth();
+
   return (
     <>
       <div className="userLanding">

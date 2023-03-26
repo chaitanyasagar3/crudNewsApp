@@ -63,6 +63,18 @@ userController.post("/add-user", async (req, res) => {
 userController.get("/me", authentication, async (req, res) => {
   res.json(req.user);
 });
+/**
+ * Post the prefrences**/
+userController.post("/update-preferences", async (req, res) => {
+  try {
+    const { preferences } = req.body;
+    const user = await User.findById(req.body.userId);
+    user.preferences = preferences;
+    await user.save();
+    res.json(user.preferences);
+  } catch (e) {
+    res.status(400).send(e.message || "unable to save to database");
+  }
+});
 
 export default userController;
- 
