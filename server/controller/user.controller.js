@@ -10,7 +10,7 @@ const userController = express.Router();
  * GET/
  * retrieve and display all Users in the User Model
  */
-userController.use(loginValidator).post("/login", async (req, res) => {
+userController.post("/login", async (req, res) => {
   const { username, password } = req.body || {};
 
   try {
@@ -60,8 +60,9 @@ userController.post("/add-user", async (req, res) => {
   }
 });
 
-userController.use(authentication).get("/me", async (req, res) => {
+userController.get("/me", authentication, async (req, res) => {
   res.json(req.user);
 });
 
 export default userController;
+ 

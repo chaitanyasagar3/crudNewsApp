@@ -1,0 +1,62 @@
+.userLanding {
+  font-family: "Times New Roman", Times, serif;
+}
+.card {
+  height: 90%;
+  background-color: antiquewhite;
+  backdrop-filter: blur(5px);
+  font-family: "Times New Roman", Times, serif;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 2px solid darkcyan;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: black;
+  font-weight: bolder;
+    text-shadow: 1px 1px darkcyan;
+}
+
+.card-text {
+    text-shadow: 2px 2px white;
+  font-size: 1rem;
+  height: 60px;
+  text-overflow: ellipsis;
+  color: #6c757d;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: scale-down;
+    margin-bottom: 1rem;
+}
+
+.source {
+  font-size: 1rem;
+  color: #000;
+}
+
+.btn {
+  background-color:#f0e3d4;
+  color: rgba(0, 139, 139, 0.8);
+  border: 2px solid darkcyan;
+  margin-bottom: 0;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: 2px solid darkcyan;
+  text-shadow: 1px 1px darkcyan;
+}
+
+h1 {
+  font-weight: bold;
+  text-shadow: 1px 1px darkcyan;
+  color: white;
+}

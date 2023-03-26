@@ -1,6 +1,6 @@
 .signup-container {
   /* existing styles */
-  background-image: url("../assests/news.png");
+  background-color: black;
   background-size: cover;
   padding: 200px;
 }
