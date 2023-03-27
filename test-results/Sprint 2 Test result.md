@@ -7,6 +7,12 @@ Test Report Client Side:
 | UserLanding.test.js   | Unit and Integration Testing | 6                     | 6                | 0                |
 | SignUpPage.test.js    | Unit and Integration Testing | 5                     | 5                | 0                |
 | SettingsModal.test.js | Unit and Integration Testing | 4                     | 4                | 0                |
+| LandingPage.test.js   | Unit and Integration Test    | 2                     | 2                | 0                |
+| auth.js               | Unit Test                    | 3                     | 3                | 0                |
+| news.js               | Unit  Test                  | 3                     | 3                | 0                |
+| Header.js             | Unit and Integration Testing | 4                     | 4                | 0                |
+
+
 
 Overall Test Summary:
 
@@ -72,6 +78,40 @@ Details:
 * calls the logout function when logout button is clicked
 * updates the user's preferences when form is submitted
 
+**Header.test.js  Test Suites: 2, Passed: 2, Total Tests: 4, Passed: 4 **
+
+Details:
+
+* renders the logo and app name
+* displays Sign Up and Sign In buttons if user is not authenticated
+* displays username and Logout button if user is authenticated
+* calls signOut function when Logout button is clicked
+
+
+**LandingPage.test.js  Test Suites: 1, Passed: 1, Total Tests: 2, Passed: 2 **
+
+Details:
+
+* should render GuestLanding when user is not authenticatedrenders the logo and app nam
+* should render UserLanding when user is authenticated
+
+
+**auth.test.js  Test Suites: 1, Passed: 1, Total Tests: 3, Passed: 3 **
+
+Details:
+
+* should make a POST request to /login with the correct data
+* should make a POST request to /add-user with the correct data
+* should make a POST request to /update-preferences with the correct data
+
+**news.test.js  Test Suites: 1, Passed: 3, Total Tests: 3, Passed: 3 **
+
+Details:
+
+* should call axios.get with correct params
+* should return articles on success
+* should log error on failure
+
 
 Test Report Server Side:
 
@@ -82,7 +122,7 @@ Test Report Server Side:
 
 **Suits:**
 
-**newsController.test.js: Test Suites: 1, Passed: 12, Total Tests: 12, Passed: 12 **
+**newsController.test.js: Test Suites: 1, Passed: 1, Total Tests: 12, Passed: 12 **
 
 Details:
 
@@ -100,7 +140,7 @@ Details:
 * Check if the returned articles source has name and id
 
 **userController.test.js:
-Test Suites: 1, Passed: 7, Total Tests: 7, Passed: 7**
+Test Suites: 1, Passed: 1, Total Tests: 7, Passed: 7**
 
 **Details:**
 
