@@ -1,26 +1,68 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { getByTestId, render ,screen} from "@testing-library/react";
 import LandingPage from "./LandingPage";
-import useAuth from "../../hooks/useAuth";
+import { MemoryRouter } from "react-router-dom";
+import { AuthProvider } from "../../config/AuthContext";
+import { act } from "react-dom/test-utils";
+import { mockUserLoggedIn, mockUserNotLoggedIn } from "../../../test-utils";
 
-jest.mock("../../hooks/useAuth");
+
+jest.mock("../../hooks/useAuth", () => ({
+  __esModule: true,
+  default: jest.fn(),
+  useAuth: jest.fn(),
+}));
+jest.mock("../../api/news", () => ({
+  getGeneralNews: jest.fn(),
+}));
+
+jest.mock("../../api/auth", () => ({
+  updatePreferences: jest.fn(),
+}));
+
+jest.mock("react-router-dom", () => ({
+  Link: (props) => (
+    <a
+      href="/"
+      {...props}
+      onClick={(e) => {
+        e.preventDefault();
+        mockNavigate(props.to, { replace: true });
+      }}
+    />
+  ),
+  useNavigate: () => mockNavigate,
+  useLocation: () => ({ state: { from: "/" } }),
+}));
 
 describe("LandingPage", () => {
-  test("renders welcome message for guest user", () => {
-    useAuth.mockReturnValue({ user: null });
-
-    render(<LandingPage />);
-
-    expect(screen.getByText(/Welcome, Guest!/i)).toBeInTheDocument();
-    expect(screen.getByText(/This is your landing page./i)).toBeInTheDocument();
+  afterEach(() => {
+    jest.resetAllMocks();
   });
 
-  test("renders welcome message for authenticated user", () => {
-    useAuth.mockReturnValue({ user: { username: "testuser" } });
+  test("should render GuestLanding when user is not authenticated", async() => {
+    mockUserNotLoggedIn()
+    let renderValue;
+    await act(async () => {
+        renderValue = render(<LandingPage/>, { wrapper: AuthProvider });
+      });
+      await act(async() => {
+        expect(screen.getByTestId("guest-landing")).toBeInTheDocument();
+      });
+  });
 
-    render(<LandingPage />);
+  test("should render UserLanding when user is authenticated", async() => {
+    mockUserLoggedIn()
+    let renderValue;
+    await act(async () => {
+        renderValue = render(<LandingPage/>, { wrapper: AuthProvider });
+      });
 
-    expect(screen.getByText(/Welcome, testuser!/i)).toBeInTheDocument();
-    expect(screen.getByText(/This is your landing page./i)).toBeInTheDocument();
+    await act(async() => {
+        expect(screen.getByText(`Welcome test1!`)).toBeInTheDocument();
+        expect(screen.getByTestId("user-landing")).toBeInTheDocument();
+      });
+
+    
   });
 });

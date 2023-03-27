@@ -24,8 +24,16 @@ const AuthProvider = ({ children }) => {
     callback();
   }, []);
 
+  const updatePreferences = useCallback(async (preferences) => {
+    
+    const updatedUser = { ...getFromStorage(USER_LOCAL_STORAGE_KEY), preferences };
+    setUser(updatedUser);
+    setToStorage(USER_LOCAL_STORAGE_KEY, updatedUser);
+  },[]);
+
+
   const authValues = useMemo(
-    () => ({ user, signIn, signOut }),
+    () => ({ user, signIn, signOut , updatePreferences}),
     [user, signIn, signOut]
   );
 

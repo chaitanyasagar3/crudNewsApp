@@ -21,7 +21,7 @@ function LandingPage(props) {
         {auth.user ? (
           <UserLanding />
         ) : (
-          <GuestLanding />
+          <GuestLanding  />
         )}
       </div>
     </>

@@ -12,7 +12,7 @@ const SignInPage = () => {
   const auth = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const { from } = location.state || { from: { pathname: "/" } };
+  const { from } = location.state || { from: { pathname: "/sign-up" } };
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -50,7 +50,7 @@ const SignInPage = () => {
       } else if (error.response?.status === 400) {
         setError("Missing Username or password");
       } else if (error.response?.status === 401) {
-        setError("Unauthorised");
+        setError("Unauthorized");
       } else {
         setError("Log in Failed");
       }
@@ -81,6 +81,7 @@ const SignInPage = () => {
                 Username
               </label>
               <input
+                id="username"
                 type="text"
                 className="form-control"
                 placeholder="Username"
@@ -99,6 +100,7 @@ const SignInPage = () => {
                   Password
                 </label>
                 <input
+                  id="password"
                   type="password"
                   className="form-control"
                   placeholder="Password"
@@ -110,7 +112,7 @@ const SignInPage = () => {
                   className="form-group mb-4 d-flex flex-column align-items-center"
                   style={{ paddingTop: "30px" }}
                 >
-                  <button type="submit" className="btn btn-primary">
+                  <button  label="button" type="submit" className="btn btn-primary">
                     Sign In
                   </button>
                 </div>

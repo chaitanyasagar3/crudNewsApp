@@ -60,3 +60,35 @@ h1 {
   text-shadow: 1px 1px darkcyan;
   color: white;
 }
+.settings-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-modal .modal-content {
+  border: 5px solid rgb(0, 139, 139);
+  background-color:#f0e3d4 ;
+  border-radius: 5px;
+}
+
+
+.settings-modal .text-custom {
+  color: rgb(0, 139, 139);
+}
+
+.settings-modal .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: rgb(0, 139, 139) !important;
+  border-color: rgb(0, 139, 139) !important;
+}
+
+.settings-modal .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px rgb(0, 139, 139), 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+.settings-modal .custom-control-label {
+  color: #333;
+}
+
+.settings-modal .custom-control-label:hover {
+  color: rgb(0, 139, 139);
+}
