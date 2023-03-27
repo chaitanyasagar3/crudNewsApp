@@ -1,13 +1,7 @@
-.Navlink > p {
-  margin: 3px;
-}
-
 .HeadingTitle {
   position: relative;
   left: 20%;
 
-  /* display: inline-block;
-  margin-left: 10px; */
 }
 .custom-button {
   color: white;
@@ -21,9 +15,28 @@
 
 .navbar {
   /* background-color:rgb(218, 93, 93) */
-  background-color: darkcyan;
+  background-color: #6fd2d2;
+  border-bottom: 2px solid darkcyan;
+  border: top 2px solid darkcyan; 
 }
 
 .navbar-brand {
+  color:black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: xx-large;
+  font-weight: bold;
+  text-shadow: 1px 1px white;
+}
+
+.navbar-brand:hover {
   color: white;
+  text-shadow: 1px 1px black;
+  
+}
+
+.p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  font-weight: bold;
+  text-shadow: 1px 1px white;
 }

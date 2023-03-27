@@ -1,5 +1,5 @@
 import axios from "./axios";
-import { SignInPage } from "../components/Authentication/SignInPage";
+
 export const login = async (username, password) => {
   const response = await axios.post(
     "/login",
@@ -21,3 +21,11 @@ export const signup = async (username, password) => {
   );
   return response.data;
 };
+
+export const updatePreferences = async (userId,preferences) => {
+  const response = await axios.post("/update-preferences", {userId,preferences},{
+    headers: { "Content-Type": "application/JSON" },
+  });
+  console.log(response.data);
+  return response.data;
+}

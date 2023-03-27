@@ -1,6 +1,8 @@
 import React from "react";
 // import { useLoaderData } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import GuestLanding from "./GuestLanding";
+import UserLanding from "./UserLanding";
 
 import "../../styles/LandingPage.css";
 
@@ -15,13 +17,12 @@ function LandingPage(props) {
 
   return (
     <>
-      <div className="WelcomeMessage">
+      <div className="LandingPage">
         {auth.user ? (
-          <h1>Welcome, {auth.user.username}!</h1>
+          <UserLanding />
         ) : (
-          <h1>Welcome, Guest!</h1>
+          <GuestLanding  />
         )}
-        <p>This is your landing page.</p>
       </div>
     </>
   );
