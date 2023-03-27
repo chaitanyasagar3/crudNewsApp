@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
 import { getGeneralNews } from "../../api/news";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import "../../styles/GuestLanding.css";
@@ -22,7 +21,7 @@ const GuestLanding = () => {
     return stripped.length > 150 ? stripped.slice(0, 150) + "..." : stripped;
   };
 
-  let auth = useAuth();
+  // let auth = useAuth();
   return (
     <>
       <div className="guestLanding">
@@ -47,7 +46,7 @@ const GuestLanding = () => {
         </Card>
 
         <Row xs={1} md={2} lg={3} className="g-4">
-          {articles.map((article) => (
+          {articles?.map((article) => (
             <Col key={article.title}>
               <Card>
                 <Card.Body>
@@ -55,13 +54,14 @@ const GuestLanding = () => {
                   <Card.Img
                     variant="top"
                     src={article.urlToImage || brokenNewspaper}
+                    alt={article.title}
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src = brokenNewspaper;
                     }}
                   />
                   <Card.Subtitle className="mb-2 source">
-                    {article.source.name}
+                    {article.source && article.source.name}
                   </Card.Subtitle>
                   <Card.Text>
                     {sanitizeDescription(article.description)}

@@ -57,6 +57,7 @@ const UserLanding = () => {
               </Col>
               <Col sm md="auto">
                 <Button
+                  className="settings-button"
                   variant="outline-light"
                   onClick={() => setShowSettings(true)}
                 >
@@ -68,7 +69,7 @@ const UserLanding = () => {
         </Card>
 
         <Row xs={1} md={2} lg={3} className="g-4">
-          {articles.map((article) => (
+          {articles?.map((article) => (
             <Col key={article.title}>
               <Card>
                 <Card.Body>
