@@ -79,32 +79,83 @@ describe("User Controller", () => {
     });
   });
 
-  // describe("GET /api/users/me", () => {
-  //   it("should return the authenticated user", async () => {
-  //     await request(app)
-  //       .post("/api/users/add-user")
-  //       .send({ username: "testuser", password: "testpassword@123" });
+  describe("POST /api/users/update-preferences", () => {
+    it("should update user preferences", async () => {
+      const user = await User.create({
+        username: "testuser",
+        hashedPassword: sha256("testpassword@123"),
+        preferences: {
+          general: true,
+          business: true,
+          entertainment: true,
+          health: true,
+          science: true,
+          sports: true,
+          technology: true,
+        },
+      });
 
-  //     const loginResponse = await request(app)
-  //       .post("/api/users/login")
-  //       .send({ username: "testuser", password: "testpassword@123" });
+      const newPreferences = {
+        general: true,
+        business: true,
+        entertainment: true,
+        health: true,
+        science: true,
+        sports: true,
+        technology: true,
+      };
+      const response = await request(app)
+        .post("/api/users/update-preferences")
+        .send({ userId: user._id, preferences: newPreferences });
 
-  //     const accessToken = loginResponse.body.data.user.accessToken;
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toEqual(newPreferences);
 
-  //     console.log("accessToken", accessToken);
+      const updatedUser = await User.findById(user._id);
+      expect(updatedUser.preferences).toEqual(newPreferences);
+    });
 
-  //     const response = await request(app)
-  //       .get("/api/users/me")
-  //       .set("Authorization", `Bearer ${accessToken}`);
+    it("should return a 400 status code when user ID is not provided", async () => {
+      const response = await request(app)
+        .post("/api/users/update-preferences")
+        .send({
+          preferences: {
+            general: true,
+            business: true,
+            entertainment: true,
+            health: true,
+            science: true,
+            sports: true,
+            technology: true,
+          },
+        });
 
-  //     expect(response.statusCode).toBe(200);
-  //     expect(response.body.username).toBe("testuser");
-  //   });
+      expect(response.statusCode).toBe(400);
+      expect(response.text).toBe(
+        "Cannot set properties of null (setting 'preferences')"
+      );
+    });
 
-  //   it("should return a 401 status code when no authentication token is provided", async () => {
-  //     const response = await request(app).get("/api/users/me");
+    it("should return a 400 status code when user ID is invalid", async () => {
+      const response = await request(app)
+        .post("/api/users/update-preferences")
+        .send({
+          userId: "invalidID",
+          preferences: {
+            general: true,
+            business: true,
+            entertainment: true,
+            health: true,
+            science: true,
+            sports: true,
+            technology: true,
+          },
+        });
 
-  //     expect(response.statusCode).toBe(401);
-  //   });
-  //});
+      expect(response.statusCode).toBe(400);
+      expect(response.text).toBe(
+        'Cast to ObjectId failed for value "invalidID" (type string) at path "_id" for model "User"'
+      );
+    });
+  });
 });
