@@ -24,7 +24,7 @@ const GuestLanding = () => {
   // let auth = useAuth();
   return (
     <>
-      <div className="guestLanding">
+      <div className="guestLanding" data-testid="guest-landing">
         <Card className="shadow-md">
           <Card.Body>
             <Row>

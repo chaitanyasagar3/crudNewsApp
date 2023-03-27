@@ -16,7 +16,6 @@ const UserLanding = () => {
     const fetchArticles = async () => {
       const response = await getGeneralNews();
       setArticles(response);
-      console.log(auth.user.preferences);
     };
     fetchArticles();
   }, [refresh]);
@@ -43,7 +42,7 @@ const UserLanding = () => {
 
   return (
     <>
-      <div className="userLanding">
+      <div className="userLanding" data-testid="user-landing">
         <Card className="shadow-md">
           <Card.Body>
             <Row>
