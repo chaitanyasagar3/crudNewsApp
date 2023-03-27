@@ -129,7 +129,7 @@ describe("News Controller", () => {
     });
   });
 
-  //Check if the returned atricles url is valid
+  //Check if the returned articles url is valid
   describe("GET /api/news enpoint", () => {
     it("should return a 200 status code", async () => {
       const response = await request(app)
@@ -142,7 +142,7 @@ describe("News Controller", () => {
     });
   });
 
-  //Check if the returned atricles urlToImage is valid
+  //Check if the returned articles urlToImage is valid
   describe("GET /api/news enpoint", () => {
     it("should return a 200 status code", async () => {
       const response = await request(app)
@@ -155,7 +155,7 @@ describe("News Controller", () => {
     });
   });
 
-    //Check if the returned atricles publishedAt is valid
+    //Check if the returned articles publishedAt is valid
     describe("GET /api/news enpoint", () => {
         it("should return a 200 status code", async () => {
             const response = await request(app)
@@ -170,7 +170,7 @@ describe("News Controller", () => {
         });
         });
 
-    //Check if the returned atricles source has name and id
+    //Check if the returned articles source has name and id
     describe("GET /api/news enpoint", () => {
         it("should return a 200 status code", async () => {
             const response = await request(app)
