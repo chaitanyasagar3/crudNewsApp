@@ -99,4 +99,89 @@ describe("GuestLanding", () => {
       await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
     });
   });
+
+  //Test the Tab navigation bar
+
+  test("tab navigation bar works", async () => {
+    const {getByRole} = renderValue;
+    await act(async () => {
+      const tabNav = await getByRole("navigation", { name: "tab navigation" });
+      expect(tabNav).toBeInTheDocument();
+    });
+  });
+
+
+  //Test that the tab navigation has home tab
+
+  test("tab navigation has home tab", async () => {
+    const {getByRole} = renderValue;
+    await act(async () => {
+      const homeTab = await getByRole("tab", { name: "Home" });
+      expect(homeTab).toBeInTheDocument();
+    });
+  });
+
+  //Test that the tab navigation has business tab
+
+  test("tab navigation has business tab", async () => {
+    const {getByRole} = renderValue;
+    await act(async () => {
+      const businessTab = await getByRole("tab", { name: "Business" });
+      expect(businessTab).toBeInTheDocument();
+    });
+  });
+
+  //Test that the tab navigation has entertainment tab
+
+  test("tab navigation has entertainment tab", async () => {
+    const {getByRole} = renderValue;
+    await act(async () => {
+      const entertainmentTab = await getByRole("tab", { name: "Entertainment" });
+      expect(entertainmentTab).toBeInTheDocument();
+    });
+  });
+
+  //Test that the tab navigation has health tab
+
+  test("tab navigation has health tab", async () => {
+    const {getByRole} = renderValue;
+    await act(async () => {
+      const healthTab = await getByRole("tab", { name: "Health" });
+      expect(healthTab).toBeInTheDocument();
+    });
+  });
+
+  //Test that the tab navigation has science tab
+
+  test("tab navigation has science tab", async () => {
+    const {getByRole} = renderValue;
+    await act(async () => {
+      const scienceTab = await getByRole("tab", { name: "Science" });
+      expect(scienceTab).toBeInTheDocument();
+    });
+  });
+
+  //Test that the tab navigation has sports tab
+
+  test("tab navigation has sports tab", async () => {
+    const {getByRole} = renderValue;
+    await act(async () => {
+      const sportsTab = await getByRole("tab", { name: "Sports" });
+      expect(sportsTab).toBeInTheDocument();
+    });
+  });
+
+  //Test that the tab navigation has technology tab
+
+  test("tab navigation has technology tab", async () => {
+    const {getByRole} = renderValue;
+    await act(async () => {
+      const technologyTab = await getByRole("tab", { name: "Technology" });
+      expect(technologyTab).toBeInTheDocument();
+    });
+  });
+
+//Test that the page has pagination
+
+
 });
