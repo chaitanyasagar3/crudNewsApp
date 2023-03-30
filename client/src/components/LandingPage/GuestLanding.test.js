@@ -1,55 +1,64 @@
 import React from "react";
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  waitFor,
+  screen,
+  act,
+} from "@testing-library/react";
 import GuestLanding from "./GuestLanding";
 import { getGeneralNews } from "../../api/news";
-import { act } from "react-dom/test-utils";
-
-const mockUseAuth = jest.fn();
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 
 jest.mock("../../api/news", () => ({
-  getGeneralNews: jest.fn({}),
+  getGeneralNews: jest.fn(),
 }));
-
-const mockNavigate = jest.fn((path, options) => {
-  return { path, options };
-});
 
 jest.mock("react-router-dom", () => ({
-  Link: (props) => (
-    <a
-      href="/"
-      {...props}
-      onClick={(e) => {
-        e.preventDefault();
-        mockNavigate(props.to, { replace: true });
-      }}
-    />
-  ),
-  useNavigate: () => mockNavigate,
-  useLocation: () => ({ state: { from: "/" } }),
-}));
-
-jest.mock("../../hooks/useAuth", () => ({
-  __esModule: true,
-  default: () => mockUseAuth(),
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
 }));
 
 describe("GuestLanding", () => {
   let renderValue;
-  beforeEach(async() => {
-    renderValue = await act(async () => render(<GuestLanding/>));
+
+  beforeEach(async () => {
+    getGeneralNews.mockResolvedValueOnce([
+      {
+        title: "Article 1",
+        urlToImage: "image1.jpg",
+        description: "Description 1",
+        url: "url1",
+      },
+      {
+        title: "Article 2",
+        urlToImage: "image2.jpg",
+        description: "Description 2",
+        url: "url2",
+      },
+    ]);
+    useNavigate.mockReturnValue(jest.fn());
+    renderValue = await act(async () =>
+      render(
+        <Router>
+          <GuestLanding />
+        </Router>
+      )
+    );
   });
 
-  test("renders the form and its elements", async() => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test("renders the form and its elements", async () => {
     await act(async () => {
       expect(await renderValue.getByText("Welcome Guest!")).toBeInTheDocument();
     });
   });
 
-  //testing the refresh button
-
-  test("refresh button works", async() => {
-    const {getByRole} = renderValue;
+  test("refresh button works", async () => {
+    const { getByRole } = renderValue;
     await act(async () => {
       const refreshButton = await getByRole("button", { name: "Refresh" });
       fireEvent.click(refreshButton);
@@ -57,32 +66,51 @@ describe("GuestLanding", () => {
     });
   });
 
-  //testing the sign up button
-
-  test("sign up button works", async() => {
-    const {getByRole} = renderValue;
+  test("sign up button works", async () => {
+    const { getByRole } = renderValue;
     await act(async () => {
       const signUpButton = await getByRole("button", { name: "Sign Up Here!" });
       fireEvent.click(signUpButton);
       expect(signUpButton).toBeInTheDocument();
     });
   });
-
-//Test that getGeneralNews is called when the component mounts.
-
-  test("getGeneralNews is called on mount", async () => {
+  test("displays bottom tab bar with navlinks", async () => {
     await act(async () => {
-      expect(getGeneralNews).toHaveBeenCalledTimes(1);
+      expect(await renderValue.getByText("General")).toBeInTheDocument();
+      expect(await renderValue.getByText("Business")).toBeInTheDocument();
+      expect(await renderValue.getByText("Entertainment")).toBeInTheDocument();
+      expect(await renderValue.getByText("Health")).toBeInTheDocument();
+      expect(await renderValue.getByText("Science")).toBeInTheDocument();
+      expect(await renderValue.getByText("Sports")).toBeInTheDocument();
+      expect(await renderValue.getByText("Technology")).toBeInTheDocument();
     });
   });
 
-//Test that the news articles are displayed correctly.
-
+  test("getGeneralNews is called on mount", async () => {
+    await act(async () => {
+      await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
+    });
+  });
   test("displays news articles", async () => {
     const articleData = [
-      { title: "Article 1", urlToImage: "image1.jpg", description: "Description 1", url: "url1" },
-      { title: "Article 2", urlToImage: "image2.jpg", description: "Description 2", url: "url2" },
-      { title: "Article 3", urlToImage: "image3.jpg", description: "Description 3", url: "url3" },
+      {
+        title: "Article 1",
+        urlToImage: "image1.jpg",
+        description: "Description 1",
+        url: "url1",
+      },
+      {
+        title: "Article 2",
+        urlToImage: "image2.jpg",
+        description: "Description 2",
+        url: "url2",
+      },
+      {
+        title: "Article 3",
+        urlToImage: "image3.jpg",
+        description: "Description 3",
+        url: "url3",
+      },
     ];
     getGeneralNews.mockResolvedValueOnce(articleData);
     await act(async () => {
@@ -90,13 +118,30 @@ describe("GuestLanding", () => {
     });
   });
 
-  //Test that the onError function is called when an image fails to load.
-
   test("onError function is called when image fails to load", async () => {
-    const articleData = [{ title: "Article 1", urlToImage: "invalid-image.jpg", description: "Description 1", url: "url1" }];
-    getGeneralNews.mockResolvedValueOnce(articleData);
+    getGeneralNews.mockResolvedValueOnce([
+      {
+        title: "Article 1",
+        urlToImage: "invalid-image.jpg",
+        description: "Description 1",
+        url: "url1",
+      },
+    ]);
+
     await act(async () => {
       await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
+      const brokenImage = screen.getByAltText("Article 1");
+      fireEvent.error(brokenImage);
+    });
+  });
+
+  test("navigates to the selected category", async () => {
+    await act(async () => {
+      await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
+      const navigate = useNavigate();
+      const businessTab = screen.getByRole("link", { name: /business/i });
+      fireEvent.click(businessTab);
+      expect(navigate).toHaveBeenCalledWith("/business", { replace: true });
     });
   });
 });
