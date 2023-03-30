@@ -1,13 +1,23 @@
 import { React, useEffect, useState } from "react";
 import { getGeneralNews } from "../../api/news";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { Card, Button, Row, Col, Nav } from "react-bootstrap";
 import "../../styles/GuestLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const GuestLanding = () => {
   const [articles, setArticles] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const categories = [
+    "general",
+    "business",
+    "entertainment",
+    "health",
+    "science",
+    "sports",
+    "technology",
+  ];
+
   useEffect(() => {
     const fetchArticles = async () => {
       const response = await getGeneralNews();
@@ -25,6 +35,76 @@ const GuestLanding = () => {
   return (
     <>
       <div className="guestLanding" data-testid="guest-landing">
+        <Nav
+          className="centered-tabs"
+          variant="tabs"
+          defaultActiveKey="/general"
+        >
+          <Nav.Item>
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              to="/general"
+            >
+              General
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              to="/business"
+            >
+              Business
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              to="/entertainment"
+            >
+              Entertainment
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              to="/health"
+            >
+              Health
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              to="/science"
+            >
+              Science
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              to="/sports"
+            >
+              Sports
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              to="/technology"
+            >
+              Technology
+            </NavLink>
+          </Nav.Item>
+        </Nav>
+
         <Card className="shadow-md">
           <Card.Body>
             <Row>
