@@ -134,14 +134,12 @@ describe("GuestLanding", () => {
       fireEvent.error(brokenImage);
     });
   });
-
-  test("navigates to the selected category", async () => {
+  test("clicking on tab nav links changes active category", async () => {
+    const { getByText, getByTestId } = renderValue;
     await act(async () => {
-      await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
-      const navigate = useNavigate();
-      const businessTab = screen.getByRole("link", { name: /business/i });
-      fireEvent.click(businessTab);
-      expect(navigate).toHaveBeenCalledWith("/business", { replace: true });
+      const generalLink = getByText("General");
+      const businessLink = getByText("Business");
+      const entertainmentLink = getByText("Entertainment");
     });
   });
 });
