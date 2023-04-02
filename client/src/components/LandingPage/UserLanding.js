@@ -1,24 +1,38 @@
 import { React, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { getGeneralNews } from "../../api/news";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { getNewsByCategory } from "../../api/news";
+
+import { Card, Button, Row, Col, Nav } from "react-bootstrap";
 import "../../styles/UserLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
 import SettingsModal from "../Settings/SettingsModal";
 import { updatePreferences } from "../../api/auth";
+import { Link, NavLink } from "react-router-dom";
+
 const UserLanding = () => {
   const auth = useAuth();
+  const [activeCategory, setActiveCategory] = useState("general");
   const [articles, setArticles] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const categories = [
+    "general",
+    "business",
+    "entertainment",
+    "health",
+    "science",
+    "sports",
+    "technology",
+  ];
+
+  const fetchArticles = async () => {
+    const response = await getNewsByCategory(activeCategory);
+    setArticles(response);
+  };
 
   useEffect(() => {
-    const fetchArticles = async () => {
-      const response = await getGeneralNews();
-      setArticles(response);
-    };
     fetchArticles();
-  }, [refresh]);
+  }, [activeCategory, refresh]);
 
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
@@ -43,6 +57,84 @@ const UserLanding = () => {
   return (
     <>
       <div className="userLanding" data-testid="user-landing">
+        <Nav
+          className="centered-tabs"
+          variant="tabs"
+          defaultActiveKey="/general"
+        >
+          <Nav.Item data-testid="nav-item">
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              onClick={() => setActiveCategory("general")}
+            >
+              Home
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item data-testid="nav-item">
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              onClick={() => setActiveCategory("general")}
+            >
+              General
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item data-testid="nav-item">
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              onClick={() => setActiveCategory("business")}
+            >
+              Business
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item data-testid="nav-item">
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              onClick={() => setActiveCategory("entertainment")}
+            >
+              Entertainment
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item data-testid="nav-item">
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              onClick={() => setActiveCategory("health")}
+            >
+              Health
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item data-testid="nav-item">
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              onClick={() => setActiveCategory("science")}
+            >
+              Science
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item data-testid="nav-item">
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              onClick={() => setActiveCategory("sports")}
+            >
+              Sports
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item data-testid="nav-item">
+            <NavLink
+              className="nav-link nav-link-custom"
+              activeClassName="active"
+              onClick={() => setActiveCategory("technology")}
+            >
+              Technology
+            </NavLink>
+          </Nav.Item>
+        </Nav>
         <Card className="shadow-md">
           <Card.Body>
             <Row>
