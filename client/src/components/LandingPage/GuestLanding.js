@@ -1,13 +1,5 @@
 import { React, useEffect, useState } from "react";
-
-import { getGeneralNews } from "../../api/news";
-import { getBusinessNews } from "../../api/news";
-import { getHealthNews } from "../../api/news";
-import { getTechnologyNews } from "../../api/news";
-import { getEntertainmentNews } from "../../api/news";
-import { getScienceNews } from "../../api/news";
-import { getSportsNews } from "../../api/news";
-
+import { getNewsByCategory } from "../../api/news";
 import { Card, Button, Row, Col, Nav } from "react-bootstrap";
 import "../../styles/GuestLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
@@ -28,48 +20,13 @@ const GuestLanding = () => {
   ];
 
   const fetchArticles = async () => {
-    let response;
-    switch (activeCategory) {
-      case "general":
-        response = await getGeneralNews();
-        break;
-      case "business":
-        response = await getBusinessNews();
-        break;
-      case "entertainment":
-        response = await getEntertainmentNews();
-        break;
-      case "health":
-        response = await getHealthNews();
-        break;
-      case "science":
-        response = await getScienceNews();
-        break;
-      case "sports":
-        response = await getSportsNews();
-        break;
-      case "technology":
-        response = await getTechnologyNews();
-        break;
-      default:
-        response = await getGeneralNews();
-        break;
-    }
+    const response = await getNewsByCategory(activeCategory);
     setArticles(response);
   };
 
   useEffect(() => {
     fetchArticles();
   }, [activeCategory, refresh]);
-
-  // useEffect(() => {
-  //   const fetchArticles = async () => {
-  //     // const response = await getGeneralNews();
-  //     // setArticles(response);
-
-  //   };
-  //   fetchArticles();
-  // }, [refresh]);
 
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
