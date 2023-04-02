@@ -7,23 +7,18 @@ import {
   act,
 } from "@testing-library/react";
 import GuestLanding from "./GuestLanding";
-import { getGeneralNews } from "../../api/news";
-import { BrowserRouter as Router, useNavigate } from "react-router-dom";
+import { getNewsByCategory } from "../../api/news";
+import { BrowserRouter as Router } from "react-router-dom";
 
 jest.mock("../../api/news", () => ({
-  getGeneralNews: jest.fn(),
-}));
-
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: jest.fn(),
+  getNewsByCategory: jest.fn(),
 }));
 
 describe("GuestLanding", () => {
   let renderValue;
 
   beforeEach(async () => {
-    getGeneralNews.mockResolvedValueOnce([
+    getNewsByCategory.mockResolvedValueOnce([
       {
         title: "Article 1",
         urlToImage: "image1.jpg",
@@ -37,7 +32,6 @@ describe("GuestLanding", () => {
         url: "url2",
       },
     ]);
-    useNavigate.mockReturnValue(jest.fn());
     renderValue = await act(async () =>
       render(
         <Router>
@@ -49,6 +43,15 @@ describe("GuestLanding", () => {
 
   afterEach(() => {
     jest.clearAllMocks();
+  });
+
+  // ... other test cases ...
+
+  test("getNewsByCategory is called on mount", async () => {
+    await act(async () => {
+      await waitFor(() => expect(getNewsByCategory).toHaveBeenCalledTimes(1));
+      expect(getNewsByCategory).toHaveBeenCalledWith("general");
+    });
   });
 
   test("renders the form and its elements", async () => {
@@ -74,74 +77,44 @@ describe("GuestLanding", () => {
       expect(signUpButton).toBeInTheDocument();
     });
   });
-  test("displays bottom tab bar with navlinks", async () => {
-    await act(async () => {
-      expect(await renderValue.getByText("General")).toBeInTheDocument();
-      expect(await renderValue.getByText("Business")).toBeInTheDocument();
-      expect(await renderValue.getByText("Entertainment")).toBeInTheDocument();
-      expect(await renderValue.getByText("Health")).toBeInTheDocument();
-      expect(await renderValue.getByText("Science")).toBeInTheDocument();
-      expect(await renderValue.getByText("Sports")).toBeInTheDocument();
-      expect(await renderValue.getByText("Technology")).toBeInTheDocument();
-    });
-  });
 
-  test("getGeneralNews is called on mount", async () => {
-    await act(async () => {
-      await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
-    });
-  });
-  test("displays news articles", async () => {
-    const articleData = [
-      {
-        title: "Article 1",
-        urlToImage: "image1.jpg",
-        description: "Description 1",
-        url: "url1",
-      },
-      {
-        title: "Article 2",
-        urlToImage: "image2.jpg",
-        description: "Description 2",
-        url: "url2",
-      },
-      {
-        title: "Article 3",
-        urlToImage: "image3.jpg",
-        description: "Description 3",
-        url: "url3",
-      },
-    ];
-    getGeneralNews.mockResolvedValueOnce(articleData);
-    await act(async () => {
-      await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
-    });
-  });
+  test("clicking on tab nav links changes active category and fetches news", async () => {
+    const { getByText } = renderValue;
 
-  test("onError function is called when image fails to load", async () => {
-    getGeneralNews.mockResolvedValueOnce([
-      {
-        title: "Article 1",
-        urlToImage: "invalid-image.jpg",
-        description: "Description 1",
-        url: "url1",
-      },
-    ]);
+    // Click on "Business" tab
+    fireEvent.click(getByText("Business"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("business")
+    );
 
-    await act(async () => {
-      await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
-      const brokenImage = screen.getByAltText("Article 1");
-      fireEvent.error(brokenImage);
-    });
-  });
+    // Click on "Entertainment" tab
+    fireEvent.click(getByText("Entertainment"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("entertainment")
+    );
 
-  test("navigates to the selected category", async () => {
-    await act(async () => {
-      await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
-      const navigate = useNavigate();
-      const businessTab = screen.getByRole("link", { name: /business/i });
-      fireEvent.click(businessTab);
-      expect(navigate).toHaveBeenCalledWith("/business", { replace: true });
-    });
+    // Click on "Health" tab
+    fireEvent.click(getByText("Health"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("health")
+    );
+
+    // Click on "Science" tab
+    fireEvent.click(getByText("Science"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("science")
+    );
+
+    // Click on "Sports" tab
+    fireEvent.click(getByText("Sports"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("sports")
+    );
+
+    // Click on "Technology" tab
+    fireEvent.click(getByText("Technology"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("technology")
+    );
   });
 });

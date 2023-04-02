@@ -1,11 +1,12 @@
 import { React, useEffect, useState } from "react";
-import { getGeneralNews } from "../../api/news";
+import { getNewsByCategory } from "../../api/news";
 import { Card, Button, Row, Col, Nav } from "react-bootstrap";
 import "../../styles/GuestLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
 import { Link, NavLink } from "react-router-dom";
 
 const GuestLanding = () => {
+  const [activeCategory, setActiveCategory] = useState("general");
   const [articles, setArticles] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const categories = [
@@ -18,13 +19,14 @@ const GuestLanding = () => {
     "technology",
   ];
 
+  const fetchArticles = async () => {
+    const response = await getNewsByCategory(activeCategory);
+    setArticles(response);
+  };
+
   useEffect(() => {
-    const fetchArticles = async () => {
-      const response = await getGeneralNews();
-      setArticles(response);
-    };
     fetchArticles();
-  }, [refresh]);
+  }, [activeCategory, refresh]);
 
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
@@ -36,6 +38,7 @@ const GuestLanding = () => {
     <>
       <div className="guestLanding" data-testid="guest-landing">
         <Nav
+          data-testid="active-category"
           className="centered-tabs"
           variant="tabs"
           defaultActiveKey="/general"
@@ -44,7 +47,7 @@ const GuestLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              to="/general"
+              onClick={() => setActiveCategory("general")}
             >
               General
             </NavLink>
@@ -53,7 +56,7 @@ const GuestLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              to="/business"
+              onClick={() => setActiveCategory("business")}
             >
               Business
             </NavLink>
@@ -62,7 +65,7 @@ const GuestLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              to="/entertainment"
+              onClick={() => setActiveCategory("entertainment")}
             >
               Entertainment
             </NavLink>
@@ -71,7 +74,7 @@ const GuestLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              to="/health"
+              onClick={() => setActiveCategory("health")}
             >
               Health
             </NavLink>
@@ -80,7 +83,7 @@ const GuestLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              to="/science"
+              onClick={() => setActiveCategory("science")}
             >
               Science
             </NavLink>
@@ -89,7 +92,7 @@ const GuestLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              to="/sports"
+              onClick={() => setActiveCategory("sports")}
             >
               Sports
             </NavLink>
@@ -98,7 +101,7 @@ const GuestLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              to="/technology"
+              onClick={() => setActiveCategory("technology")}
             >
               Technology
             </NavLink>
