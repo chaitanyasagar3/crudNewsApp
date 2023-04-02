@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { getNewsByCategory } from "../../api/news";
-
+import NewsCard from "./NewsCard";
 import { Card, Button, Row, Col, Nav } from "react-bootstrap";
 import "../../styles/UserLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
@@ -162,30 +162,12 @@ const UserLanding = () => {
         <Row xs={1} md={2} lg={3} className="g-4">
           {articles?.map((article) => (
             <Col key={article.title}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>{article.title}</Card.Title>
-                  <Card.Img
-                    variant="top"
-                    src={article.urlToImage || brokenNewspaper}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = brokenNewspaper;
-                    }}
-                  />
-                  <Card.Subtitle className="mb-2 source">
-                    {article.source.name}
-                  </Card.Subtitle>
-                  <Card.Text>
-                    {sanitizeDescription(article.description)}
-                  </Card.Text>
-                  <div className="mt-auto">
-                    <Button variant="light" href={article.url}>
-                      Read More
-                    </Button>
-                  </div>
-                </Card.Body>
-              </Card>
+              <NewsCard
+                key={article.title}
+                article={article}
+                brokenNewspaper={brokenNewspaper}
+                sanitizeDescription={sanitizeDescription}
+              />
             </Col>
           ))}
         </Row>
