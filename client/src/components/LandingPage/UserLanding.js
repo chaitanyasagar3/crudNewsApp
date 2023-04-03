@@ -60,7 +60,10 @@ const UserLanding = () => {
     setShowSettings(false);
   };
 
-  const paginate = (pageNumbers) => setCurrentPage(pageNumbers);
+  const paginate = (pageNumbers) => {
+    setCurrentPage(pageNumbers);
+    window.scrollTo(0, 0);
+  }
   const pageNumbers = [];
   for (let i = 1; i <= 15; i++) {
     pageNumbers.push(i);
@@ -79,7 +82,8 @@ const UserLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              onClick={() => setActiveCategory("general")}
+              onClick={() => {setActiveCategory("general");
+              setCurrentPage(1);}}
             >
               Home
             </NavLink>
@@ -88,7 +92,8 @@ const UserLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              onClick={() => setActiveCategory("general")}
+              onClick={() => {setActiveCategory("general");
+              setCurrentPage(1);}}
             >
               General
             </NavLink>
@@ -97,7 +102,8 @@ const UserLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              onClick={() => setActiveCategory("business")}
+              onClick={() => {setActiveCategory("business");
+              setCurrentPage(1);}}
             >
               Business
             </NavLink>
@@ -106,7 +112,8 @@ const UserLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              onClick={() => setActiveCategory("entertainment")}
+              onClick={() => {setActiveCategory("entertainment");
+              setCurrentPage(1);}}
             >
               Entertainment
             </NavLink>
@@ -115,7 +122,8 @@ const UserLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              onClick={() => setActiveCategory("health")}
+              onClick={() => {setActiveCategory("health");
+              setCurrentPage(1);}}
             >
               Health
             </NavLink>
@@ -124,7 +132,8 @@ const UserLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              onClick={() => setActiveCategory("science")}
+              onClick={() => {setActiveCategory("science");
+              setCurrentPage(1);}}
             >
               Science
             </NavLink>
@@ -133,7 +142,8 @@ const UserLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              onClick={() => setActiveCategory("sports")}
+              onClick={() => {setActiveCategory("sports");
+              setCurrentPage(1);}}
             >
               Sports
             </NavLink>
@@ -142,7 +152,8 @@ const UserLanding = () => {
             <NavLink
               className="nav-link nav-link-custom"
               activeClassName="active"
-              onClick={() => setActiveCategory("technology")}
+              onClick={() => {setActiveCategory("technology");
+              setCurrentPage(1);}}
             >
               Technology
             </NavLink>
