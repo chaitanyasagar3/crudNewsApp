@@ -9,14 +9,14 @@ Test Report Client Side:
 | SettingsModal.test.js | Unit and Integration Testing | 4                     | 4                | 0                |
 | LandingPage.test.js   | Unit and Integration Test    | 2                     | 2                | 0                |
 | auth.js               | Unit Test                    | 3                     | 3                | 0                |
-| news.js               | Unit  Test                  | 3                     | 3                | 0                |
+| news.js               | Unit  Test                   | 3                     | 3                | 0                |
 | Header.js             | Unit and Integration Testing | 4                     | 4                | 0                |
 
 
 
 Overall Test Summary:
 
-Test Suites: 5, Passed: 5, Failed: 0, Total Tests: 32,
+Test Suites: 5, Passed: 5, Failed: 0, Total Tests: 44,
 Passed: 32, Failed: 0
 
 **Suits:**

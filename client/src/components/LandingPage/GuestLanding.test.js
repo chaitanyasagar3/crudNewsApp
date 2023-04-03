@@ -125,7 +125,5 @@ describe("GuestLanding", () => {
       fireEvent.click(3);
       expect(3).toBeInTheDocument();
     });
-  }
-  );
-
+  });
 });
