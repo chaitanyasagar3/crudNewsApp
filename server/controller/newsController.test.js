@@ -25,7 +25,7 @@ describe("News Controller", () => {
   describe("GET /api/news enpoint", () => {
     it("should return a 200 status code", async () => {
       const response = await request(app)
-        .get("/api/news")
+        .get("/api/news/category")
         .query({ category: "general" });
       expect(response.statusCode).toBe(200);
       expect(response.body).toBeDefined();
@@ -37,7 +37,7 @@ describe("News Controller", () => {
   describe("GET /api/news enpoint", () => {
     it("should return a 500 status code", async () => {
       const response = await request(app)
-        .get("/api/news")
+        .get("/api/news/category")
         .query({ category: "" });
       expect(response.statusCode).toBe(500);
       expect(response.body).toBeDefined();
@@ -49,7 +49,7 @@ describe("News Controller", () => {
   describe("GET /api/news enpoint", () => {
     it("should return a 200 status code", async () => {
       const response = await request(app)
-        .get("/api/news")
+        .get("/api/news/category")
         .query({ category: "general", country: "us" });
       expect(response.statusCode).toBe(200);
       expect(response.body).toBeDefined();
@@ -97,7 +97,7 @@ describe("News Controller", () => {
   describe("GET /api/news enpoint", () => {
     it("should return a 200 status code", async () => {
       const response = await request(app)
-        .get("/api/news")
+        .get("/api/news/category")
         .query({ category: "general" });
       expect(response.statusCode).toBe(200);
       expect(response.body).toBeDefined();
@@ -115,7 +115,7 @@ describe("News Controller", () => {
   describe("GET /api/news enpoint", () => {
     it("should return a 200 status code", async () => {
       const response = await request(app)
-        .get("/api/news")
+        .get("/api/news/category")
         .query({ category: "general" });
       expect(response.statusCode).toBe(200);
       expect(response.body).toBeDefined();
@@ -133,7 +133,7 @@ describe("News Controller", () => {
   describe("GET /api/news enpoint", () => {
     it("should return a 200 status code", async () => {
       const response = await request(app)
-        .get("/api/news")
+        .get("/api/news/category")
         .query({ category: "general" });
       expect(response.statusCode).toBe(200);
       expect(response.body).toBeDefined();
@@ -146,7 +146,7 @@ describe("News Controller", () => {
   describe("GET /api/news enpoint", () => {
     it("should return a 200 status code", async () => {
       const response = await request(app)
-        .get("/api/news")
+        .get("/api/news/category")
         .query({ category: "general" });
       expect(response.statusCode).toBe(200);
       expect(response.body).toBeDefined();
@@ -155,32 +155,62 @@ describe("News Controller", () => {
     });
   });
 
-    //Check if the returned articles publishedAt is valid
-    describe("GET /api/news enpoint", () => {
-        it("should return a 200 status code", async () => {
-            const response = await request(app)
-            .get("/api/news")
-            .query({ category: "general" });
-            expect(response.statusCode).toBe(200);
-            expect(response.body).toBeDefined();
-            expect(response.body.length).toBeGreaterThan(0);
-            expect(response.body[0].publishedAt).toMatch(
-            /^([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})Z$/
-            );
-        });
-        });
+  //Check if the returned articles publishedAt is valid
+  describe("GET /api/news enpoint", () => {
+    it("should return a 200 status code", async () => {
+      const response = await request(app)
+        .get("/api/news/category")
+        .query({ category: "general" });
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toBeDefined();
+      expect(response.body.length).toBeGreaterThan(0);
+      expect(response.body[0].publishedAt).toMatch(
+        /^([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})Z$/
+      );
+    });
+  });
 
-    //Check if the returned articles source has name and id
-    describe("GET /api/news enpoint", () => {
-        it("should return a 200 status code", async () => {
-            const response = await request(app)
-            .get("/api/news")
-            .query({ category: "general" });
-            expect(response.statusCode).toBe(200);
-            expect(response.body).toBeDefined();
-            expect(response.body.length).toBeGreaterThan(0);
-            expect(response.body[0].source.name).toBeDefined();
-            expect(response.body[0].source.id).toBeDefined();
-        });
-        });
+  //Check if the returned articles source has name and id
+  describe("GET /api/news enpoint", () => {
+    it("should return a 200 status code", async () => {
+      const response = await request(app)
+        .get("/api/news/category")
+        .query({ category: "general" });
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toBeDefined();
+      expect(response.body.length).toBeGreaterThan(0);
+      expect(response.body[0].source.name).toBeDefined();
+      expect(response.body[0].source.id).toBeDefined();
+    });
+  });
+
+  //Check new end point
+  describe("GET /api/news/{user} enpoint", () => {
+    const user = {
+      preferences: {
+        general: true,
+        business: false,
+        entertainment: false,
+        health: true,
+        science: false,
+        sports: false,
+        technology: false,
+      },
+      _id: "642a59bb993bcfbe59c2791b",
+      hashedPassword:
+        "b285e393a516e7c0cdf900b1f1a79c270d4733cfc6d93285ff41f2a80445fef4",
+      username: "Chaitanya",
+      __v: 0,
+      accessToken:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkNoYWl0YW55YSIsImlkIjoiNjQyYTU5YmI5OTNiY2ZiZTU5YzI3OTFiIiwiaWF0IjoxNjgwNTYyNTU4fQ.fNLfm6wreu1D_mNlWhPfCbhjBQ6JHFZ6wtPlhU-rWPs",
+    };
+    it("should return a 200 status code", async () => {
+      const response = await request(app)
+      .get(`/api/news/`)
+      .send(user)
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toBeDefined();
+      expect(response.body.length).toBeGreaterThan(0);
+    });
+  });
 });
