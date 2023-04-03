@@ -117,4 +117,15 @@ describe("GuestLanding", () => {
       expect(getNewsByCategory).toHaveBeenCalledWith("technology")
     );
   });
+
+  test("if pagination works", async () => {
+    const { getByRole } = renderValue;
+    await act(async () => {
+      const nextButton = await getByRole("button", { name: "Next" });
+      fireEvent.click(3);
+      expect(3).toBeInTheDocument();
+    });
+  }
+  );
+
 });
