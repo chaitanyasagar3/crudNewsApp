@@ -92,3 +92,14 @@ h1 {
 .settings-modal .custom-control-label:hover {
   color: rgb(0, 139, 139);
 }
+
+.centered-tabs {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.centered-tabs .nav-link  {
+  color: rgb(0, 139, 139);
+  margin-top: 5px;
+}

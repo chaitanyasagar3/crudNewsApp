@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { getNewsByCategory } from "../../api/news";
 import NewsCard from "./NewsCard";
-import { Card, Button, Row, Col, Nav } from "react-bootstrap";
+import { Card, Button, Row, Col, Nav, Pagination } from "react-bootstrap";
 import "../../styles/GuestLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
 import { Link, NavLink } from "react-router-dom";
@@ -10,6 +10,9 @@ const GuestLanding = () => {
   const [activeCategory, setActiveCategory] = useState("general");
   const [articles, setArticles] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [articlesPerPage, setArticlesPerPage] = useState(9);
+
   const categories = [
     "general",
     "business",
@@ -22,17 +25,26 @@ const GuestLanding = () => {
 
   const fetchArticles = async () => {
     const response = await getNewsByCategory(activeCategory);
-    setArticles(response);
+    const startIndex = (currentPage - 1) * articlesPerPage;
+    const endIndex = startIndex + articlesPerPage;
+    const articlesForPage = response.slice(startIndex, endIndex);
+    setArticles(articlesForPage);
   };
 
   useEffect(() => {
     fetchArticles();
-  }, [activeCategory, refresh]);
+  }, [activeCategory, refresh, currentPage, articlesPerPage]);
 
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
     return stripped.length > 150 ? stripped.slice(0, 150) + "..." : stripped;
   };
+
+  const paginate = (pageNumbers) => setCurrentPage(pageNumbers);
+  const pageNumbers = [];
+  for (let i = 1; i <= 15; i++) {
+    pageNumbers.push(i);
+  }
 
   // let auth = useAuth();
   return (
@@ -141,6 +153,50 @@ const GuestLanding = () => {
             </Col>
           ))}
         </Row>
+        <div className="d-flex justify-content-center my-4">
+          <Pagination>
+            {currentPage > 1 && (
+              <Pagination.Ellipsis key="first" onClick={() => paginate(1)} />
+            )}
+            {currentPage > 1 && (
+              <Pagination.Prev
+                key="prev"
+                onClick={() => paginate(currentPage - 1)}
+              />
+            )}
+            {pageNumbers.map((number) => {
+              if (
+                number === 1 ||
+                number === pageNumbers.length ||
+                (number >= currentPage - 1 && number <= currentPage + 1)
+              ) {
+                return (
+                  <Pagination.Item
+                    key={number}
+                    active={number === currentPage}
+                    onClick={() => paginate(number)}
+                  >
+                    {number}
+                  </Pagination.Item>
+                );
+              } else {
+                return null;
+              }
+            })}
+            {currentPage < pageNumbers.length - 1 && (
+              <Pagination.Next
+                key="next"
+                onClick={() => paginate(currentPage + 1)}
+              />
+            )}
+            {currentPage < pageNumbers.length - 2 && (
+              <Pagination.Ellipsis
+                key="last"
+                onClick={() => paginate(pageNumbers.length)}
+              />
+            )}
+          </Pagination>
+        </div>
       </div>
     </>
   );
