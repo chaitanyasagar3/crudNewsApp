@@ -17,7 +17,6 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 1rem;
-  background-color: rgba(0, 139, 139, 0.8);
   /* margin-bottom: 10rem; */
 }
 
@@ -70,16 +69,6 @@ h1 {
   color: white;
 }
 
-.nav-link-custom {
-
-  color: wheat;
-}
-.nav-link-custom.active {
-  color: black;
-}
-.nav-link-custom:hover {
-  color: black;
-}
 
 .centered-tabs {
   display: flex;
@@ -88,6 +77,23 @@ h1 {
 }
 
 .centered-tabs .nav-link  {
-  color: rgb(0, 139, 139);
   margin-top: 5px;
+  color: grey;
+  text-decoration-color: white;
+}
+a.nav-link.nav-link-custom{
+  background-color: grey !important;
+
+}
+
+/* .nav-link-custom.active {
+  color: grey;
+  font-weight: bold;
+} */
+
+.nav-link-custom:hover {
+  color: grey;
+  background-color: #6c757d;
+  font-weight: bold;
+
 }
