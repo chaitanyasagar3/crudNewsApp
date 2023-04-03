@@ -12,6 +12,14 @@
   padding: 1rem;
   border: 2px solid darkcyan;
 }
+.centered-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 139, 139, 0.8);
+  /* margin-bottom: 10rem; */
+}
 
 .card-title {
   font-size: 1.5rem;
@@ -34,6 +42,7 @@
   object-fit: scale-down;
   margin-bottom: 1rem;
 }
+
 
 .source {
   font-size: 1rem;
@@ -59,4 +68,26 @@ h1 {
   font-weight: bold;
   text-shadow: 1px 1px darkcyan;
   color: white;
+}
+
+.nav-link-custom {
+
+  color: wheat;
+}
+.nav-link-custom.active {
+  color: black;
+}
+.nav-link-custom:hover {
+  color: black;
+}
+
+.centered-tabs {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.centered-tabs .nav-link  {
+  color: rgb(0, 139, 139);
+  margin-top: 5px;
 }

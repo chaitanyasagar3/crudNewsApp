@@ -22,47 +22,62 @@ const SignUpPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const passwordError = validatePassword(formData.password);
-    try {
-      const response = await signup(formData.username, formData.password);
-      const user = response?.data;
-      if (user) {
-        navigate("/login");
-      }
-      //navigate("/login");
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
+    const passwordError = validatePassword(formData.password, formData.confirmPassword);
     if (formData.password !== formData.confirmPassword) {
       setErrorMessage("Passwords do not match");
     } else if (passwordError) {
       setErrorMessage(passwordError);
     } else {
       // handle form submission here
+      try {
+        const response = await signup(formData.username, formData.password);
+        const user = response;
+        if (user) {
+          window.alert("User created successfully");
+          navigate("/login", { replace: true });
+        }
+        //navigate("/login");
+      } catch (error) {
+        if (error.response?.status === 409) {
+          setErrorMessage("Username already exists");
+        }
+        else if (error.response?.status === 400) {
+          setErrorMessage("Unable to connect to server");
+        }
+        else{
+          setErrorMessage("Sign up failed");
+        }
+      }
       console.log("Form submitted");
     }
+    
+    
   };
 
   const handleCancel = () => {
     navigate("/login");
   };
 
-  const validatePassword = (password) => {
-    if (password.includes(" ")) {
+  const validatePassword = (password,confirmPassword) => {
+    if (password.includes(" ") || confirmPassword.includes(" ")) {
       return "Password cannot contain spaces";
     }
-    if (password.length < 8) {
+    if ((password.length < 8) || (confirmPassword.length < 8)) {
       return "Password must be at least 8 characters long";
     }
-    if (!/[A-Z]/.test(password)) {
+    if ((!/[A-Z]/.test(password))||(!/[A-Z]/.test(confirmPassword))) {
       return "Password must contain at least one uppercase letter";
     }
-    if (!/[a-z]/.test(password)) {
+    if ((!/[a-z]/.test(password))||(!/[a-z]/.test(confirmPassword))) {
       return "Password must contain at least one lowercase letter";
     }
-    if (!/[^a-zA-Z]/.test(password)) {
+    if ((!/[^a-zA-Z]/.test(password))||(!/[^a-zA-Z]/.test(confirmPassword))) {
       return "Password must contain at least one non-letter character";
     }
+    if (password !== confirmPassword) {
+      return "Passwords do not match";
+    }
+    
     return null;
   };
   const handleFormClick = () => {

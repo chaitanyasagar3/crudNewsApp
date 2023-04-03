@@ -46,7 +46,11 @@ userController.post("/login", async (req, res) => {
 userController.post("/add-user", async (req, res) => {
   try {
     const { username, password } = req.body;
-    console.log(sha256(password));
+    const existingUser = await User.findOne({ username: username });
+    if (existingUser) {
+      res.status(409).send("User already exists");
+      return;
+    }
     const userData = {
       username,
       hashedPassword: sha256(password),

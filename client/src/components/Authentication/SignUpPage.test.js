@@ -41,7 +41,7 @@ describe("SignUpPage", () => {
     await waitFor(() => expect(signup).toHaveBeenCalledTimes(1));
     expect(signup).toHaveBeenCalledWith("user1", "Password1!");
     expect(mockNavigate).toHaveBeenCalledTimes(1);
-    expect(mockNavigate).toHaveBeenCalledWith("/login");
+    expect(mockNavigate).toHaveBeenCalledWith("/login", { replace: true });
   });
 
   test("shows an error when passwords do not match", async () => {
@@ -70,10 +70,38 @@ describe("SignUpPage", () => {
     ).toBeInTheDocument();
   });
 
+  test("show error when password and confirmed password isnt same", async () => {
+    userEvent.type(screen.getByLabelText("Username"), "user1");
+    userEvent.type(screen.getByLabelText("Password"), "Password1!");
+    userEvent.type(screen.getByLabelText("Confirm Password"), "Password2!");
+
+    fireEvent.click(screen.getByRole("button", { name: "Sign Up" }));
+
+    expect(
+      await screen.findByText("Passwords do not match")
+    ).toBeInTheDocument();
+  });
+
+  test("shows an error when confirmed password is invalid", async () => {
+    userEvent.type(screen.getByLabelText("Username"), "user1");
+    userEvent.type(screen.getByLabelText("Password"), "Password1!");
+    userEvent.type(screen.getByLabelText("Confirm Password"), "password");
+
+    fireEvent.click(screen.getByRole("button", { name: "Sign Up" }));
+
+    expect(
+      await screen.findByText(
+        "Passwords do not match"
+      )
+    ).toBeInTheDocument();
+  });
+
   test("navigates back to login page when the cancel button is clicked", () => {
     fireEvent.click(screen.getByRole("button", { name: "Cancel" }));
 
     expect(mockNavigate).toHaveBeenCalledTimes(1);
     expect(mockNavigate).toHaveBeenCalledWith("/login");
   });
+
+ 
 });

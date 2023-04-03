@@ -1,24 +1,25 @@
-import { getGeneralNews } from "./news";
+import { getNewsByCategory } from "./news";
 import axios from "./axios";
 
 jest.mock("./axios", () => ({
   get: jest.fn(),
 }));
 
-describe("getGeneralNews", () => {
+describe("getNewsByCategory", () => {
   it("should call axios.get with correct params", async () => {
+    const category = "general";
     axios.get.mockResolvedValue({ data: [] });
-    await getGeneralNews();
+    await getNewsByCategory(category);
     expect(axios.get).toHaveBeenCalledTimes(1);
     expect(axios.get).toHaveBeenCalledWith("/news", {
-      params: { category: "general" },
+      params: { category: category },
     });
   });
 
   it("should return articles on success", async () => {
     const mockArticles = [{ title: "Article 1" }, { title: "Article 2" }];
     axios.get.mockResolvedValue({ data: mockArticles });
-    const result = await getGeneralNews();
+    const result = await getNewsByCategory();
     expect(result).toEqual(mockArticles);
   });
 
@@ -26,8 +27,43 @@ describe("getGeneralNews", () => {
     const mockError = new Error("Request failed");
     axios.get.mockRejectedValue(mockError);
     console.error = jest.fn(); // Mock console.error method
-    await getGeneralNews();
+    await getNewsByCategory();
     expect(console.error).toHaveBeenCalledTimes(1);
     expect(console.error).toHaveBeenCalledWith(mockError);
   });
 });
+
+// import { getGeneralNews } from "./news";
+
+// import axios from "./axios";
+
+// jest.mock("./axios", () => ({
+//   get: jest.fn(),
+// }));
+
+// describe("getGeneralNews", () => {
+//   it("should call axios.get with correct params", async () => {
+//     axios.get.mockResolvedValue({ data: [] });
+//     await getGeneralNews();
+//     expect(axios.get).toHaveBeenCalledTimes(1);
+//     expect(axios.get).toHaveBeenCalledWith("/news", {
+//       params: { category: "general" },
+//     });
+//   });
+
+//   it("should return articles on success", async () => {
+//     const mockArticles = [{ title: "Article 1" }, { title: "Article 2" }];
+//     axios.get.mockResolvedValue({ data: mockArticles });
+//     const result = await getGeneralNews();
+//     expect(result).toEqual(mockArticles);
+//   });
+
+//   it("should log error on failure", async () => {
+//     const mockError = new Error("Request failed");
+//     axios.get.mockRejectedValue(mockError);
+//     console.error = jest.fn(); // Mock console.error method
+//     await getGeneralNews();
+//     expect(console.error).toHaveBeenCalledTimes(1);
+//     expect(console.error).toHaveBeenCalledWith(mockError);
+//   });
+// });

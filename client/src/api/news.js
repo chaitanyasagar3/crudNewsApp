@@ -1,9 +1,9 @@
 import axios from "./axios";
 
-export const getGeneralNews = async () => {
+export const getNewsByCategory = async (category) => {
   try {
     const response = await axios.get("/news", {
-      params: { category: "general" },
+      params: { category: category },
     });
     const articles = response.data;
     console.log(articles);
@@ -11,5 +11,4 @@ export const getGeneralNews = async () => {
   } catch (error) {
     console.error(error);
   }
-  
 };
