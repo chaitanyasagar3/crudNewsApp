@@ -132,7 +132,7 @@ CRUDBoard
 
 Date: 3/9/2023
 
-Version 0.1
+Version 0.2
 
 Table of Contents
     Objectives
@@ -216,13 +216,12 @@ Test Plan
    2.Sprint 2  (3/6/2023 - 3/20/2023)
 
 
-Sprint 3 Plans
-
+Sprint 3:
 
 
 Date: 29/3/2023
 
-Version 0.1
+Version 0.3
 
 Table of Contents
     Objectives
@@ -316,7 +315,7 @@ REST API Requirements
 4. Test Strategy
 
    Test Methodology : **Jest** + Manual Testing
-   Unit/Integration Testing
+   Perform Unit/Integration Testing.
 
 5. Project Milestones
 
