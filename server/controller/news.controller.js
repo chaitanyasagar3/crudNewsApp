@@ -35,6 +35,7 @@ newsController.post("/", async (req, res) => {
     const categories = Object.keys(user.preferences).filter(
       (category) => user.preferences[category]
     );
+    console.log(categories);
     const response = await Promise.all(
       categories.map((category) =>
         newsapi.v2.everything({
