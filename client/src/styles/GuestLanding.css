@@ -84,18 +84,49 @@ h1 {
 a.nav-link.nav-link-custom{
   background-color: grey !important;
   color: white;
+  border: 2px solid rgb(0, 139, 139);
 
 }
 .guestLanding > .nav > .nav-item > .nav-link-custom.active {
   background-color: white!important;
   color: black;
   font-weight: bold;
+  border: 2px solid rgb(0, 139, 139);
 }
 
 .guestLanding > .nav > .nav-item > .nav-link-custom {
   color: white;
+  border: 2px solid rgb(0, 139, 139);
 }
 
 .guestLanding > .nav > .nav-item > .nav-link-custom:hover {
   font-weight: bold;
+  border: 2px solid rgb(0, 139, 139);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination .page-item {
+  margin: 0 10px;
+}
+
+.pagination .page-item.active .page-link {
+  color: #fff;
+  background-color: gray;
+  border-color: rgb(0, 139, 139);
+}
+
+.pagination .page-link {
+  color: black;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.pagination .page-link:hover {
+  color: #fff;
+  background-color: gray;
+  border-color:rgb(0, 139, 139) ;
 }

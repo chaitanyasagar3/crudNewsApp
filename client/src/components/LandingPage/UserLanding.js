@@ -221,7 +221,7 @@ const UserLanding = () => {
         onHide={handleSettingsCancel}
         onSubmit={handleSettingsSubmit}
       />
-      <div className="d-flex justify-content-center my-4">
+      <div className="my-pagination">
         <Pagination>
           {currentPage > 1 && (
             <Pagination.Ellipsis key="first" onClick={() => paginate(1)} />
