@@ -76,24 +76,26 @@ h1 {
   width: 100%;
 }
 
-.centered-tabs .nav-link  {
+/* .centered-tabs .nav-link  {
   margin-top: 5px;
   color: grey;
   text-decoration-color: white;
-}
+} */
 a.nav-link.nav-link-custom{
   background-color: grey !important;
+  color: white;
 
 }
-
-/* .nav-link-custom.active {
-  color: grey;
+.guestLanding > .nav > .nav-item > .nav-link-custom.active {
+  background-color: white!important;
+  color: black;
   font-weight: bold;
-} */
+}
 
-.nav-link-custom:hover {
-  color: grey;
-  background-color: #6c757d;
+.guestLanding > .nav > .nav-item > .nav-link-custom {
+  color: white;
+}
+
+.guestLanding > .nav > .nav-item > .nav-link-custom:hover {
   font-weight: bold;
-
 }

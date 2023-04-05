@@ -26,7 +26,7 @@ newsController.get("/category/", async (req, res) => {
 
 newsController.post("/", async (req, res) => {
   try {
-    const user = req.body.user; // assuming user data is attached to the request object
+    const user = req.body.user; 
     if (!user) {
       return res.status(401).json({ message: "Unauthorized" });
     }
@@ -35,9 +35,6 @@ newsController.post("/", async (req, res) => {
     const categories = Object.keys(user.preferences).filter(
       (category) => user.preferences[category]
     );
-    // categories = req.query.categories.split(",");
-    // const query = categories.join(" OR ");
-
     const response = await Promise.all(
       categories.map((category) =>
         newsapi.v2.everything({
@@ -54,7 +51,6 @@ newsController.post("/", async (req, res) => {
       .reduce((acc, val) => acc.concat(val), [])
       .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
       .slice(0, 250);
-    console.log(articles);
     res.json(articles);
   } catch (error) {
     console.error(error);

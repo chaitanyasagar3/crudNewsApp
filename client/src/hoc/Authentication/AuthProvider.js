@@ -29,6 +29,7 @@ const AuthProvider = ({ children }) => {
     const updatedUser = { ...getFromStorage(USER_LOCAL_STORAGE_KEY), preferences };
     setUser(updatedUser);
     setToStorage(USER_LOCAL_STORAGE_KEY, updatedUser);
+     
   },[]);
 
 

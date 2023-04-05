@@ -31,6 +31,7 @@ userController.post("/login", async (req, res) => {
             { username: user.username, id: user._id.toString() },
             "news-app-dev"
           ),
+          preferences: user.preferences,
         },
       },
     });

@@ -102,3 +102,17 @@ h1 {
 .centered-tabs .nav-link  {
   margin-top: 5px;
 }
+
+.userLanding > .nav > .nav-item > .nav-link-custom.active {
+  background-color: white!important;
+  color: black;
+  font-weight: bold;
+}
+
+.userLanding > .nav > .nav-item > .nav-link-custom {
+  color: white;
+}
+
+.userLanding > .nav > .nav-item > .nav-link-custom:hover {
+  font-weight: bold;
+}

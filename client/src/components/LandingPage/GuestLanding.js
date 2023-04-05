@@ -59,89 +59,89 @@ const GuestLanding = () => {
           variant="tabs"
           defaultActiveKey="/general"
         >
-          <Nav.Item>
-            <NavLink
+          <Nav.Item data-testid="nav-item">
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
+              active={activeCategory === "general"}
               onClick={() => {
                 setActiveCategory("general");
                 setCurrentPage(1);
               }}
             >
               General
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            <NavLink
+          <Nav.Item data-testid="nav-item">
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
+              active={activeCategory === "business"}
               onClick={() => {
                 setActiveCategory("business");
                 setCurrentPage(1);
               }}
             >
               Business
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            <NavLink
+          <Nav.Item data-testid="nav-item">
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
+              active={activeCategory === "entertainment"}
               onClick={() => {
                 setActiveCategory("entertainment");
                 setCurrentPage(1);
               }}
             >
               Entertainment
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            <NavLink
+          <Nav.Item data-testid="nav-item">
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
+              active={activeCategory === "health"}
               onClick={() => {
                 setActiveCategory("health");
                 setCurrentPage(1);
               }}
             >
               Health
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            <NavLink
+          <Nav.Item data-testid="nav-item">
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
+              active={activeCategory === "science"}
               onClick={() => {
                 setActiveCategory("science");
                 setCurrentPage(1);
               }}
             >
               Science
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            <NavLink
+          <Nav.Item data-testid="nav-item">
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
+              active={activeCategory === "sports"}
               onClick={() => {
                 setActiveCategory("sports");
                 setCurrentPage(1);
               }}
             >
               Sports
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            <NavLink
+          <Nav.Item data-testid="nav-item">
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
+              active={activeCategory === "technology" }
               onClick={() => {
                 setActiveCategory("technology");
                 setCurrentPage(1);
               }}
             >
               Technology
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
         </Nav>
 

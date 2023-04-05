@@ -1,8 +1,9 @@
 import { React, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { getNewsByCategory } from "../../api/news";
+import { getNewsByUserPreferences } from "../../api/news";
 import NewsCard from "./NewsCard";
-import { Card, Button, Row, Col, Nav,Pagination } from "react-bootstrap";
+import { Card, Button, Row, Col, Nav, Pagination } from "react-bootstrap";
 import "../../styles/UserLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
 import SettingsModal from "../Settings/SettingsModal";
@@ -11,7 +12,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const UserLanding = () => {
   const auth = useAuth();
-  const [activeCategory, setActiveCategory] = useState("general");
+  const [activeCategory, setActiveCategory] = useState("home");
   const [articles, setArticles] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -19,6 +20,7 @@ const UserLanding = () => {
   const [articlesPerPage, setArticlesPerPage] = useState(9);
 
   const categories = [
+    "home",
     "general",
     "business",
     "entertainment",
@@ -29,16 +31,24 @@ const UserLanding = () => {
   ];
 
   const fetchArticles = async () => {
-    const response = await getNewsByCategory(activeCategory);
-    const startIndex = (currentPage - 1) * articlesPerPage;
-    const endIndex = startIndex + articlesPerPage;
-    const articlesForPage = response.slice(startIndex, endIndex);
-    setArticles(articlesForPage);
+    if (auth.user && activeCategory === "home") {
+      const response = await getNewsByUserPreferences(auth.user);
+      const startIndex = (currentPage - 1) * articlesPerPage;
+      const endIndex = startIndex + articlesPerPage;
+      const articlesForPage = response.slice(startIndex, endIndex);
+      setArticles(articlesForPage);
+    } else {
+      const response = await getNewsByCategory(activeCategory);
+      const startIndex = (currentPage - 1) * articlesPerPage;
+      const endIndex = startIndex + articlesPerPage;
+      const articlesForPage = response.slice(startIndex, endIndex);
+      setArticles(articlesForPage);
+    }
   };
 
   useEffect(() => {
     fetchArticles();
-  }, [activeCategory, refresh, currentPage, articlesPerPage]);
+  }, [activeCategory, refresh, currentPage, articlesPerPage, auth.user]);
 
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
@@ -46,10 +56,9 @@ const UserLanding = () => {
   };
   const handleSettingsSubmit = async (categories) => {
     try {
-      console.log(auth.user);
       const response = await updatePreferences(auth.user._id, categories);
-      const { preferences } = response;
-      auth.updatePreferences(preferences);
+      auth.updatePreferences(response);
+      setRefresh(!refresh);
     } catch (error) {
       console.log(error);
     }
@@ -63,100 +72,111 @@ const UserLanding = () => {
   const paginate = (pageNumbers) => {
     setCurrentPage(pageNumbers);
     window.scrollTo(0, 0);
-  }
+  };
   const pageNumbers = [];
   for (let i = 1; i <= 15; i++) {
     pageNumbers.push(i);
   }
 
-
   return (
     <>
       <div className="userLanding" data-testid="user-landing">
-        <Nav
-          className="centered-tabs"
-          variant="tabs"
-          defaultActiveKey="/general"
-        >
-          <Nav.Item data-testid="nav-item">
-            <NavLink
+        <Nav className="centered-tabs" variant="tabs" activeKey="home">
+          <Nav.Item data-testid="nav-item" >
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
-              onClick={() => {setActiveCategory("general");
-              setCurrentPage(1);}}
+              active={activeCategory === "home"}
+              onClick={() => {
+                setActiveCategory("home");
+                setCurrentPage(1);
+              }}
             >
               Home
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item data-testid="nav-item">
-            <NavLink
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
-              onClick={() => {setActiveCategory("general");
-              setCurrentPage(1);}}
+              active={activeCategory === "general"}
+              onClick={() => {
+                setActiveCategory("general");
+                setCurrentPage(1);
+              }}
             >
               General
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item data-testid="nav-item">
-            <NavLink
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
-              onClick={() => {setActiveCategory("business");
-              setCurrentPage(1);}}
+              active={activeCategory === "business"}
+              onClick={() => {
+                setActiveCategory("business");
+                setCurrentPage(1);
+              }}
             >
               Business
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item data-testid="nav-item">
-            <NavLink
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
-              onClick={() => {setActiveCategory("entertainment");
-              setCurrentPage(1);}}
+              active={activeCategory === "entertainment"}
+              onClick={() => {
+                setActiveCategory("entertainment");
+                setCurrentPage(1);
+              }}
             >
               Entertainment
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item data-testid="nav-item">
-            <NavLink
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
-              onClick={() => {setActiveCategory("health");
-              setCurrentPage(1);}}
+              active={activeCategory === "health"}
+              onClick={() => {
+                setActiveCategory("health");
+                setCurrentPage(1);
+              }}
             >
               Health
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item data-testid="nav-item">
-            <NavLink
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
-              onClick={() => {setActiveCategory("science");
-              setCurrentPage(1);}}
+              active={activeCategory === "science"}
+              onClick={() => {
+                setActiveCategory("science");
+                setCurrentPage(1);
+              }}
             >
               Science
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item data-testid="nav-item">
-            <NavLink
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
-              onClick={() => {setActiveCategory("sports");
-              setCurrentPage(1);}}
+              active={activeCategory === "sports"}
+              onClick={() => {
+                setActiveCategory("sports");
+                setCurrentPage(1);
+              }}
             >
               Sports
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item data-testid="nav-item">
-            <NavLink
+            <Nav.Link
               className="nav-link nav-link-custom"
-              activeClassName="active"
-              onClick={() => {setActiveCategory("technology");
-              setCurrentPage(1);}}
+              active={activeCategory === "technology" }
+              onClick={() => {
+                setActiveCategory("technology");
+                setCurrentPage(1);
+              }}
             >
               Technology
-            </NavLink>
+            </Nav.Link>
           </Nav.Item>
         </Nav>
         <Card className="shadow-md">
@@ -185,7 +205,7 @@ const UserLanding = () => {
 
         <Row xs={1} md={2} lg={3} className="g-4">
           {articles?.map((article) => (
-            <Col key={article.title}>
+            <Col key={article.index}>
               <NewsCard
                 key={article.title}
                 article={article}
@@ -201,50 +221,50 @@ const UserLanding = () => {
         onHide={handleSettingsCancel}
         onSubmit={handleSettingsSubmit}
       />
-       <div className="d-flex justify-content-center my-4">
-          <Pagination>
-            {currentPage > 1 && (
-              <Pagination.Ellipsis key="first" onClick={() => paginate(1)} />
-            )}
-            {currentPage > 1 && (
-              <Pagination.Prev
-                key="prev"
-                onClick={() => paginate(currentPage - 1)}
-              />
-            )}
-            {pageNumbers.map((number) => {
-              if (
-                number === 1 ||
-                number === pageNumbers.length ||
-                (number >= currentPage - 1 && number <= currentPage + 1)
-              ) {
-                return (
-                  <Pagination.Item
-                    key={number}
-                    active={number === currentPage}
-                    onClick={() => paginate(number)}
-                  >
-                    {number}
-                  </Pagination.Item>
-                );
-              } else {
-                return null;
-              }
-            })}
-            {currentPage < pageNumbers.length - 1 && (
-              <Pagination.Next
-                key="next"
-                onClick={() => paginate(currentPage + 1)}
-              />
-            )}
-            {currentPage < pageNumbers.length - 2 && (
-              <Pagination.Ellipsis
-                key="last"
-                onClick={() => paginate(pageNumbers.length)}
-              />
-            )}
-          </Pagination>
-        </div>
+      <div className="d-flex justify-content-center my-4">
+        <Pagination>
+          {currentPage > 1 && (
+            <Pagination.Ellipsis key="first" onClick={() => paginate(1)} />
+          )}
+          {currentPage > 1 && (
+            <Pagination.Prev
+              key="prev"
+              onClick={() => paginate(currentPage - 1)}
+            />
+          )}
+          {pageNumbers.map((number) => {
+            if (
+              number === 1 ||
+              number === pageNumbers.length ||
+              (number >= currentPage - 1 && number <= currentPage + 1)
+            ) {
+              return (
+                <Pagination.Item
+                  key={number}
+                  active={number === currentPage}
+                  onClick={() => paginate(number)}
+                >
+                  {number}
+                </Pagination.Item>
+              );
+            } else {
+              return null;
+            }
+          })}
+          {currentPage < pageNumbers.length - 1 && (
+            <Pagination.Next
+              key="next"
+              onClick={() => paginate(currentPage + 1)}
+            />
+          )}
+          {currentPage < pageNumbers.length - 2 && (
+            <Pagination.Ellipsis
+              key="last"
+              onClick={() => paginate(pageNumbers.length)}
+            />
+          )}
+        </Pagination>
+      </div>
     </>
   );
 };
