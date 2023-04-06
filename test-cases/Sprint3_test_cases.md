@@ -55,3 +55,35 @@ Expected results:
 
     The home screen displays only the selected categories, with appropriate content in each category.
     The customized settings persist across user sessions, ensuring a personalized user experience.
+    
+    
+    
+    
+ Test ID: 3
+ Test case name: Home Screen user authentication test
+ 
+Objective: To ensure that the home screen provides a secure and reliable user authentication process, preventing unauthorized access and protecting user data.
+
+Preconditions:
+
+     The system is up and running
+     All the required external systems and services are available and accessible
+     Test data/Unit tests written in sprint 3 have been prepared for the test case
+
+Test steps:
+
+     Attempt to access the home screen without signing in or with invalid credentials. 
+     Verify that the system does not grant access to the home screen for unauthorized users or those with incorrect credentials. 
+     Sign in with valid user credentials and verify successful access to the home screen.
+     Test the "Forgot Password" functionality, ensuring that it sends a password reset link to the registered email address.
+     Use the password reset link to change the user's password and confirm that the updated password works for signing in. 
+     Sign out and verify that the user's session is terminated, preventing unauthorized access to their account.
+     Run unit tests to check that all components related to user authentication function correctly under this scenario.
+
+Expected results:
+
+     The home screen's user authentication process is secure and reliable, preventing unauthorized access and protecting user data.
+     Unauthorized users or those with incorrect credentials cannot access the home screen. 
+     The "Forgot Password" functionality works as expected, allowing users to reset their passwords securely.
+     User sessions are terminated upon signing out, ensuring continued security.
+
