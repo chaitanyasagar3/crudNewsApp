@@ -200,10 +200,10 @@ To verify that When User is not signed in, the landing page should display a lis
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. | | Pass|		
-| 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. | | Pass|
-| 3 | Check the landing page for General news category | The user should be able to see the all news from the general category only. | | Failed|		
-| 4 | Check the landing page for other news category | The user should not be able to see the other news category. | | Failed|		
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. |The user is able to access the Landing page successfully. | Pass|		
+| 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is able to see the Sign in option | Pass|
+| 3 | Check the landing page for General news category | The user should be able to see the all news from the general category only. | The user is able to see the all news from All category | Failed|		
+| 4 | Check the landing page for other news category | The user should not be able to see the other news category. | The user is able to see the other news category too.| Failed|		
 
 # Test Case PM_002: Landing page
 * Created By: Deepak
