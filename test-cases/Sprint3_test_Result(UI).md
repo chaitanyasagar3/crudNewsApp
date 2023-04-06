@@ -22,9 +22,9 @@ To verify that a user can successfully sign in when  required username and passw
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Open the sign in page |   The sign in page should be displayed. | | |		
-| 2 | Enter a valid username and  password. | The username and password should be accepted by the system.   | | |
-| 3 | Click on the "Sign in" button. | The system should validate the username and password and allow user to sign in | | |	
+| 1 | Open the sign in page |   The sign in page should be displayed. |The sign in page is displayed. |Pass |		
+| 2 | Enter a valid username and  password. | The username and password should be accepted by the system.   |The username and password is accepted by the system.  |Pass |
+| 3 | Click on the "Sign in" button. | The system should validate the username and password and allow user to sign in |The system validated the username and password and allow user to sign in | Pass|	
 
 
 
