@@ -42,8 +42,8 @@ To verify that a user can successfully sign in when  required username and passw
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The sign in page should be accessible and functioning properly.| |
-| 2 | The form should have fields to Enter  the required information (username and  password).| |
-| 3 | The form should have a Sign in button to submit the form.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).|Username - Deepak1  |
+| 3 | The form should have a Sign in button to submit the form.| Password - *********|
 
 ## Test Scenario
 To verify that a user can successfully sign in and navigated to landing page
@@ -73,8 +73,8 @@ To verify that a user can successfully sign in and navigated to landing page
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The sign in page should be accessible and functioning properly.| |
-| 2 | The form should have fields to Enter  the required information (username and  password).| |
-| 3 | The form should have a Sign in button to submit the form.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| Username - Deepak1 |
+| 3 | The form should have a Sign in button to submit the form.| Password - *********|
 
 ## Test Scenario
 To verify that the system displays an appropriate error message when the username and  password enter incorrectly.
@@ -102,8 +102,8 @@ To verify that the system displays an appropriate error message when the usernam
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The sign in page should be accessible and functioning properly.| |
-| 2 | The form should have fields to Enter  the required information (username and  password).| |
-| 3 | The form should have a Sign in button to submit the form.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| Username - Deepak1 |
+| 3 | The form should have a Sign in button to submit the form.| Password - *********|
 
 ## Test Scenario
 To verify that the system displays an appropriate error message when the password field is left blank.
@@ -131,8 +131,8 @@ To verify that the system displays an appropriate error message when the passwor
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The sign in page should be accessible and functioning properly.| |
-| 2 | The form should have fields to Enter  the required information (username and  password).| |
-| 3 | The form should have a Sign in button to submit the form.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).|Username - Deepak1  |
+| 3 | The form should have a Sign in button to submit the form.| Password - ********* |
 
 ## Test Scenario
 To verify that the system display error message if user not exist and try to login
@@ -160,8 +160,8 @@ To verify that the system display error message if user not exist and try to log
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The sign in page should be accessible and functioning properly.| |
-| 2 | The form should have fields to Enter  the required information (username and  password).| |
-| 3 | The form should have a Sign in button to submit the form.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| Username - Deepak1 |
+| 3 | The form should have a Sign in button to submit the form.|Password - ********* |
 
 ## Test Scenario
 To verify that the sign in page has button to redirect to sign up page
@@ -191,7 +191,7 @@ To verify that the sign in page has button to redirect to sign up page
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - *********|
 
 ## Test Scenario
 To verify that When User is not signed in, the landing page should display a list of articles from the NewsAPI “General” category
@@ -218,7 +218,7 @@ To verify that When User is not signed in, the landing page should display a lis
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.|  |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is not signed in, able to see the refresh button to refresh the list of articles of general category on the landing page 
@@ -245,7 +245,7 @@ To verify that When User is not signed in, able to see the refresh button to ref
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.|  |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, the landing page display a link (or button) to open a Settings page
@@ -274,7 +274,7 @@ To verify that When User is signed in, the landing page display a link (or butto
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - *********|
 
 ## Test Scenario
 To verify that When User is signed in, able to see the refresh button to refresh the list of articles.
@@ -302,7 +302,7 @@ To verify that When User is signed in, able to see the refresh button to refresh
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - *********|
 
 ## Test Scenario
 To verify that When User is signed in, The landing page have links (or tabs) to select the articles
@@ -330,7 +330,7 @@ displayed.
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, The landing page have a “Home” link plus links for each category
@@ -358,7 +358,7 @@ To verify that When User is signed in, The landing page have a “Home” link p
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.|Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, The landing page have a “Home” button and The “Home” button link will display articles from the categories chosen in the settings page
@@ -386,7 +386,7 @@ To verify that When User is signed in, The landing page have a “Home” button
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, The user should be able to  see the articles in descending order with the most recent first
@@ -414,7 +414,7 @@ To verify that When User is signed in, The user should be able to  see the artic
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, the landing page will display articles for the “Home” link
@@ -443,7 +443,7 @@ To verify that When User is signed in, the landing page will display articles fo
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.|Username - Deepak1  & Password - *********|
 
 ## Test Scenario
 To verify that When User is signed in, Home button is highlighted
@@ -471,7 +471,7 @@ To verify that When User is signed in, Home button is highlighted
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.|Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, The currently selected link (or tab) is highlighted
@@ -500,7 +500,7 @@ To verify that When User is signed in, The currently selected link (or tab) is h
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.|Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, The currently selected link (or tab) is highlighted
@@ -528,7 +528,7 @@ To verify that When User is signed in, The currently selected link (or tab) is h
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.|Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, The list of articles supporting pagination on Landing page.
@@ -557,7 +557,7 @@ To verify that When User is signed in, The list of articles supporting paginatio
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly.| |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, The list of articles supporting pagination and user is able to choose the number of item displayed on each page on Landing page.
@@ -590,8 +590,8 @@ To verify that When User is signed in, The list of articles supporting paginatio
 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
-| 1 | The landing page should be accessible and functioning properly. | |
-| 2 | The user should be signed in | |
+| 1 | The landing page should be accessible and functioning properly. |Username - Deepak1  |
+| 2 | The user should be signed in | Password - *********|
 | 3 | The setting page should be accessible and functioning properly. | |
 
 
@@ -628,8 +628,8 @@ To verify that When User is signed in, and able to see a form of all category (o
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The landing page should be accessible and functioning properly.|  |	
-| 2 | The user should be signed in |  |	
-| 3 | The setting page should be accessible and functioning properly.|  |
+| 2 | The user should be signed in | Username - Deepak1  |	
+| 3 | The setting page should be accessible and functioning properly.| Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, and able to select the all category (of news) on Settings page
@@ -663,8 +663,8 @@ To verify that When User is signed in, and able to select the all category (of n
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The landing page should be accessible and functioning properly.|  |	
-| 2 | The user should be signed in |  |	
-| 3 | The setting page should be accessible and functioning properly.|  |
+| 2 | The user should be signed in | Username - Deepak1  |	
+| 3 | The setting page should be accessible and functioning properly.|  Password - *********|
 
 ## Test Scenario
 To verify that When User is signed in, and able to see the submit/Save button under the preference form on the setting page 
@@ -696,8 +696,8 @@ To verify that When User is signed in, and able to see the submit/Save button un
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The landing page should be accessible and functioning properly. |  |	
-| 2 | The user should be signed in |  |	
-| 3 | The setting page should be accessible and functioning properly. |  |
+| 2 | The user should be signed in | Username - Deepak1  |	
+| 3 | The setting page should be accessible and functioning properly. |Password - *********  |
 
 ## Test Scenario
 To verify that When User is signed in, and able to save the preference on the setting page 
@@ -733,8 +733,8 @@ To verify that When User is signed in, and able to save the preference on the se
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The landing page should be accessible and functioning properly. | |
-| 2 | The user should be signed in | |
-| 3 | The setting page should be accessible and functioning properly. | |
+| 2 | The user should be signed in | Username - Deepak1  |
+| 3 | The setting page should be accessible and functioning properly. |Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, and able to see the cancel button on the setting page 
@@ -768,8 +768,8 @@ To verify that When User is signed in, and able to see the cancel button on the 
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The landing page should be accessible and functioning properly. | |
-| 2 | The user should be signed in | |
-| 3 | The setting page should be accessible and functioning properly. | |
+| 2 | The user should be signed in | Username - Deepak1 |
+| 3 | The setting page should be accessible and functioning properly. | Password - *********|
 
 ## Test Scenario
 To verify that When User is signed in, and able to cancel the all preferences on the setting page 
@@ -803,8 +803,8 @@ To verify that When User is signed in, and able to cancel the all preferences on
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The landing page should be accessible and functioning properly.|  |	
-| 2 | The user should be signed in |  |	
-| 3 | The setting page should be accessible and functioning properly.|  |
+| 2 | The user should be signed in | Username - Deepak1  |	
+| 3 | The setting page should be accessible and functioning properly.| Password - ********* |
 
 ## Test Scenario
 To verify that When User is signed in, and on Settings page at least one preference should be selected
