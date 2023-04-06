@@ -601,14 +601,14 @@ To verify that When User is signed in, and able to see a form of all category (o
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully.| | |		
-| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in.| | |		
-| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details.| | |		
-| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in.| | |		
-| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | | |		
-| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page	| | |	
-| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology )| | |		
-| 8 | Click on the each cataegery | The user should be able to click on the | | |		
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully.| The user is able to access the Landing page successfully| Pass|		
+| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in.|The user is able to see the Sign in option | Pass|		
+| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details.| The user is able to access the sign in page and enter the username and password and able to submit all details|Pass |		
+| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in.|The user is able to see their name on the right top of the landing page to verify successfully logged in | Pass|		
+| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | The user is able to see the setting button on the landing page| Pass|		
+| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page	|The user is able to click on the setting button and redirect to the setting page |Pass |	
+| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology )|The user is able to see the form with all category | Pass |		
+| 8 | Click on the each cataegery | The user should be able to click on the each cataegery Button | The user is able to click on the each cataegery Button |Pass |		
 
 
 
@@ -638,14 +638,14 @@ To verify that When User is signed in, and able to select the all category (of n
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. | | |		
-| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. | | |		
-| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. | | |		
-| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | | |		
-| 5 | Check for the Setting button on landing page  | The user should be able to see the setting button on the landing page | | | 		
-| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page | | |		
-| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology ) | | |		
-| 8 | Click on the each category | The user should be able to click on the each category available on the form  | | |		
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully.| The user is able to access the Landing page successfully| Pass|		
+| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in.|The user is able to see the Sign in option | Pass|		
+| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details.| The user is able to access the sign in page and enter the username and password and able to submit all details|Pass |		
+| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in.|The user is able to see their name on the right top of the landing page to verify successfully logged in | Pass|		
+| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | The user is able to see the setting button on the landing page| Pass|		
+| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page	|The user is able to click on the setting button and redirect to the setting page |Pass |	
+| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology )|The user is able to see the form with all category | Pass |	
+| 8 | Click on the each category | The user should be able to click on the each category available on the form  |The user is able to click on the each cataegery Button |Pass |	
 
 
 
@@ -673,14 +673,14 @@ To verify that When User is signed in, and able to see the submit/Save button un
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. | | |		
-| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. | | |		
-| 3 | Navigate to sign in page and Enter the user name and password details  | The user should be able to access the sign in page and enter the username and password and able to submit all details. | | |		
-| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | | |		
-| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | | | 		
-| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page | | |		
-| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology ) | | |		
-| 8 | Check for the submit button | The user should be able to see the submit button under the the preference form on the setting page  | | |		
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully.| The user is able to access the Landing page successfully| Pass|		
+| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in.|The user is able to see the Sign in option | Pass|		
+| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details.| The user is able to access the sign in page and enter the username and password and able to submit all details|Pass |		
+| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in.|The user is able to see their name on the right top of the landing page to verify successfully logged in | Pass|		
+| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | The user is able to see the setting button on the landing page| Pass|		
+| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page	|The user is able to click on the setting button and redirect to the setting page |Pass |	
+| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology )|The user is able to see the form with all category | Pass |			
+| 8 | Check for the submit button | The user should be able to see the submit button under the the preference form on the setting page  |The user is able to see the submit button under the the preference form on the setting page  | Pass|		
 
 # Test Case PM_004: Setting page
 * Created By: Deepak
@@ -706,16 +706,16 @@ To verify that When User is signed in, and able to save the preference on the se
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. | | |		
-| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. | | |		
-| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. | | |		
-| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | | |		
-| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | | | 		
-| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page | | |		
-| 7 | The form is displayed with all news category  | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology ) | | |		
-| 8 | Check for the submit button | The user should be able to see the submit button under the the preference form on the setting page | | | 		
-| 9 | Click on submit button | The user should be able to click on the submit button and save the all preference of category they selected | | | 	
-| 10 | Navigate to landing page | After submit the preference the user should be navigated to landing page | | |
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully.| The user is able to access the Landing page successfully| Pass|		
+| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in.|The user is able to see the Sign in option | Pass|		
+| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details.| The user is able to access the sign in page and enter the username and password and able to submit all details|Pass |		
+| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in.|The user is able to see their name on the right top of the landing page to verify successfully logged in | Pass|		
+| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | The user is able to see the setting button on the landing page| Pass|		
+| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page	|The user is able to click on the setting button and redirect to the setting page |Pass |	
+| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology )|The user is able to see the form with all category | Pass |			
+| 8 | Check for the submit button | The user should be able to see the submit button under the the preference form on the setting page | The user is able to see the submit button under the the preference form on the setting page| Pass| 		
+| 9 | Click on submit button | The user should be able to click on the submit button and save the all preference of category they selected |The user is able to click on the submit button and save the all preference of category they selected |Pass | 	
+| 10 | Navigate to landing page | After submit the preference the user should be navigated to landing page |After submit the preference the user is navigated to landing page | Pass|
 	
 	
 
@@ -743,14 +743,14 @@ To verify that When User is signed in, and able to see the cancel button on the 
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. | | |		
-| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. | | |		
-| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. | | |		
-| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | | |		
-| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | | | 		
-| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page | | |		
-| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology ) | | |		
-| 8 | Check for the Cancel button | The user should be able to see the Cancel button  on the setting page | | | 		
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully.| The user is able to access the Landing page successfully| Pass|		
+| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in.|The user is able to see the Sign in option | Pass|		
+| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details.| The user is able to access the sign in page and enter the username and password and able to submit all details|Pass |		
+| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in.|The user is able to see their name on the right top of the landing page to verify successfully logged in | Pass|		
+| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | The user is able to see the setting button on the landing page| Pass|		
+| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page	|The user is able to click on the setting button and redirect to the setting page |Pass |	
+| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology )|The user is able to see the form with all category | Pass |			
+| 8 | Check for the Cancel button | The user should be able to see the Cancel button  on the setting page |The user is able to see the Cancel button  on the setting page |Pass | 		
 
 
 
@@ -778,15 +778,15 @@ To verify that When User is signed in, and able to cancel the all preferences on
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. | | |		
-| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. | | |		
-| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. | | |		
-| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | | |		
-| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page  | | |		
-| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page | | |		
-| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology ) | | |		
-| 8 | Check for the Cancel button | The user should be able to see the Cancel button  on the setting page | | | 		
-| 9 | Click on cancel button | The user should be able to click on the cancel button and navigated to landing page | | |		
+|| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully.| The user is able to access the Landing page successfully| Pass|		
+| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in.|The user is able to see the Sign in option | Pass|		
+| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details.| The user is able to access the sign in page and enter the username and password and able to submit all details|Pass |		
+| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in.|The user is able to see their name on the right top of the landing page to verify successfully logged in | Pass|		
+| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | The user is able to see the setting button on the landing page| Pass|		
+| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page	|The user is able to click on the setting button and redirect to the setting page |Pass |	
+| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology )|The user is able to see the form with all category | Pass |	
+| 8 | Check for the Cancel button | The user should be able to see the Cancel button  on the setting page |The user is able to see the Cancel button  on the setting page | Pass| 		
+| 9 | Click on cancel button | The user should be able to click on the cancel button and navigated to landing page | The user is able to click on the cancel button and navigated to landing page| Pass|		
 
 
 # Test Case PM_007: Setting page
@@ -813,13 +813,13 @@ To verify that When User is signed in, and on Settings page at least one prefere
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. | | |		
-| 2 | Check and click on the sign in Option on the landing page  | The user should be able to see the Sign in option , to verify that the user is not Signed in. | | |		
-| 3 | Navigate to sign in page and Enter the user name and password details  | The user should be able to access the sign in page and enter the username and password and able to submit all details. | | |		
-| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | | |		
-| 5 | Check for the Setting button on landing page  | The user should be able to see the setting button on the landing page | | | 		
-| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page | | |		
-| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology ) | | |		
-| 8 | Click on submit | By default at least one category should be selected and The user should be able to navigate to landing page | | | 		
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully.| The user is able to access the Landing page successfully| Pass|		
+| 2 | Check and click on the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in.|The user is able to see the Sign in option | Pass|		
+| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details.| The user is able to access the sign in page and enter the username and password and able to submit all details|Pass |		
+| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in.|The user is able to see their name on the right top of the landing page to verify successfully logged in | Pass|		
+| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | The user is able to see the setting button on the landing page| Pass|		
+| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page	|The user is able to click on the setting button and redirect to the setting page |Pass |	
+| 7 | The form is displayed with all news category | The user should be able to see the form with all category of News mentioned (General , Business, Entertainment, Health, Science, Sports, Technology )|The user is able to see the form with all category | Pass |			
+| 8 | Click on submit | By default at least one category should be selected and The user should be able to navigate to landing page |By default one category is selected and The user is able to navigate to landing page | Pass| 		
 
 
