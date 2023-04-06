@@ -228,9 +228,9 @@ To verify that When User is not signed in, able to see the refresh button to ref
 | --- | --- | --- | --- | --- |
 | 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. |The user should is able to access the Landing page successfully.  | Pass|		
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |		
-| 3 | Check the landing page for General news category | The user should be able to see the all news from the general category only. | | |		
-| 4 | Check the landing page for other news category | The user should not be able to see the other news category. | | |		
-| 5 | Check for the refresh button on landing page | The user should be able to refresh the list of articles of general category on the landing page and the button should work as expected. | | |		
+| 3 | Check the landing page for General news category | The user should be able to see the all news from the general category only. |The user should be able to see the all news from all category | Failed|		
+| 4 | Check the landing page for other news category | The user should not be able to see the other news category. |The user is able to see the other news category. |failed |		
+| 5 | Check for the refresh button on landing page | The user should be able to refresh the list of articles of general category on the landing page and the button should work as expected. | The user is able to refresh the list of articles| Pass|		
 
 # Test Case PM_003: Landing page
 * Created By: Deepak
