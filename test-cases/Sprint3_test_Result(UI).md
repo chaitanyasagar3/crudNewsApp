@@ -13,8 +13,8 @@
 | S # | Prerequisites | Test Data |
 | --- | --- | --- |
 | 1 | The sign in page should be accessible and functioning properly.| |
-| 2 | The form should have fields to Enter  the required information (username and  password).| Username - Deepak1 Password - ********* |
-| 3 | The form should have a Sign in button to submit the form.| |
+| 2 | The form should have fields to Enter  the required information (username and  password).| Username - Deepak1   |
+| 3 | The form should have a Sign in button to submit the form.|Password - ********* |
 
 ## Test Scenario
 To verify that a user can successfully sign in when  required username and password are entered correctly.
