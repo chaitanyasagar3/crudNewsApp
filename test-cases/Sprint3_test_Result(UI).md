@@ -258,8 +258,8 @@ To verify that When User is signed in, the landing page display a link (or butto
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |	
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|		
-| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page | | | 		
-| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page | | |		
+| 5 | Check for the Setting button on landing page | The user should be able to see the setting button on the landing page |The user is able to see the setting button on the landing page |Pass | 		
+| 6 | Click on setting button | The user should be able to click on the setting button and redirect to the setting page |The user is able to click on the setting button and redirect to the setting page |Pass |		
 
 # Test Case PM_004: Landing page
 * Created By: Deepak
@@ -286,7 +286,7 @@ To verify that When User is signed in, able to see the refresh button to refresh
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|				
-| 5 | Check for the refresh button on landing page | The user should be able to refresh the list of articles of general category on the landing page and the button should work as expected. | | |		
+| 5 | Check for the refresh button on landing page | The user should be able to refresh the list of articles of general category on the landing page and the button should work as expected. |The user iis able to refresh the list of articles of general category on the landing page and the button is work as expected. |Pass |		
 
 
 # Test Case PM_005: Landing page
@@ -315,7 +315,7 @@ displayed.
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |	
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
-| 5 | Check for the category button on landing page | The user should be able to select list of articles of different category on the landing page and the button should work as expected. | | |
+| 5 | Check for the category button on landing page | The user should be able to select list of articles of different category on the landing page and the button should work as expected. |The user should is to select list of articles of different category on the landing page and the button is work as expected. |Pass |
 
 # Test Case PM_006: Landing page
 * Created By: Deepak
@@ -342,7 +342,7 @@ To verify that When User is signed in, The landing page have a “Home” link p
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |	
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
-| 5 | Check for the  Home and category button on landing page | The user should be able to select Home button and list of articles of different category on the landing page and the button should work as expected. | | |
+| 5 | Check for the  Home and category button on landing page | The user should be able to select Home button and list of articles of different category on the landing page and the button should work as expected. |The user is able to select Home button and list of articles of different category on the landing page and the button is work as expected. | Pass|
 
 
 # Test Case PM_007: Landing page
@@ -370,7 +370,7 @@ To verify that When User is signed in, The landing page have a “Home” button
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |	
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|				
-| 5 | Check for the  Home  button on landing page | The user should be able to select Home button and display articles from the categories chosen in the settings page and the button should work as expected. | | |
+| 5 | Check for the  Home  button on landing page | The user should be able to select Home button and display articles from the categories chosen in the settings page and the button should work as expected. |The user is able to select Home button and display articles from the categories chosen in the settings page and the button is work as expected. | Pass|
 
 
 # Test Case PM_008: Landing page
@@ -398,8 +398,8 @@ To verify that When User is signed in, The user should be able to  see the artic
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |	
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
-| 5 | Check for the  Home and category button on landing page | The user should be able to select Home button and list of articles of different category on the landing page and the button should work as expected. | | |
-| 6 | Check for the articles will be shown on landing page | The user should be able to  see the articles in descending order with the most recent first. | | |
+| 5 | Check for the  Home and category button on landing page | The user should be able to select Home button and list of articles of different category on the landing page and the button should work as expected. |The user is able to select Home button and list of articles of different category on the landing page and the button is work as expected. |Pass |
+| 6 | Check for the articles will be shown on landing page | The user should be able to  see the articles in descending order with the most recent first. |The user is able to  see the articles in descending order with the most recent first | Pass|
 
 # Test Case PM_009: Landing page
 * Created By: Deepak
@@ -426,8 +426,8 @@ To verify that When User is signed in, the landing page will display articles fo
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |	
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
-| 5 | Check for the  Home and category button on landing page | The user should be able to select Home button and list of articles of different category on the landing page and the button should work as expected. | | |
-| 6 | Check for the articles will be shown on landing page | The user should be able to  see the articles for HOME page. | | |
+| 5 | Check for the  Home and category button on landing page | The user should be able to select Home button and list of articles of different category on the landing page and the button should work as expected. |The user is able to select Home button and list of articles of different category on the landing page and the button is work as expected. |Pass |
+| 6 | Check for the articles will be shown on landing page | The user should be able to  see the articles for HOME page. |The user is able to  see the articles for HOME page. |Pass |
 
 
 # Test Case PM_010: Landing page
@@ -455,7 +455,7 @@ To verify that When User is signed in, Home button is highlighted
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |		
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
-| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  | | |
+| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  |The user is able to see Home button highlighted | Pass|
 
 
 # Test Case PM_011: Landing page
@@ -483,8 +483,8 @@ To verify that When User is signed in, The currently selected link (or tab) is h
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |	
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
-| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  | | |
-| 6 | Click on any category button on landing page | The user should be able to see selected category button highlighted  | | |
+| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  | The user is able to see Home button highlighted|Pass |
+| 6 | Click on any category button on landing page | The user should be able to see selected category button highlighted  | The user is able to see selected category button highlighted | Pass|
 
 
 # Test Case PM_011: Landing page
@@ -512,8 +512,8 @@ To verify that When User is signed in, The currently selected link (or tab) is h
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |		
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
-| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  | | |
-| 6 | Click on any category button on landing page | The user should be able to see selected category button highlighted  | | |
+| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  |The user is able to see Home button highlighted |Pass |
+| 6 | Click on any category button on landing page | The user should be able to see selected category button highlighted  | The user is able to see selected category button highlighted | Pass|
 
 # Test Case PM_012: Landing page
 * Created By: Deepak
@@ -540,9 +540,9 @@ To verify that When User is signed in, The list of articles supporting paginatio
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |		
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
-| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  | | |
-| 6 | Click on any category button on landing page | The user should be able to see selected category button highlighted  | | |
-| 7 | Check for the pagination on landing page | The user should be able to see pagination on landing page. | | |
+| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  |The user is able to see Home button highlighted |Pass |
+| 6 | Click on any category button on landing page | The user should be able to see selected category button highlighted  |The user is able to see selected category button highlighted | Pass|
+| 7 | Check for the pagination on landing page | The user should be able to see pagination on landing page. | The user is able to see pagination on landing page.| Pass|
 
 # Test Case PM_013: Landing page
 * Created By: Deepak
@@ -569,10 +569,10 @@ To verify that When User is signed in, The list of articles supporting paginatio
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |	
 | 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
 | 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
-| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  | | |
-| 6 | Click on any category button on landing page | The user should be able to see selected category button highlighted  | | |
-| 7 | Check for the pagination on landing page | The user should be able to see pagination on landing page. | | |
-| 8 | Choose any number of article for the pagination on landing page | The user should be able to see the exact number of article they selected for  pagination on landing page. | | |
+| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  |The user is able to see Home button highlighted | Pass|
+| 6 | Click on any category button on landing page | The user should be able to see selected category button highlighted  | The user is able to see selected category button highlighted |Pass |
+| 7 | Check for the pagination on landing page | The user should be able to see pagination on landing page. |The user should be able to see pagination on landing page | Pass|
+| 8 | Check and Choose any number of article for the pagination on landing page | The user should be able to see the exact number of article they selected for  pagination on landing page. | The user is not able to select and see the exact number of article for  pagination on landing page.| Failed|
 
 
 
