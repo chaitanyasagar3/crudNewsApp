@@ -194,16 +194,16 @@ To verify that the sign in page has button to redirect to sign up page
 | 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - *********|
 
 ## Test Scenario
-To verify that When User is not signed in, the landing page should display a list of articles from the NewsAPI “General” category
+To verify that When User is not signed in, the landing page should display a list of articles from the NewsAPI “General” category only.
 
 
 ### Test Steps:
 | Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
 | --- | --- | --- | --- | --- |
-| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully.		
-| 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in.		
-| 3 | Check the landing page for General news category | The user should be able to see the all news from the general category only.		
-| 4 | Check the landing page for other news category | The user should not be able to see the other news category.		
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. | | Pass|		
+| 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. | | Pass|
+| 3 | Check the landing page for General news category | The user should be able to see the all news from the general category only. | | Failed|		
+| 4 | Check the landing page for other news category | The user should not be able to see the other news category. | | Failed|		
 
 # Test Case PM_002: Landing page
 * Created By: Deepak
