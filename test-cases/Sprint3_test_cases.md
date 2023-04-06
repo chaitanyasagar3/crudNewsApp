@@ -87,3 +87,31 @@ Expected results:
      The "Forgot Password" functionality works as expected, allowing users to reset their passwords securely.
      User sessions are terminated upon signing out, ensuring continued security.
 
+Test ID: 4
+Test case name: Home Screen user preferences persistence test
+
+Objective: 
+To ensure that the home screen maintains user preferences and settings across sessions.
+
+Preconditions:
+
+    The system is up and running All the required external systems and services are available and accessible Test data/Unit tests written in sprint 10 have been prepared for the test case
+
+Test steps:
+
+    Sign in with an existing user's credentials on one device.
+    Adjust various preferences and settings (e.g., home screen categories, display settings). 
+    Sign out and then sign in again on the same device to ensure that the updated preferences are retained across sessions.
+    Verify that the updated preferences and settings are also applied and providing a consistent user experience.
+    Make additional changes to preferences and settings on the second Session, and verify that these changes are synced back to the first session.
+    Run unit tests to check that all components related to user preferences persistence function correctly under this scenario.
+
+
+Expected results:
+
+     The home screen maintains user preferences and settings across sessions, ensuring a consistent user experience.
+     Updated settings are retained across sessions on the same device when the user signs in.
+     Changes to settings are synced to providing a seamless user experience.
+
+
+
