@@ -1,24 +1,20 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useCallback } from "react";
 import useAuth from "../../hooks/useAuth";
 import { getNewsByCategory } from "../../api/news";
 import { getNewsByUserPreferences } from "../../api/news";
 import NewsCard from "./NewsCard";
-import { Card, Button, Row, Col, Nav, Pagination } from "react-bootstrap";
+import { Card, Row, Col, Nav, Pagination } from "react-bootstrap";
 import "../../styles/UserLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
-import SettingsModal from "../Settings/SettingsModal";
-import { updatePreferences } from "../../api/auth";
 
-
+const articlesPerPage = 9;
 const UserLanding = () => {
   const auth = useAuth();
   const [activeCategory, setActiveCategory] = useState("home");
   const [articles, setArticles] = useState([]);
-  const [refresh, setRefresh] = useState(false);
-  const [showSettings, setShowSettings] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [articlesPerPage, setArticlesPerPage] = useState(9);
   const [pageCount, setPageCount] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const categories = [
     "home",
@@ -31,45 +27,47 @@ const UserLanding = () => {
     "technology",
   ];
 
-  const fetchArticles = async () => {
-    if (auth.user && activeCategory === "home") {
-      const response = await getNewsByUserPreferences(auth.user);
-      const startIndex = (currentPage - 1) * articlesPerPage;
-      const endIndex = startIndex + articlesPerPage;
-      const articlesForPage = response.slice(startIndex, endIndex);
-      setArticles(articlesForPage);
-      setPageCount(Math.ceil(response.length / articlesPerPage));
-    } else {
-      const response = await getNewsByCategory(activeCategory);
-      const startIndex = (currentPage - 1) * articlesPerPage;
-      const endIndex = startIndex + articlesPerPage;
-      const articlesForPage = response.slice(startIndex, endIndex);
-      setArticles(articlesForPage);
-      setPageCount(Math.ceil(response.length / articlesPerPage));
+  const fetchArticles = useCallback(async () => {
+    try {
+      if (auth.user && activeCategory === "home") {
+        const response = await getNewsByUserPreferences(auth.user);
+        const startIndex = (currentPage - 1) * articlesPerPage;
+        const endIndex = startIndex + articlesPerPage;
+        const articlesForPage = response.slice(startIndex, endIndex);
+        setArticles(articlesForPage);
+        setPageCount(Math.ceil(response.length / articlesPerPage));
+      } else {
+        const response = await getNewsByCategory(activeCategory);
+        const startIndex = (currentPage - 1) * articlesPerPage;
+        const endIndex = startIndex + articlesPerPage;
+        const articlesForPage = response.slice(startIndex, endIndex);
+        setArticles(articlesForPage);
+        setPageCount(Math.ceil(response.length / articlesPerPage));
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
-  };
+  }, [activeCategory, currentPage, auth.user]);
 
   useEffect(() => {
     fetchArticles();
-  }, [activeCategory, refresh, currentPage, articlesPerPage, auth.user]);
+  }, [fetchArticles]);
+
+  useEffect(() => {
+    const onRefresh = async () => {
+      if (auth.refreshArticles) {
+        await fetchArticles();
+        auth.setRefreshArticles(false);
+      }
+    };
+    onRefresh();
+  }, [auth.refreshArticles, fetchArticles, auth.setRefreshArticles]);
 
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
     return stripped.length > 150 ? stripped.slice(0, 150) + "..." : stripped;
-  };
-  const handleSettingsSubmit = async (categories) => {
-    try {
-      const response = await updatePreferences(auth.user._id, categories);
-      auth.updatePreferences(response);
-      setRefresh(!refresh);
-    } catch (error) {
-      console.log(error);
-    }
-    setShowSettings(false);
-  };
-
-  const handleSettingsCancel = () => {
-    setShowSettings(false);
   };
 
   const paginate = (pageNumbers) => {
@@ -85,7 +83,7 @@ const UserLanding = () => {
     <>
       <div className="userLanding" data-testid="user-landing">
         <Nav className="centered-tabs" variant="tabs" activeKey="home">
-          <Nav.Item data-testid="nav-item" >
+          <Nav.Item data-testid="nav-item">
             <Nav.Link
               className="nav-link nav-link-custom"
               active={activeCategory === "home"}
@@ -172,7 +170,7 @@ const UserLanding = () => {
           <Nav.Item data-testid="nav-item">
             <Nav.Link
               className="nav-link nav-link-custom"
-              active={activeCategory === "technology" }
+              active={activeCategory === "technology"}
               onClick={() => {
                 setActiveCategory("technology");
                 setCurrentPage(1);
@@ -182,30 +180,6 @@ const UserLanding = () => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
-        <Card className="shadow-md">
-          <Card.Body>
-            <Row>
-              <Col sm md="auto">
-                <Button variant="light" onClick={() => setRefresh(!refresh)}>
-                  Refresh
-                </Button>
-              </Col>
-              <Col sm>
-                <h1>Welcome {auth.user.username}!</h1>
-              </Col>
-              <Col sm md="auto">
-                <Button
-                  className="settings-button"
-                  variant="outline-light"
-                  onClick={() => setShowSettings(true)}
-                >
-                  Settings
-                </Button>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-
         <Row xs={1} md={2} lg={3} className="g-4">
           {articles?.map((article) => (
             <Col key={article.title}>
@@ -219,11 +193,7 @@ const UserLanding = () => {
           ))}
         </Row>
       </div>
-      <SettingsModal
-        show={showSettings}
-        onHide={handleSettingsCancel}
-        onSubmit={handleSettingsSubmit}
-      />
+
       <div className="my-pagination">
         <Pagination>
           {currentPage > 1 && (
