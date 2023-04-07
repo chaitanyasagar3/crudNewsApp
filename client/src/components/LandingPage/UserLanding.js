@@ -8,7 +8,7 @@ import "../../styles/UserLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
 import SettingsModal from "../Settings/SettingsModal";
 import { updatePreferences } from "../../api/auth";
-import { Link, NavLink } from "react-router-dom";
+
 
 const UserLanding = () => {
   const auth = useAuth();
@@ -18,6 +18,7 @@ const UserLanding = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [articlesPerPage, setArticlesPerPage] = useState(9);
+  const [pageCount, setPageCount] = useState(1);
 
   const categories = [
     "home",
@@ -37,12 +38,14 @@ const UserLanding = () => {
       const endIndex = startIndex + articlesPerPage;
       const articlesForPage = response.slice(startIndex, endIndex);
       setArticles(articlesForPage);
+      setPageCount(Math.ceil(response.length / articlesPerPage));
     } else {
       const response = await getNewsByCategory(activeCategory);
       const startIndex = (currentPage - 1) * articlesPerPage;
       const endIndex = startIndex + articlesPerPage;
       const articlesForPage = response.slice(startIndex, endIndex);
       setArticles(articlesForPage);
+      setPageCount(Math.ceil(response.length / articlesPerPage));
     }
   };
 
@@ -74,7 +77,7 @@ const UserLanding = () => {
     window.scrollTo(0, 0);
   };
   const pageNumbers = [];
-  for (let i = 1; i <= 15; i++) {
+  for (let i = 1; i <= pageCount; i++) {
     pageNumbers.push(i);
   }
 
@@ -205,7 +208,7 @@ const UserLanding = () => {
 
         <Row xs={1} md={2} lg={3} className="g-4">
           {articles?.map((article) => (
-            <Col key={article.index}>
+            <Col key={article.title}>
               <NewsCard
                 key={article.title}
                 article={article}
