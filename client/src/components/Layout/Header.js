@@ -2,11 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Navbar, Button, Row, Col } from "react-bootstrap";
+import Stack from "react-bootstrap/Stack";
 import { Link } from "react-router-dom";
 import headerlogo from "../../assests/headerlogo.png";
 import "../../styles/Header.css";
 import SettingsModal from "../Settings/SettingsModal";
 import { updatePreferences } from "../../api/auth";
+import { MdLogout, MdSettings, MdRefresh, MdLogin } from "react-icons/md";
+import { BiUserPlus } from "react-icons/bi";
 
 import useAuth from "../../hooks/useAuth";
 
@@ -59,48 +62,38 @@ const Header = () => {
           CRUDNEWSAPP
         </Navbar.Brand>
       </Container>
-      <Container fluid="md">
+      <Container fluid="md-auto" >
         <Navbar.Collapse className="justify-content-end">
           {auth.user ? (
             <>
-              {" "}
-              <Row>
-                <Col md="auto">
-                  <p style={{}}>Logged in as {auth.user.username}</p>
-                </Col>
-                <Col sm md="auto">
-                  <Button
-                    type="button"
-                    className="btn custom-button"
-                    variant="dark"
-                    size="lg"
-                    onClick={() => auth.setRefreshArticles(true)}
-                  >
-                    Refresh
-                  </Button>
-                </Col>
-                <Col sm md="auto">
-                  <Button
-                    type="button"
-                    className="btn custom-button"
-                    variant="dark"
-                    size="lg"
-                    onClick={() => setShowSettings(true)}
-                  >
-                    Settings
-                  </Button>
-                </Col>
-                <Col md="auto">
-                  <Button
-                    onClick={signOut}
-                    variant="secondary"
-                    size="lg"
-                    active
-                  >
-                    Logout
-                  </Button>
-                </Col>
-              </Row>
+              <Stack gap={2} alignItems="flex-end">
+                <div>
+                  <Stack gap={1} direction="horizontal">
+                    <div sm md="auto">
+                      <Button
+                        size="lg"
+                        onClick={() => auth.setRefreshArticles(true)}
+                      >
+                        <MdRefresh />
+                      </Button>
+                    </div>
+                    <div sm md="auto">
+                      <Button size="lg" onClick={() => setShowSettings(true)}>
+                        <MdSettings />
+                      </Button>
+                    </div>
+                    <div md="auto">
+                      <Button onClick={signOut} size="lg">
+                        <MdLogout />
+                      </Button>
+                    </div>
+                  </Stack>
+                </div>
+                <div>
+                  <p style={{textAlign: 'center',WebkitTextStrokeWidth: 'thin'}}>Welcome, {auth.user.username}!</p>
+                </div>
+              </Stack>
+
               <SettingsModal
                 show={showSettings}
                 onHide={handleSettingsCancel}
@@ -110,19 +103,16 @@ const Header = () => {
           ) : (
             <>
               {" "}
-              <Row>
-                <Col sm md="auto">
+              <Stack gap={1} direction="horizontal">
+                <div>
                   <Button
-                    type="button"
-                    className="btn custom-button"
-                    variant="dark"
                     size="lg"
                     onClick={() => auth.setRefreshArticles(true)}
                   >
-                    Refresh
+                    <MdRefresh />
                   </Button>
-                </Col>
-                <Col md="auto">
+                </div>
+                <div className="mx-auto">
                   <Link to="/sign-up">
                     <Button
                       type="button"
@@ -130,23 +120,18 @@ const Header = () => {
                       variant="dark"
                       size="lg"
                     >
-                      Sign Up
+                      Sign Up <BiUserPlus />
                     </Button>
                   </Link>
-                </Col>
-                <Col md="auto">
+                </div>
+                <div className="md-auto">
                   <Link to="/login">
-                    <Button
-                      type="button"
-                      className="btn custom-button"
-                      variant="outline-light"
-                      size="lg"
-                    >
-                      Sign In
+                    <Button size="lg">
+                      Login <MdLogin />
                     </Button>
                   </Link>
-                </Col>
-              </Row>
+                </div>
+              </Stack>
             </>
           )}
         </Navbar.Collapse>
