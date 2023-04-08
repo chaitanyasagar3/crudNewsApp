@@ -88,7 +88,7 @@ Expected results:
      User sessions are terminated upon signing out, ensuring continued security.
 
 Test ID: 4
-Test case name: Home Screen user preferences persistence test
+Test case name: Home Screen user settings persistence test
 
 Objective: 
 To ensure that the home screen maintains user preferences and settings across sessions.
