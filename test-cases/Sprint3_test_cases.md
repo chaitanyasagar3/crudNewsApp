@@ -38,7 +38,7 @@ Preconditions:
 
     The system is up and running
     All the required external systems and services are available and accessible
-    Test data/Unit tests written in sprint 3 have been prepared for the test case
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
 
 Test steps:
 
@@ -68,7 +68,7 @@ Preconditions:
 
      The system is up and running
      All the required external systems and services are available and accessible
-     Test data/Unit tests written in sprint 3 have been prepared for the test case
+     Test data/Unit tests written in sprint 2 have been prepared for the test case
 
 Test steps:
 
@@ -91,11 +91,13 @@ Test ID: 4
 Test case name: Home Screen user settings persistence test
 
 Objective: 
-To ensure that the home screen maintains user preferences and settings across sessions.
+To ensure that the home screen maintains user settings across sessions.
 
 Preconditions:
 
-    The system is up and running All the required external systems and services are available and accessible Test data/Unit tests written in sprint 10 have been prepared for the test case
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 02 have been prepared for the test case
 
 Test steps:
 
@@ -124,7 +126,7 @@ Preconditions:
 
     The system is up and running
     All the required external systems and services are available and accessible
-    Test data/Unit tests written in sprint 3 have been prepared for the test case
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
 
 Test steps:
 
@@ -139,4 +141,37 @@ Expected results:
     The system is case-sensitive when validating passwords and accepts only the correct password with the proper case.
     Passwords are encrypted or hashed during transmission and storage, following best practices such as salting and hashing.
 
+
+
+Test ID: 06
+Test case name: Sign Up form validation test
+
+
+Objective: To ensure that the sign up functionality validates user input and ensures correct data entry before creating a new account.
+
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+
+Test steps:
+
+    Access the sign up page and attempt to create a new account with various invalid inputs, such as:
+    - Empty or incomplete fields
+    - Invalid Username
+    - Passwords that do not meet minimum complexity requirements
+    - Non-matching password confirmation
+    Verify that the system does not create a new account and displays appropriate error messages for each case.
+    Create a new account with valid inputs and verify that the system successfully creates the account and grants access.
+    Run unit tests to check that all components related to form validation function correctly under this scenario.
+
+
+Expected results:
+
+    The sign up functionality validates user input and ensures correct data entry before creating a new account.
+    The system does not create accounts with invalid inputs and displays appropriate error messages.
+    The system creates accounts with valid inputs and grants access to the user.
 
