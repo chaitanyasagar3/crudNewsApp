@@ -1,4 +1,14 @@
-Test ID: 1
+
+
+
+
+
+
+
+
+
+
+Test ID: 17
 Test case name: Home Screen integration test
 
 Objective: To ensure that a new catagory is successfully processed end-to-end by the system, including all the integrations with external systems and services.
@@ -27,8 +37,7 @@ Expected results:
     The new user is logged in with default settings applied on their account.
     Home tab has general news and every other tab has the news which matches the tab's name.
 
-
-Test ID: 2
+Test ID: 18
 Test case name: Home Tab integration test
 
 Objective: To ensure that all the tests in the home tab reflect the user settings and al unit tests pass.
@@ -49,7 +58,6 @@ Test steps:
     All the catagories check must match the news articles.
     Run all unit tests to check if all the components are tested.
 
-
 Expected results:
 
     The user is successfully logged in the system.
@@ -57,8 +65,7 @@ Expected results:
     New checked setting are saved successfully.
     Home tab has news that matches the catagories checked.
 
-
-Test ID: 3
+Test ID: 19
 Test case name: Pagenation integration test
 
 Objective: To ensure that pagenation works in every tab.
@@ -81,8 +88,6 @@ Test steps:
     There should be a total of 100 news articles.
     The last page (page 12) should have one articles. (11 pages * 9 articles) + (1 page * 1 article) = 100 articles
     Run all unit tests to check if all the components are tested.
-
-
 
 Expected results:
 
