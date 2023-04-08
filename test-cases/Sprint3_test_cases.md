@@ -372,3 +372,30 @@ Expected results:
 
     When a user is not signed in, they can see and use the refresh button on the landing page.
     The refresh button updates the list of articles from the NewsAPI "General" category with the most recent articles, providing updated content for unsigned users.
+    
+    
+    Test ID: 14
+Test case name: Signed-in user - display articles in descending order
+
+Objective: To ensure that when a user is signed in, the articles are displayed in descending order with the most recent articles appearing first.
+
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+Test steps:
+
+    Sign in with an existing user's credentials.
+    Access the home page or a specific category page.
+    Verify that the articles are displayed in descending order, with the most recent articles appearing first.
+    Run unit tests to check that all components related to displaying articles in descending order by recency function correctly under this scenario.
+
+
+Expected results:
+
+    When a user is signed in, they can see articles displayed in descending order with the most recent articles appearing first.
+    The article display order provides users with the latest and most relevant content, enhancing their experience on the platform.
+
