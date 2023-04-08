@@ -114,4 +114,29 @@ Expected results:
      Changes to settings are synced to providing a seamless user experience.
 
 
+Test ID: 5
+Test case name: Sign In password security test
+
+Objective: 
+To ensure that the sign in functionality follows best practices for password security, protecting user accounts from unauthorized access.
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 3 have been prepared for the test case
+
+Test steps:
+
+    Attempt to sign in with valid user credentials, but using different cases for the password (e.g., upper-case, lower-case, mixed-case).
+    Verify that the system is case-sensitive when validating passwords, accepting only the correct password with the proper case.
+    Check the system's implementation of password storage, verifying that it follows best practices such as salting and hashing.
+    Run unit tests to check that all components related to password security function correctly under this scenario.
+
+Expected results:
+
+    The sign in functionality follows best practices for password security, protecting user accounts from unauthorized access.
+    The system is case-sensitive when validating passwords and accepts only the correct password with the proper case.
+    Passwords are encrypted or hashed during transmission and storage, following best practices such as salting and hashing.
+
 
