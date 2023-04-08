@@ -31,16 +31,7 @@ const SettingsModal = ({ show, onHide, onSubmit }) => {
   };
 
   const handleCancel = () => {
-    // setSelectedCategories({
-    //   general: true,
-    //   business: false,
-    //   entertainment: false,
-    //   health: false,
-    //   science: false,
-    //   sports: false,
-    //   technology: false,
-    // });
-    const categoriesCopy = { ...selectedCategories };
+    const categoriesCopy = { ...preferences };
     setSelectedCategories(categoriesCopy);
     onHide();
   };

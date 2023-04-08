@@ -62,7 +62,7 @@ describe("LandingPage", () => {
         expect(screen.getByText(`Welcome test1!`)).toBeInTheDocument();
         expect(screen.getByTestId("user-landing")).toBeInTheDocument();
       });
-
-    
   });
+
+  
 });

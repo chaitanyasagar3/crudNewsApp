@@ -41,14 +41,14 @@ const SignInPage = () => {
         // won't end up back on the login page, which is also really nice for the
         // user experience.
         console.log(user.username);
-        navigate(from, { replace: true });
+        navigate("/", { replace: true });
       });
     } catch (error) {
       console.log(error);
       if (!error.response) {
         setError("No server Response");
       } else if (error.response?.status === 400) {
-        setError("Missing Username or password");
+        setError("Username or password not found");
       } else if (error.response?.status === 401) {
         setError("Unauthorized");
       } else {

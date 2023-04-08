@@ -1,53 +1,51 @@
 import React from "react";
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import UserLanding from "./UserLanding";
-import { getGeneralNews } from "../../api/news";
+import { getNewsByCategory } from "../../api/news";
 import { act } from "react-dom/test-utils";
 import AuthProvider from "../../hoc/Authentication/AuthProvider";
 
-
 jest.mock("../../hooks/useAuth", () => ({
   __esModule: true,
-  default: () => ({user: { username: "test1" }}),
+  default: () => ({ user: { username: "test1" } }),
   useAuth: jest.fn(() => ({
-    user:{ username: "test1" }
+    user: { username: "test1" },
   })),
 }));
 
 jest.mock("../../api/news", () => ({
-  getGeneralNews: jest.fn(),
-
+  getNewsByCategory: jest.fn(),
 }));
 
 jest.mock("../../api/auth", () => ({
-    updatePreferences: jest.fn(),
-  }));
+  updatePreferences: jest.fn(),
+}));
 
 const mockNavigate = jest.fn((path, options) => {
   return { path, options };
 });
 
 jest.mock("react-router-dom", () => ({
-  Link: (props) => (
+  ...jest.requireActual("react-router-dom"),
+  NavLink: jest.fn(({ children, onClick, ...props }) => (
     <a
       href="/"
       {...props}
       onClick={(e) => {
         e.preventDefault();
-        mockNavigate(props.to, { replace: true });
+        onClick();
       }}
-    />
-  ),
-  useNavigate: () => mockNavigate,
-  useLocation: () => ({ state: { from: "/" } }),
+    >
+      {children}
+    </a>
+  )),
 }));
 
 describe("UserLanding", () => {
   let renderValue;
   beforeEach(async () => {
-    // const auth = useAuth();
     await act(async () => {
-      renderValue = render(<UserLanding/>, { wrapper: AuthProvider });
+      renderValue = render(<UserLanding />, { wrapper: AuthProvider });
     });
   });
 
@@ -55,80 +53,77 @@ describe("UserLanding", () => {
     jest.clearAllMocks();
   });
 
-  // Test that getGeneralNews is called when the component mounts.
-  test("getGeneralNews is called on mount", async () => {
-    expect(getGeneralNews).toHaveBeenCalledTimes(1);
+  // Test that getNewsByCategory is called when the component mounts.
+  test("getNewsByCategory is called on mount", async () => {
+    expect(getNewsByCategory).toHaveBeenCalledTimes(1);
   });
 
   // Test that the refresh button works.
-
   test("refreshes news articles on click of refresh button", async () => {
-    // Mock the response from getGeneralNews.
-    const articles = [    {      title: "Article 1",      urlToImage: "image1.jpg",      source: { name: "Source 1" },      description: "Description 1",      url: "article1.com",    },  ];
-    getGeneralNews.mockResolvedValueOnce(articles);
-  
+    // Mock the response from getNewsByCategory.
+    const articles = [
+      {
+        title: "Article 1",
+        urlToImage: "image1.jpg",
+        source: { name: "Source 1" },
+        description: "Description 1",
+        url: "article1.com",
+      },
+    ];
+    getNewsByCategory.mockResolvedValueOnce(articles);
+
     // Click the refresh button.
     const refreshButton = screen.getByText("Refresh");
-  
+
     await act(async () => {
       refreshButton.click();
     });
-  
+
     // Wait for the articles to be updated.
     await waitFor(() => {
       expect(screen.getByText(articles[0].title)).toBeInTheDocument();
     });
   });
 
-  //Test that the welcome message includes the user's username.
+  // Test that the welcome message includes the user's username.
   test("displays welcome message with username", async () => {
-    // Render the component.
-    const {getByRole} = renderValue;
-    // Wait for the articles to be fetched.
-    await act(async() => {
+    const { getByRole } = renderValue;
+    await act(async () => {
       expect(screen.getByText(`Welcome test1!`)).toBeInTheDocument();
     });
   });
 
-
-  //Test that the refresh button is displayed.
-
-  test("refresh button works", async() => {
-    const {getByRole} = renderValue;
+  // Test that the refresh button is displayed.
+  test("refresh button works", async () => {
+    const { getByRole } = renderValue;
     await act(async () => {
       const refreshButton = await getByRole("button", { name: "Refresh" });
       fireEvent.click(refreshButton);
       expect(refreshButton).toBeInTheDocument();
     });
   });
-    
-  
-  //Test that the settings button is displayed.
+
+  // Test that the settings button is displayed.
 
   test("displays settings button", async () => {
-    const {getByRole} = renderValue;
-    // Wait for the articles to be fetched.
-    await act(async()=>{
-        const settingsButton = await getByRole("button", { name: "Settings" });
-        fireEvent.click(settingsButton);
-        expect(settingsButton).toBeInTheDocument();
-    }
-    );
+    const { getByRole } = renderValue;
+    await act(async () => {
+      const settingsButton = await getByRole("button", { name: "Settings" });
+      fireEvent.click(settingsButton);
+      expect(settingsButton).toBeInTheDocument();
+    });
   });
 
-  
-  //Test that clicking the settings button opens the settings modal.
+  // Test that clicking the settings button opens the settings modal.
 
   test("clicking settings button opens settings modal", async () => {
-    const {getByRole} = renderValue;
-    // Wait for the articles to be fetched.
-    await act(async()=>{
-    // Find the settings button and click it.
-    const settingsButton = await getByRole("button", { name: "Settings" });
-    settingsButton.click();
-    // Expect the settings modal to be displayed.
-    expect(screen.getByText("Settings")).toBeInTheDocument();
+    const { getByRole } = renderValue;
+    await act(async () => {
+      // Find the settings button and click it.
+      const settingsButton = await getByRole("button", { name: "Settings" });
+      settingsButton.click();
+      // Expect the settings modal to be displayed.
+      expect(screen.getByText("Settings")).toBeInTheDocument();
+    });
   });
-});
-
 });
