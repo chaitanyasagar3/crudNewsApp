@@ -345,3 +345,30 @@ Expected results:
     When a user is not signed in, the landing page displays a list of articles from the NewsAPI "General" category.
     The general news is displayed correctly for unsigned users, providing an overview of current news events.
 
+
+
+Test ID: 13
+Test case name: Landing page - refresh button for unsigned users
+
+Objective: To ensure that when a user is not signed in, they can see and use the refresh button to refresh the list of articles from the NewsAPI "General" category on the landing page.
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+Test steps:
+
+    Ensure no user is signed in.
+    Access the landing page.
+    Verify that the refresh button is visible on the landing page.
+    Click the refresh button.
+    Verify that the list of articles from the NewsAPI "General" category is refreshed and displays the most recent articles.
+    Run unit tests to check that all components related to the refresh button functionality for unsigned users function correctly under this scenario.
+
+
+Expected results:
+
+    When a user is not signed in, they can see and use the refresh button on the landing page.
+    The refresh button updates the list of articles from the NewsAPI "General" category with the most recent articles, providing updated content for unsigned users.
