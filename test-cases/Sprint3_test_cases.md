@@ -399,3 +399,32 @@ Expected results:
     When a user is signed in, they can see articles displayed in descending order with the most recent articles appearing first.
     The article display order provides users with the latest and most relevant content, enhancing their experience on the platform.
 
+
+
+
+Test ID: 15
+Test case name: Signed-in user - highlight currently selected link or tab
+
+Objective: To ensure that when a user is signed in, the currently selected link (or tab) is highlighted, indicating the active section.
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+
+Test steps:
+
+
+    Sign in with an existing user's credentials.
+    Access the home page or a specific category page.
+    Verify that the currently selected link (or tab) is highlighted, indicating the active section.
+    Click on a different link (or tab) and verify that the newly selected link (or tab) is now highlighted, while the previous one is no longer highlighted.
+    Run unit tests to check that all components related to highlighting the currently selected link or tab function correctly under this scenario.
+
+Expected results:
+
+    When a user is signed in, the currently selected link (or tab) is highlighted, providing a clear indication of the active section.
+    The highlighting updates correctly as users navigate between links or tabs, ensuring a consistent user experience.
+
