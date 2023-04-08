@@ -320,4 +320,28 @@ Expected results:
     The system does not allow saving settings with no categories selected and displays an appropriate error message.
     The home page displays the selected category when at least one category is selected.
 
+Test ID: 12
+Test case name: Landing page - display general news for unsigned users
+
+Objective: To ensure that when a user is not signed in, the landing page displays a list of articles from the NewsAPI "General" category.
+
+Preconditions:
+
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+Test steps:
+
+    Ensure no user is signed in.
+    Access the landing page.
+    Verify that the landing page displays a list of articles from the NewsAPI "General" category.
+    Run unit tests to check that all components related to displaying general news for unsigned users function correctly under this scenario.
+
+
+Expected results:
+
+    When a user is not signed in, the landing page displays a list of articles from the NewsAPI "General" category.
+    The general news is displayed correctly for unsigned users, providing an overview of current news events.
 
