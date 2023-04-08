@@ -291,3 +291,33 @@ Expected results:
     The general category is displayed on the home page for new users.
 
 
+
+Test ID: 11
+Test case name: Settings page - minimum category selection test
+
+Objective: To ensure that the settings page requires at least one category to be selected before saving the settings.
+
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+Test steps:
+
+    Sign in with an existing user's credentials.
+    Navigate to the settings page.
+    Deselect all categories except one and click the save button.
+    Verify that the settings are saved and the home page displays the selected category.
+    Attempt to deselect all categories and click the save button.
+    Verify that the system does not allow saving settings with no categories selected and displays an appropriate error message.
+    Run unit tests to check that all components related to minimum category selection function correctly under this scenario.
+
+Expected results:
+
+    The settings page requires at least one category to be selected before saving the settings.
+    The system does not allow saving settings with no categories selected and displays an appropriate error message.
+    The home page displays the selected category when at least one category is selected.
+
+
