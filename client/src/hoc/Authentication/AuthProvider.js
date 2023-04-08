@@ -6,6 +6,7 @@ import AuthContext from "../../config/AuthContext";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [appLoaded, setAppLoaded] = useState(false);
+  const [refreshArticles, setRefreshArticles] = useState(false);
 
   useEffect(() => {
     setUser(getFromStorage(USER_LOCAL_STORAGE_KEY) || null);
@@ -34,8 +35,8 @@ const AuthProvider = ({ children }) => {
 
 
   const authValues = useMemo(
-    () => ({ user, signIn, signOut , updatePreferences}),
-    [user, signIn, signOut]
+    () => ({ user, signIn, signOut , updatePreferences, refreshArticles, setRefreshArticles}),
+    [user, signIn, signOut, updatePreferences, refreshArticles, setRefreshArticles]
   );
 
   return (

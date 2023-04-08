@@ -105,8 +105,6 @@ Database: MongoDB
    – Verify the software will perform its’ functions properly
    Acceptance test
 
-   -Stakeholders acknowledge the software’s feature
-
    Regression test
 
    -Verify that existing functionality not negatively affected by changes

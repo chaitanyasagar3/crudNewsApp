@@ -1,17 +1,19 @@
-import { React, useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { getNewsByCategory } from "../../api/news";
 import NewsCard from "./NewsCard";
-import { Card, Button, Row, Col, Nav, Pagination } from "react-bootstrap";
+import { Row, Col, Nav, Pagination } from "react-bootstrap";
 import "../../styles/GuestLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
-import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
+const articlesPerPage = 9;
 const GuestLanding = () => {
+  const auth = useAuth();
   const [activeCategory, setActiveCategory] = useState("general");
   const [articles, setArticles] = useState([]);
-  const [refresh, setRefresh] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [articlesPerPage, setArticlesPerPage] = useState(9);
+  const [pageCount, setPageCount] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const categories = [
     "general",
@@ -23,17 +25,35 @@ const GuestLanding = () => {
     "technology",
   ];
 
-  const fetchArticles = async () => {
-    const response = await getNewsByCategory(activeCategory);
-    const startIndex = (currentPage - 1) * articlesPerPage;
-    const endIndex = startIndex + articlesPerPage;
-    const articlesForPage = response.slice(startIndex, endIndex);
-    setArticles(articlesForPage);
-  };
+  const fetchArticles = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await getNewsByCategory(activeCategory);
+      const startIndex = (currentPage - 1) * articlesPerPage;
+      const endIndex = startIndex + articlesPerPage;
+      const articlesForPage = response.slice(startIndex, endIndex);
+      setArticles(articlesForPage);
+      setPageCount(Math.ceil(response.length / articlesPerPage));
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }, [activeCategory, currentPage]);
 
   useEffect(() => {
     fetchArticles();
-  }, [activeCategory, refresh, currentPage, articlesPerPage]);
+  }, [fetchArticles]);
+
+  useEffect(() => {
+    const onRefresh = async () => {
+      if (auth.refreshArticles) {
+        await fetchArticles();
+        auth.setRefreshArticles(false);
+      }
+    };
+    onRefresh();
+  }, [auth.refreshArticles, fetchArticles, auth.setRefreshArticles]);
 
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
@@ -45,7 +65,7 @@ const GuestLanding = () => {
     window.scrollTo(0, 0);
   };
   const pageNumbers = [];
-  for (let i = 1; i <= 15; i++) {
+  for (let i = 1; i <= pageCount; i++) {
     pageNumbers.push(i);
   }
 
@@ -134,7 +154,7 @@ const GuestLanding = () => {
           <Nav.Item data-testid="nav-item">
             <Nav.Link
               className="nav-link nav-link-custom"
-              active={activeCategory === "technology" }
+              active={activeCategory === "technology"}
               onClick={() => {
                 setActiveCategory("technology");
                 setCurrentPage(1);
@@ -144,26 +164,6 @@ const GuestLanding = () => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
-
-        <Card className="shadow-md">
-          <Card.Body>
-            <Row>
-              <Col sm md="auto">
-                <Button variant="light" onClick={() => setRefresh(!refresh)}>
-                  Refresh
-                </Button>
-              </Col>
-              <Col sm>
-                <h1>Welcome Guest!</h1>
-              </Col>
-              <Col sm md="auto">
-                <Link to="/Sign-up">
-                  <Button variant="outline-light">Sign Up Here!</Button>
-                </Link>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
 
         <Row xs={1} md={2} lg={3} className="g-4">
           {articles?.map((article) => (
@@ -177,7 +177,7 @@ const GuestLanding = () => {
             </Col>
           ))}
         </Row>
-        <div className="d-flex justify-content-center my-4">
+        <div className="my-pagination">
           <Pagination>
             {currentPage > 1 && (
               <Pagination.Ellipsis key="first" onClick={() => paginate(1)} />

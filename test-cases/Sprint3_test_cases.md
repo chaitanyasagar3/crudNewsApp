@@ -1,4 +1,14 @@
-Test ID: 1
+
+
+
+
+
+
+
+
+
+
+Test ID: 17
 Test case name: Home Screen integration test
 
 Objective: To ensure that a new catagory is successfully processed end-to-end by the system, including all the integrations with external systems and services.
@@ -33,6 +43,11 @@ Test ID: 2
 Test case name: Home Screen customization test
 
 Objective: To ensure that a user is able to customize their home screen with selected categories and that the system correctly displays the customized content.
+
+Test ID: 18
+Test case name: Home Tab integration test
+
+Objective: To ensure that all the tests in the home tab reflect the user settings and al unit tests pass.
 
 Preconditions:
 
@@ -121,6 +136,26 @@ Test case name: Sign In password security test
 
 Objective: 
 To ensure that the sign in functionality follows best practices for password security, protecting user accounts from unauthorized access.
+    Log in as a user and click settings.
+    Run all unit tests to check if all the components are tested.
+    Check any 2-3 catagories in the setting dialog box and save.
+    Run unit tests to see if the setting preferences have been saved for the user.
+    Navigate to home tab and check the news displayed.
+    Match the news with catagories that were checked in the setting page.
+    All the catagories check must match the news articles.
+    Run all unit tests to check if all the components are tested.
+
+Expected results:
+
+    The user is successfully logged in the system.
+    The new user is logged in with default settings applied on their account.
+    New checked setting are saved successfully.
+    Home tab has news that matches the catagories checked.
+
+Test ID: 19
+Test case name: Pagenation integration test
+
+Objective: To ensure that pagenation works in every tab.
 
 Preconditions:
 
@@ -455,3 +490,23 @@ Expected results:
     When a user is signed in, the list of articles on the landing page supports pagination, allowing users to browse through multiple pages of content.
     The pagination options function correctly, enabling users to access articles on different pages in a user-friendly manner.
 
+    Log in as a user and click settings.
+    Run all unit tests to check if all the components are tested.
+    Check any 2-3 catagories in the setting dialog box and save.
+    Run unit tests to see if the setting preferences have been saved for the user.
+    Navigate to home tab and check the news displayed.
+    Scroll to the bottom.
+    Check if the first page has 9 news articles.
+    Click the second page button on the bottom and check the number of news.
+    There should be a total of 100 news articles.
+    The last page (page 12) should have one articles. (11 pages * 9 articles) + (1 page * 1 article) = 100 articles
+    Run all unit tests to check if all the components are tested.
+
+Expected results:
+
+    The user is successfully logged in the system.
+    The new user is logged in with default settings applied on their account.
+    New checked setting are saved successfully.
+    Home tab has news that matches the catagories checked.
+    Each page has a total of 9 article each.
+    There are 12 pages with articles making a total of 100 articles.
