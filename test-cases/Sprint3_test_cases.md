@@ -235,4 +235,32 @@ Expected results:
     The home page displays the selected categories and hides the unselected categories.
 
 
+Test ID: 09
+Test case name: Settings page - cancel button functionality test
+
+Objective: To ensure that the settings page allows users to discard changes made to news category selections by clicking the cancel button, retaining the previous settings.
+
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+Test steps:
+
+    Sign in with an existing user's credentials.
+    Navigate to the settings page.
+    Note the current news category selections.
+    Select or deselect news categories as desired for display on the home page.
+    Click the cancel button to discard the changes.
+    Verify that the previous news category selections are retained, and no changes are applied to the home page.
+    Run unit tests to check that all components related to category selection and cancel button functionality function correctly under this scenario.
+
+
+
+Expected results:
+
+    The settings page allows users to discard changes made to news category selections by clicking the cancel button.
+    The previous settings are retained, and no changes are applied to the home page.
 
