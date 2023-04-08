@@ -204,3 +204,35 @@ Expected results:
     The system creates accounts and grants access for unique Username.
 
 
+
+Test ID: 08
+Test case name: Settings page - category selection and save test
+
+
+Objective: To ensure that the settings page allows users to select news categories for display on the home page and successfully saves the changes when the save button is clicked.
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+
+Test steps:
+
+    Sign in with an existing user's credentials.
+    Navigate to the settings page.
+    Select or deselect news categories as desired for display on the home page.
+    Click the save button to apply the changes.
+    Verify that the selected categories are displayed on the home page and the unselected categories are hidden.
+    Run unit tests to check that all components related to category selection and saving function correctly under this scenario.
+
+
+Expected results:
+
+    The settings page allows users to select news categories for display on the home page.
+    The changes are successfully saved and applied when the save button is clicked.
+    The home page displays the selected categories and hides the unselected categories.
+
+
+
