@@ -175,3 +175,32 @@ Expected results:
     The system does not create accounts with invalid inputs and displays appropriate error messages.
     The system creates accounts with valid inputs and grants access to the user.
 
+
+Test ID: 07
+Test case name: Sign Up duplicate account prevention test
+
+
+Objective: To ensure that the sign up functionality prevents the creation of duplicate accounts using the same Username, maintaining data integrity.
+
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+Test steps:
+
+    Create a new account with valid inputs, including a unique Username.
+    Attempt to create another account using the same Username and verify that the system does not allow the creation of a duplicate account.
+    Check that the system displays an appropriate error message, indicating that theUsername is already in use.
+    Create a new account with a different, unique Username and verify that the system successfully creates the account and grants access.
+    Run unit tests to check that all components related to duplicate account prevention function correctly under this scenario.
+
+Expected results:
+
+    The sign up functionality prevents the creation of duplicate accounts using the same Username, maintaining data integrity.
+    The system does not allow the creation of a duplicate account and displays an appropriate error message.
+    The system creates accounts and grants access for unique Username.
+
+
