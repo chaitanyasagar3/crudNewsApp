@@ -428,3 +428,30 @@ Expected results:
     When a user is signed in, the currently selected link (or tab) is highlighted, providing a clear indication of the active section.
     The highlighting updates correctly as users navigate between links or tabs, ensuring a consistent user experience.
 
+
+
+Test ID: 16
+Test case name: Signed-in user - pagination support for the list of articles on the landing page
+
+Objective: To ensure that when a user is signed in, the list of articles on the landing page supports pagination, allowing users to browse through multiple pages of content.
+
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+Test steps:
+
+    Sign in with an existing user's credentials.
+    Access the landing page.
+    Verify that the list of articles supports pagination, with navigation options such as "Next", "Previous", and specific page numbers.
+    Navigate through multiple pages using the pagination options and verify that the articles are displayed correctly on each page.
+    Run unit tests to check that all components related to pagination support for the list of articles on the landing page function correctly under this scenario.
+
+Expected results:
+
+    When a user is signed in, the list of articles on the landing page supports pagination, allowing users to browse through multiple pages of content.
+    The pagination options function correctly, enabling users to access articles on different pages in a user-friendly manner.
+
