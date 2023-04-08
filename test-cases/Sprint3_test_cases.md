@@ -264,3 +264,30 @@ Expected results:
     The settings page allows users to discard changes made to news category selections by clicking the cancel button.
     The previous settings are retained, and no changes are applied to the home page.
 
+
+
+Test ID: 10
+Test case name: Settings page - default category selection test
+
+Objective: To ensure that the settings page has the general category selected by default.
+
+Preconditions:
+
+    The system is up and running
+    All the required external systems and services are available and accessible
+    Test data/Unit tests written in sprint 2 have been prepared for the test case
+
+Test steps:
+
+    Sign in with an existing user's credentials.
+    Navigate to the settings page.
+    Verify that the general category is selected by default.
+    Run unit tests to check that all components related to default category selection function correctly under this scenario.
+
+
+Expected results:
+
+    The settings page has the general category selected by default.
+    The general category is displayed on the home page for new users.
+
+
