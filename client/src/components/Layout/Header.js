@@ -70,7 +70,7 @@ const Header = () => {
                 <div>
                   <Stack gap={1} direction="horizontal">
                     <div sm md="auto">
-                      <Button
+                      <Button data-testid="refresh-button"
                         size="lg"
                         onClick={() => auth.setRefreshArticles(true)}
                       >
@@ -78,12 +78,13 @@ const Header = () => {
                       </Button>
                     </div>
                     <div sm md="auto">
-                      <Button size="lg" onClick={() => setShowSettings(true)}>
-                        <MdSettings />
+                      <Button dataTestId="settings-button" 
+                        size="lg" onClick={() => setShowSettings(true)}>
+                          <MdSettings />
                       </Button>
                     </div>
                     <div md="auto">
-                      <Button onClick={signOut} size="lg">
+                      <Button dataTestId="logout-button" onClick={signOut} size="lg">
                         <MdLogout />
                       </Button>
                     </div>
