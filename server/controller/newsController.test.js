@@ -205,10 +205,27 @@ describe("News Controller", () => {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkNoYWl0YW55YSIsImlkIjoiNjQyYTU5YmI5OTNiY2ZiZTU5YzI3OTFiIiwiaWF0IjoxNjgwNTYyNTU4fQ.fNLfm6wreu1D_mNlWhPfCbhjBQ6JHFZ6wtPlhU-rWPs",
     };
     it("should return a 200 status code", async () => {
-      const response = await request(app).post(`/api/news/`).send(user);
+      const response = await request(app).post(`/api/news`).send({user});
       expect(response.statusCode).toBe(200);
       expect(response.body).toBeDefined();
       expect(response.body.length).toBeGreaterThan(0);
+      
     });
+
+    it("should return a 401 status code if no user data is provided", async () => {
+      const response = await request(app).post(`/api/news`);
+      expect(response.statusCode).toBe(401);
+      expect(response.body).toBeDefined();
+      expect(response.body.message).toBe("Unauthorized");
+    });
+
+    it("should return uniques titles", async () => {  
+      const response = await request(app).post(`/api/news`).send({user});
+      const titles = response.body.map((article) => article.title);
+      const uniqueTitles = [...new Set(titles)];
+      expect(uniqueTitles.length).toBe(titles.length);
+    }
+    );
+
   });
 });
