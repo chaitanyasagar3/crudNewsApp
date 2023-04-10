@@ -107,6 +107,7 @@ const Header = () => {
               <Stack gap={1} direction="horizontal">
                 <div>
                   <Button
+                    data-testid="refresh-button"
                     size="lg"
                     onClick={() => auth.setRefreshArticles(true)}
                   >

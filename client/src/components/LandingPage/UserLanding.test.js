@@ -13,8 +13,9 @@ jest.mock("../../hooks/useAuth", () => ({
   })),
 }));
 
-jest.mock("../../api/news", () => ({
+jest.mock("../../api/news/", () => ({
   getNewsByCategory: jest.fn(),
+  
 }));
 
 jest.mock("../../api/auth", () => ({
