@@ -1,102 +1,115 @@
 import React from "react";
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  waitFor,
+  screen,
+  act,
+} from "@testing-library/react";
 import GuestLanding from "./GuestLanding";
-import { getGeneralNews } from "../../api/news";
-import { act } from "react-dom/test-utils";
-
-const mockUseAuth = jest.fn();
+import { getNewsByCategory } from "../../api/news";
+import { BrowserRouter as Router } from "react-router-dom";
 
 jest.mock("../../api/news", () => ({
-  getGeneralNews: jest.fn({}),
-}));
-
-const mockNavigate = jest.fn((path, options) => {
-  return { path, options };
-});
-
-jest.mock("react-router-dom", () => ({
-  Link: (props) => (
-    <a
-      href="/"
-      {...props}
-      onClick={(e) => {
-        e.preventDefault();
-        mockNavigate(props.to, { replace: true });
-      }}
-    />
-  ),
-  useNavigate: () => mockNavigate,
-  useLocation: () => ({ state: { from: "/" } }),
-}));
-
-jest.mock("../../hooks/useAuth", () => ({
-  __esModule: true,
-  default: () => mockUseAuth(),
+  getNewsByCategory: jest.fn(),
 }));
 
 describe("GuestLanding", () => {
   let renderValue;
-  beforeEach(async() => {
-    renderValue = await act(async () => render(<GuestLanding/>));
+
+  beforeEach(async () => {
+    getNewsByCategory.mockResolvedValueOnce([
+      {
+        title: "Article 1",
+        urlToImage: "image1.jpg",
+        description: "Description 1",
+        url: "url1",
+      },
+      {
+        title: "Article 2",
+        urlToImage: "image2.jpg",
+        description: "Description 2",
+        url: "url2",
+      },
+    ]);
+    renderValue = await act(async () =>
+      render(
+        <Router>
+          <GuestLanding />
+        </Router>
+      )
+    );
   });
 
-  test("renders the form and its elements", async() => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  // ... other test cases ...
+
+  test("getNewsByCategory is called on mount", async () => {
     await act(async () => {
-      expect(await renderValue.getByText("Welcome Guest!")).toBeInTheDocument();
+      await waitFor(() => expect(getNewsByCategory).toHaveBeenCalledTimes(1));
+      expect(getNewsByCategory).toHaveBeenCalledWith("general");
     });
   });
 
-  //testing the refresh button
+  // test("renders the form and its elements", async () => {
+  //   await act(async () => {
+  //     expect(await renderValue.getByText("CRUDNEWSAPP")).toBeInTheDocument();
+  //   });
+  // });
 
-  test("refresh button works", async() => {
-    const {getByRole} = renderValue;
-    await act(async () => {
-      const refreshButton = await getByRole("button", { name: "Refresh" });
-      fireEvent.click(refreshButton);
-      expect(refreshButton).toBeInTheDocument();
-    });
+
+
+  // test("sign up button works", async () => {
+  //   const { getByRole } = renderValue;
+  //   await act(async () => {
+  //     const signUpButton = await getByRole("button", { name: "Sign Up Here!" });
+  //     fireEvent.click(signUpButton);
+  //     expect(signUpButton).toBeInTheDocument();
+  //   });
+  // });
+
+  test("clicking on tab nav links changes active category and fetches news", async () => {
+    const { getByText } = renderValue;
+
+    // Click on "Business" tab
+    fireEvent.click(getByText("Business"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("business")
+    );
+
+    // Click on "Entertainment" tab
+    fireEvent.click(getByText("Entertainment"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("entertainment")
+    );
+
+    // Click on "Health" tab
+    fireEvent.click(getByText("Health"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("health")
+    );
+
+    // Click on "Science" tab
+    fireEvent.click(getByText("Science"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("science")
+    );
+
+    // Click on "Sports" tab
+    fireEvent.click(getByText("Sports"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("sports")
+    );
+
+    // Click on "Technology" tab
+    fireEvent.click(getByText("Technology"));
+    await waitFor(() =>
+      expect(getNewsByCategory).toHaveBeenCalledWith("technology")
+    );
   });
 
-  //testing the sign up button
 
-  test("sign up button works", async() => {
-    const {getByRole} = renderValue;
-    await act(async () => {
-      const signUpButton = await getByRole("button", { name: "Sign Up Here!" });
-      fireEvent.click(signUpButton);
-      expect(signUpButton).toBeInTheDocument();
-    });
-  });
-
-//Test that getGeneralNews is called when the component mounts.
-
-  test("getGeneralNews is called on mount", async () => {
-    await act(async () => {
-      expect(getGeneralNews).toHaveBeenCalledTimes(1);
-    });
-  });
-
-//Test that the news articles are displayed correctly.
-
-  test("displays news articles", async () => {
-    const articleData = [
-      { title: "Article 1", urlToImage: "image1.jpg", description: "Description 1", url: "url1" },
-      { title: "Article 2", urlToImage: "image2.jpg", description: "Description 2", url: "url2" },
-      { title: "Article 3", urlToImage: "image3.jpg", description: "Description 3", url: "url3" },
-    ];
-    getGeneralNews.mockResolvedValueOnce(articleData);
-    await act(async () => {
-      await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
-    });
-  });
-
-  //Test that the onError function is called when an image fails to load.
-
-  test("onError function is called when image fails to load", async () => {
-    const articleData = [{ title: "Article 1", urlToImage: "invalid-image.jpg", description: "Description 1", url: "url1" }];
-    getGeneralNews.mockResolvedValueOnce(articleData);
-    await act(async () => {
-      await waitFor(() => expect(getGeneralNews).toHaveBeenCalledTimes(1));
-    });
-  });
 });

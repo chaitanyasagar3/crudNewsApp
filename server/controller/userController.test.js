@@ -158,4 +158,24 @@ describe("User Controller", () => {
       );
     });
   });
+
+  describe("POST /api/users/add-user", () => {
+    it("should add a new user to the database with default preferences", async () => {
+      const response = await request(app)
+        .post("/api/users/add-user")
+        .send({ username: "newuser", password: "newpassword@123" });
+  
+      expect(response.statusCode).toBe(200);
+      expect(response.body.username).toBe("newuser");
+      expect(response.body.preferences.general).toBe(true);
+      expect(response.body.preferences.business).toBe(false);
+      expect(response.body.preferences.entertainment).toBe(false);
+      expect(response.body.preferences.health).toBe(false);
+      expect(response.body.preferences.science).toBe(false);
+      expect(response.body.preferences.sports).toBe(false);
+      expect(response.body.preferences.technology).toBe(false);
+    });
+  });
+  
+
 });

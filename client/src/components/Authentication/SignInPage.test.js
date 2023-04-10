@@ -116,7 +116,7 @@ describe("SignInPage", () => {
     fireEvent.click(screen.getByRole("button", { name: "Sign In" }));
   
     await waitFor(() =>
-      expect(screen.getByText("Missing Username or password")).toBeInTheDocument()
+      expect(screen.getByText("Username or password not found")).toBeInTheDocument()
     );
   });
 

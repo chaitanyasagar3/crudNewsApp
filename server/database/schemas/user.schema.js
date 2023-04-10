@@ -6,12 +6,12 @@ const userSchema = new Schema(
     username: { type: String, required: true },
     preferences: {
       general: { type: Boolean, default: true },
-      business: { type: Boolean, default: true },
-      entertainment: { type: Boolean, default: true },
-      health: { type: Boolean, default: true },
-      science: { type: Boolean, default: true },
-      sports: { type: Boolean, default: true },
-      technology: { type: Boolean, default: true },
+      business: { type: Boolean, default: false },
+      entertainment: { type: Boolean, default: false },
+      health: { type: Boolean, default: false },
+      science: { type: Boolean, default: false },
+      sports: { type: Boolean, default: false },
+      technology: { type: Boolean, default: false },
     },
   },
   {
