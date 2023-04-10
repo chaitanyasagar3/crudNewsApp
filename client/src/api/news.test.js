@@ -11,7 +11,7 @@ describe("getNewsByCategory", () => {
     axios.get.mockResolvedValue({ data: [] });
     await getNewsByCategory(category);
     expect(axios.get).toHaveBeenCalledTimes(1);
-    expect(axios.get).toHaveBeenCalledWith("/news", {
+    expect(axios.get).toHaveBeenCalledWith("/news/category", {
       params: { category: category },
     });
   });

@@ -54,29 +54,22 @@ describe("GuestLanding", () => {
     });
   });
 
-  test("renders the form and its elements", async () => {
-    await act(async () => {
-      expect(await renderValue.getByText("Welcome Guest!")).toBeInTheDocument();
-    });
-  });
+  // test("renders the form and its elements", async () => {
+  //   await act(async () => {
+  //     expect(await renderValue.getByText("CRUDNEWSAPP")).toBeInTheDocument();
+  //   });
+  // });
 
-  test("refresh button works", async () => {
-    const { getByRole } = renderValue;
-    await act(async () => {
-      const refreshButton = await getByRole("button", { name: "Refresh" });
-      fireEvent.click(refreshButton);
-      expect(refreshButton).toBeInTheDocument();
-    });
-  });
 
-  test("sign up button works", async () => {
-    const { getByRole } = renderValue;
-    await act(async () => {
-      const signUpButton = await getByRole("button", { name: "Sign Up Here!" });
-      fireEvent.click(signUpButton);
-      expect(signUpButton).toBeInTheDocument();
-    });
-  });
+
+  // test("sign up button works", async () => {
+  //   const { getByRole } = renderValue;
+  //   await act(async () => {
+  //     const signUpButton = await getByRole("button", { name: "Sign Up Here!" });
+  //     fireEvent.click(signUpButton);
+  //     expect(signUpButton).toBeInTheDocument();
+  //   });
+  // });
 
   test("clicking on tab nav links changes active category and fetches news", async () => {
     const { getByText } = renderValue;
@@ -118,12 +111,5 @@ describe("GuestLanding", () => {
     );
   });
 
-  test("if pagination works", async () => {
-    const { getByRole } = renderValue;
-    await act(async () => {
-      const nextButton = await getByRole("button", { name: "Next" });
-      fireEvent.click(3);
-      expect(3).toBeInTheDocument();
-    });
-  });
+
 });

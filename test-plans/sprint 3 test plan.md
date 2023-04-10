@@ -25,13 +25,11 @@ Test Plan
    • Develop test cases
    • Execute the tests
    • Report the results
-
 2. Scope
-Create a personal news feed app in a group agile enviornment. The first sprint will consist of creation and testing of sign up and sign in pages with a generic home page. The test plan cases will be manual. The team will follow a MERN stack to work on the project.
-Client/Web side: react.js.
-Server side: Express.js, Node.js
-Database: MongoDB
-
+   Create a personal news feed app in a group agile enviornment. The first sprint will consist of creation and testing of sign up and sign in pages with a generic home page. The test plan cases will be manual. The team will follow a MERN stack to work on the project.
+   Client/Web side: react.js.
+   Server side: Express.js, Node.js
+   Database: MongoDB
 3. Requirements for Test:
 
    Landing Page
@@ -121,10 +119,7 @@ Database: MongoDB
    Rini: Development- Frontend, Testing
    Deepak: Database, Testing
 
-
-
-Sprint 2: 
-
+Sprint 2:
 
 CRUDBoard
 
@@ -213,9 +208,7 @@ Test Plan
    1.Sprint 1 (Completed)
    2.Sprint 2  (3/6/2023 - 3/20/2023)
 
-
 Sprint 3:
-
 
 Date: 29/3/2023
 
@@ -252,13 +245,11 @@ Test Plan
    – Your test cases must be updated to include your integration tests
    – You must run your test suite showing the results of the integration tests
 
-
 2. Scope
 
    This sprint will focus on expanding/personalising user preferences. Ever user will have their own home page with their preferences catered to their needs.
 
    The socpe of testing shifts from jest testing to a combination of unit and manual testing. All the previous failing components need to be fixed and upcoming components need to be developed.
-
 3. Requirements
 
    Landing Page
@@ -266,23 +257,23 @@ Test Plan
    • UX
    • Add features to your landing page
    • Requirement 1
-      – The landing page shall have a links (or tabs) to select the articles
-      displayed
-      – There will be a “Home” link plus links for each category
+   – The landing page shall have a links (or tabs) to select the articles
+   displayed
+   – There will be a “Home” link plus links for each category
    • Requirement 2
-      – The “Home” link will display articles from the categories chosen in
-      the settings page
-      – The articles will be shown is descending order with the most recent
-      first
+   – The “Home” link will display articles from the categories chosen in
+   the settings page
+   – The articles will be shown is descending order with the most recent
+   first
    • Requirement 3
-      – Upon signing in, the landing page will display articles for the
-      “Home” link
+   – Upon signing in, the landing page will display articles for the
+   “Home” link
    • Requirement 4
-      – The currently selected link (or tab) shall be highlighted. This
-      is “Home” when first signed-in
+   – The currently selected link (or tab) shall be highlighted. This
+   is “Home” when first signed-in
    • Requirement 5
-      – The list of articles will support pagination. You may choose
-      the number of item displayed on each page.
+   – The list of articles will support pagination. You may choose
+   the number of item displayed on each page.
 
 REST API Requirements
    • API
@@ -309,14 +300,118 @@ REST API Requirements
       with the most recent
       – Limit results to 250 articles
 
-
 4. Test Strategy
 
    Test Methodology : **Jest** + Manual Testing
    Perform Unit/Integration Testing.
-
 5. Project Milestones
 
    1.Sprint 1 (Completed)
    2.Sprint 2 (Completed)
    2.Sprint 3 (3/27/2023-3/10/2023)
+
+Integration Test cases:
+
+**Manual**
+
+Test ID: 1.  Test case name: Home Screen integration test
+
+Objective: To ensure that a new catagory is successfully processed end-to-end by the system, including all the integrations with external systems and services.
+
+
+
+Test ID:  2. Test case name: Home Screen customization test
+
+Objective: To ensure that a user is able to customize their home screen with selected categories and that the system correctly displays the customized content.
+
+
+
+Test ID: 3  Test case name: Home Screen user authentication test
+
+Objective: To ensure that the home screen provides a secure and reliable user authentication process, preventing unauthorized access and protecting user data.
+
+
+
+Test ID: 4. Test case name: Home Screen user settings persistence test
+
+Objective:
+To ensure that the home screen maintains user settings across sessions.
+
+
+
+Test ID: 5 Test case name: Sign In password security test
+
+Objective:
+To ensure that the sign in functionality follows best practices for password security, protecting user accounts from unauthorized access.
+
+
+
+Test ID: 06. Test case name: Sign Up form validation test
+
+Objective: To ensure that the sign up functionality validates user input and ensures correct data entry before creating a new account.
+
+
+
+Test ID: 07. Test case name: Sign Up duplicate account prevention test
+
+Objective: To ensure that the sign up functionality prevents the creation of duplicate accounts using the same Username, maintaining data integrity.
+
+
+
+Test ID: 08. Test case name: Settings page - category selection and save test
+
+Objective: To ensure that the settings page allows users to select news categories for display on the home page and successfully saves the changes when the save button is clicked.
+
+
+
+Test ID: 09. Test case name: Settings page - cancel button functionality test
+
+Objective: To ensure that the settings page allows users to discard changes made to news category selections by clicking the cancel button, retaining the previous settings.
+
+
+
+Test ID: 10. Test case name: Settings page - default category selection test
+
+Objective: To ensure that the settings page has the general category selected by default.
+
+
+
+Test ID: 11. Test case name: Settings page - minimum category selection test
+
+Objective: To ensure that the settings page requires at least one category to be selected before saving the settings.
+
+
+
+Test ID: 12. Test case name: Landing page - display general news for unsigned users
+
+Objective: To ensure that when a user is not signed in, the landing page displays a list of articles from the NewsAPI "General" category.
+
+
+
+Test ID: 13. Test case name: Landing page - refresh button for unsigned users
+
+Objective: To ensure that when a user is not signed in, they can see and use the refresh button to refresh the list of articles from the NewsAPI "General" category on the landing page.
+
+
+
+Test ID: 14. Test case name: Signed-in user - display articles in descending order
+
+Objective: To ensure that when a user is signed in, the articles are displayed in descending order with the most recent articles appearing first.
+
+
+
+Test ID: 15. Test case name: Signed-in user - highlight currently selected link or tab
+
+Objective: To ensure that when a user is signed in, the currently selected link (or tab) is highlighted, indicating the active section.
+
+
+
+Test ID: 16. Test case name: Signed-in user - pagination support for the list of articles on the landing page
+
+Objective: To ensure that when a user is signed in, the list of articles on the landing page supports pagination, allowing users to browse through multiple pages of content.
+
+
+
+Test ID: 17. Test case name: Pagenation integration test
+
+Objective: To ensure that pagenation works in every tab.

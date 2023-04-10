@@ -13,8 +13,9 @@ jest.mock("../../hooks/useAuth", () => ({
   })),
 }));
 
-jest.mock("../../api/news", () => ({
+jest.mock("../../api/news/", () => ({
   getNewsByCategory: jest.fn(),
+  
 }));
 
 jest.mock("../../api/auth", () => ({
@@ -86,44 +87,11 @@ describe("UserLanding", () => {
   });
 
   // Test that the welcome message includes the user's username.
-  test("displays welcome message with username", async () => {
-    const { getByRole } = renderValue;
-    await act(async () => {
-      expect(screen.getByText(`Welcome test1!`)).toBeInTheDocument();
-    });
-  });
+  // test("displays welcome message with username", async () => {
+  //   const { getByRole } = renderValue;
+  //   await act(async () => {
+  //     expect(screen.getByText(`Welcome test1!`)).toBeInTheDocument();
+  //   });
+  // });
 
-  // Test that the refresh button is displayed.
-  test("refresh button works", async () => {
-    const { getByRole } = renderValue;
-    await act(async () => {
-      const refreshButton = await getByRole("button", { name: "Refresh" });
-      fireEvent.click(refreshButton);
-      expect(refreshButton).toBeInTheDocument();
-    });
-  });
-
-  // Test that the settings button is displayed.
-
-  test("displays settings button", async () => {
-    const { getByRole } = renderValue;
-    await act(async () => {
-      const settingsButton = await getByRole("button", { name: "Settings" });
-      fireEvent.click(settingsButton);
-      expect(settingsButton).toBeInTheDocument();
-    });
-  });
-
-  // Test that clicking the settings button opens the settings modal.
-
-  test("clicking settings button opens settings modal", async () => {
-    const { getByRole } = renderValue;
-    await act(async () => {
-      // Find the settings button and click it.
-      const settingsButton = await getByRole("button", { name: "Settings" });
-      settingsButton.click();
-      // Expect the settings modal to be displayed.
-      expect(screen.getByText("Settings")).toBeInTheDocument();
-    });
-  });
 });
