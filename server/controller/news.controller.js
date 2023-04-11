@@ -16,7 +16,7 @@ newsController.get("/category/", async (req, res) => {
     response.articles.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
     );
-    const uniqueArticles = articles.filter(
+    const uniqueArticles = response.articles.filter(
       (article, index, self) =>
         index ===
         self.findIndex(
@@ -24,8 +24,8 @@ newsController.get("/category/", async (req, res) => {
             a.title === article.title && a.description === article.description
         )
     );
-    response.uniqueArticles.slice(0, 250);
-    res.json(response.uniqueArticles);
+    uniqueArticles.slice(0, 250);
+    res.json(uniqueArticles);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
