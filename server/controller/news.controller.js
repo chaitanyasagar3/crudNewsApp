@@ -11,7 +11,7 @@ newsController.get("/category/", async (req, res) => {
     const response = await newsapi.v2.everything({
       q: category,
       language: "en",
-      sortBy: "relevancy",
+      sortBy: "publishedAt",
     });
     response.articles.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
