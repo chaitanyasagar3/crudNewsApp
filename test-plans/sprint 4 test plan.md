@@ -819,51 +819,27 @@ Test Plan
 
 3. Requirements
 
-   Landing Page
-
-   • UX
-   • Add features to your landing page
-   • Requirement 1
-      – The landing page shall have a links (or tabs) to select the articles
-      displayed
-      – There will be a “Home” link plus links for each category
-   • Requirement 2
-      – The “Home” link will display articles from the categories chosen in
-      the settings page
-      – The articles will be shown is descending order with the most recent
-      first
-   • Requirement 3
-      – Upon signing in, the landing page will display articles for the
-      “Home” link
-   • Requirement 4
-      – The currently selected link (or tab) shall be highlighted. This
-      is “Home” when first signed-in
-   • Requirement 5
-      – The list of articles will support pagination. You may choose
-      the number of item displayed on each page.
-
-REST API Requirements
     • UX
-    • Add searching to your signed-in landing page
-    • Requirement 1
-        – The landing page shall have a text box for entering search terms
-    • Requirement 2
-        – The search box will support use of AND, OR, and NOT
-        – The search box will support use of parenthesis
-    • Requirement 3
-        – The search results will display in descending order starting with the
-        most recent
-    • Requirement 4
-        – A meaningful message is displayed when are no results to show
+        • Add searching to your signed-in landing page
+        • Requirement 1
+            – The landing page shall have a text box for entering search terms
+        • Requirement 2
+            – The search box will support use of AND, OR, and NOT
+            – The search box will support use of parenthesis
+        • Requirement 3
+            – The search results will display in descending order starting with the
+            most recent
+        • Requirement 4
+            – A meaningful message is displayed when are no results to show
     • API
-    • Requirement 5
-        – Add a new search endpoint
-            • GET
-            • /search/{search terms}
-        – Status Code
-            • 200 – Articles have been returned
-        – Returns the articles in descending order starting with the
-        most recent
+        • Requirement 5
+            – Add a new search endpoint
+                • GET
+                • /search/{search terms}
+            – Status Code
+                • 200 – Articles have been returned
+            – Returns the articles in descending order starting with the
+            most recent
 
 
 4. Test Strategy
