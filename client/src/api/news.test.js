@@ -56,9 +56,8 @@ describe("getNewsByUserPreferences", () => {
     await getNewsByUserPreferences(user);
     expect(axios.post).toHaveBeenCalledTimes(1);
     expect(axios.post).toHaveBeenCalledWith("/news", {
-      user,
-    }, {
       headers: { "Content-Type": "application/json" },
+      user,
     });
   });
   
