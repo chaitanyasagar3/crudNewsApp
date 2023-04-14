@@ -845,11 +845,12 @@ Test Plan
    news.test.js:               Total: 3     Pass: 3      Fail: 0
 
    Server Side Suites:
-   NewsController.test.js:     Total: 11     Pass: 11      Fail: 0
-   userController.test.js:     Total: 11     Pass: 11      Fail: 0
+   NewsController.test.js:     Total: 16     Pass: 15      Fail: 1
+   userController.test.js:     Total: 8     Pass: 8      Fail: 0
 
    Integration tests:
    Total Tests: 17     Pass: 17    Fail: 0
+   
 6. Project Milestones
 
    1.Sprint 1 (Completed)
