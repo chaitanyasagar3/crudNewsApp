@@ -25,13 +25,11 @@ Test Plan
    • Develop test cases
    • Execute the tests
    • Report the results
-
 2. Scope
-Create a personal news feed app in a group agile enviornment. The first sprint will consist of creation and testing of sign up and sign in pages with a generic home page. The test plan cases will be manual. The team will follow a MERN stack to work on the project.
-Client/Web side: react.js.
-Server side: Express.js, Node.js
-Database: MongoDB
-
+   Create a personal news feed app in a group agile enviornment. The first sprint will consist of creation and testing of sign up and sign in pages with a generic home page. The test plan cases will be manual. The team will follow a MERN stack to work on the project.
+   Client/Web side: react.js.
+   Server side: Express.js, Node.js
+   Database: MongoDB
 3. Requirements for Test:
 
    Landing Page
@@ -121,10 +119,7 @@ Database: MongoDB
    Rini: Development- Frontend, Testing
    Deepak: Database, Testing
 
-
-
-Sprint 2: 
-
+Sprint 2:
 
 CRUDBoard
 
@@ -213,9 +208,7 @@ Test Plan
    1.Sprint 1 (Completed)
    2.Sprint 2  (3/6/2023 - 3/20/2023)
 
-
 Sprint 3:
-
 
 Date: 29/3/2023
 
@@ -252,13 +245,11 @@ Test Plan
    – Your test cases must be updated to include your integration tests
    – You must run your test suite showing the results of the integration tests
 
-
 2. Scope
 
    This sprint will focus on expanding/personalising user preferences. Ever user will have their own home page with their preferences catered to their needs.
 
    The socpe of testing shifts from jest testing to a combination of unit and manual testing. All the previous failing components need to be fixed and upcoming components need to be developed.
-
 3. Requirements
 
    Landing Page
@@ -266,23 +257,23 @@ Test Plan
    • UX
    • Add features to your landing page
    • Requirement 1
-      – The landing page shall have a links (or tabs) to select the articles
-      displayed
-      – There will be a “Home” link plus links for each category
+   – The landing page shall have a links (or tabs) to select the articles
+   displayed
+   – There will be a “Home” link plus links for each category
    • Requirement 2
-      – The “Home” link will display articles from the categories chosen in
-      the settings page
-      – The articles will be shown is descending order with the most recent
-      first
+   – The “Home” link will display articles from the categories chosen in
+   the settings page
+   – The articles will be shown is descending order with the most recent
+   first
    • Requirement 3
-      – Upon signing in, the landing page will display articles for the
-      “Home” link
+   – Upon signing in, the landing page will display articles for the
+   “Home” link
    • Requirement 4
-      – The currently selected link (or tab) shall be highlighted. This
-      is “Home” when first signed-in
+   – The currently selected link (or tab) shall be highlighted. This
+   is “Home” when first signed-in
    • Requirement 5
-      – The list of articles will support pagination. You may choose
-      the number of item displayed on each page.
+   – The list of articles will support pagination. You may choose
+   the number of item displayed on each page.
 
 REST API Requirements
    • API
@@ -309,18 +300,15 @@ REST API Requirements
       with the most recent
       – Limit results to 250 articles
 
-
 4. Test Strategy
 
    Test Methodology : **Jest** + Manual Testing
    Perform Unit/Integration Testing.
-
 5. Project Milestones
 
    1.Sprint 1 (Completed)
    2.Sprint 2 (Completed)
    2.Sprint 3 (3/27/2023-3/10/2023)
-
 
 Integration Test cases:
 
@@ -455,7 +443,6 @@ Expected results:
     The new user is logged in with default settings applied on their account.
     New checked setting are saved successfully.
     Home tab has news that matches the catagories checked.
-
 
 Test ID: 06
 Test case name: Sign Up form validation test
@@ -752,7 +739,6 @@ Expected results:
     Each page has a total of 9 article each.
     There are 12 pages with articles making a total of 100 articles.
 
-
 Test ID: 17
 Test case name: Pagenation integration test
 
@@ -777,9 +763,7 @@ Expected results:
     The system is case-sensitive when validating passwords and accepts only the correct password with the proper case.
     Passwords are encrypted or hashed during transmission and storage, following best practices such as salting and hashing.
 
-
 Sprint 4:
-
 
 Date: 12/04/2023
 
@@ -816,62 +800,56 @@ Test Plan
    Adding the search functionality using a text box which will operate on keywords.
 
    Testing: This sprint will be more focused on testing that will include regression and system testing.
-
 3. Requirements
 
-    • UX
-        • Add searching to your signed-in landing page
-        • Requirement 1
-            – The landing page shall have a text box for entering search terms
-        • Requirement 2
-            – The search box will support use of AND, OR, and NOT
-            – The search box will support use of parenthesis
-        • Requirement 3
-            – The search results will display in descending order starting with the
-            most recent
-        • Requirement 4
-            – A meaningful message is displayed when are no results to show
-    • API
-        • Requirement 5
-            – Add a new search endpoint
-                • GET
-                • /search/{search terms}
-            – Status Code
-                • 200 – Articles have been returned
-            – Returns the articles in descending order starting with the
-            most recent
-
-
+   • UX
+   • Add searching to your signed-in landing page
+   • Requirement 1
+   – The landing page shall have a text box for entering search terms
+   • Requirement 2
+   – The search box will support use of AND, OR, and NOT
+   – The search box will support use of parenthesis
+   • Requirement 3
+   – The search results will display in descending order starting with the
+   most recent
+   • Requirement 4
+   – A meaningful message is displayed when are no results to show
+   • API
+   • Requirement 5
+   – Add a new search endpoint
+   • GET
+   • /search/{search terms}
+   – Status Code
+   • 200 – Articles have been returned
+   – Returns the articles in descending order starting with the
+   most recent
 4. Test Strategy
 
    Test Methodology : Regression and system tests
-
 5. Regresstion test data(Till sprint 3) before starting development:
-    Total Automated Suits: 10     Pass: 8     Fail: 2
-    Total Automated Tests: 40     Pass: 39    Fail: 1
+   Total Automated Suits: 10     Pass: 9     Fail: 1
+   Total Automated Tests: 40     Pass: 39    Fail: 1
 
-    Unit Tests:
-        Client Side Suites:
-            SignInPage.tst.js:          Total: 11    Pass: 11     Fail: 0
-            SignUpPage.js:              Total: 7     Pass: 7      Fail: 0
-            GuestLanding.test.js:       Total: 2     Pass: 2      Fail: 0
-            LandingPage.test.js:        Total: 2     Pass: 2      Fail: 0
-            NewsCard.test.js:           Total: 2     Pass: 2      Fail: 0
-            //UserLanding.test.js:      Total:       Pass:        Fail:           //Need to fix this suite before development
-            Header.test.js:             Total: 6     Pass: 5      Fail: 1
-            SettingsModal.test.js:      Total: 4     Pass: 4      Fail: 0
-            Auth.test.js:               Total: 3     Pass: 3      Fail: 0
-            news.test.js:               Total: 3     Pass: 3      Fail: 0
+   Unit Tests:
+   Client Side Suites:
+   SignInPage.tst.js:          Total: 11    Pass: 11     Fail: 0
+   SignUpPage.js:              Total: 7     Pass: 7      Fail: 0
+   GuestLanding.test.js:       Total: 2     Pass: 2      Fail: 0
+   LandingPage.test.js:        Total: 2     Pass: 2      Fail: 0
+   NewsCard.test.js:           Total: 2     Pass: 2      Fail: 0
+   UserLanding.test.js:      Total: 2      Pass: 2        Fail:  0
 
-        Server Side Suites:
-            NewsController.test.js:     Total: 11     Pass: 11      Fail: 0
-            userController.test.js:     Total: 11     Pass: 11      Fail: 0
+   Header.test.js:             Total: 6     Pass: 5      Fail: 1
+   SettingsModal.test.js:      Total: 4     Pass: 4      Fail: 0
+   Auth.test.js:               Total: 3     Pass: 3      Fail: 0
+   news.test.js:               Total: 3     Pass: 3      Fail: 0
 
-    Integration tests:
-        Total Tests: 17     Pass: 17    Fail: 0
+   Server Side Suites:
+   NewsController.test.js:     Total: 11     Pass: 11      Fail: 0
+   userController.test.js:     Total: 11     Pass: 11      Fail: 0
 
-    
-
+   Integration tests:
+   Total Tests: 17     Pass: 17    Fail: 0
 6. Project Milestones
 
    1.Sprint 1 (Completed)
