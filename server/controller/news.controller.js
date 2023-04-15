@@ -83,6 +83,7 @@ newsController.get("/search", async (req, res) => {
       q: query,
       language: "en",
       sortBy: "publishedAt",
+      searchIn : "title,description,content",
     });
     response.articles.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
