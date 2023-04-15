@@ -2,8 +2,19 @@ import { React, useEffect, useState, useCallback } from "react";
 import useAuth from "../../hooks/useAuth";
 import { getNewsByCategory } from "../../api/news";
 import { getNewsByUserPreferences } from "../../api/news";
+import { getNewsBySearch } from "../../api/news";
 import NewsCard from "./NewsCard";
-import { Card, Row, Col, Nav, Pagination } from "react-bootstrap";
+import {
+  Card,
+  Form,
+  Row,
+  Col,
+  Nav,
+  Pagination,
+  Button,
+  FormControl,
+  Stack,
+} from "react-bootstrap";
 import "../../styles/UserLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
 
@@ -15,17 +26,7 @@ const UserLanding = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
   const [loading, setLoading] = useState(false);
-
-  const categories = [
-    "home",
-    "general",
-    "business",
-    "entertainment",
-    "health",
-    "science",
-    "sports",
-    "technology",
-  ];
+  const [searchQuery, setSearchQuery] = useState("");
 
   const fetchArticles = useCallback(async () => {
     try {
@@ -63,7 +64,7 @@ const UserLanding = () => {
       }
     };
     onRefresh();
-  }, [auth.refreshArticles, fetchArticles, auth.setRefreshArticles]);
+  }, [auth.refreshArticles, fetchArticles, auth.setRefreshArticles, auth]);
 
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
@@ -78,6 +79,25 @@ const UserLanding = () => {
   for (let i = 1; i <= pageCount; i++) {
     pageNumbers.push(i);
   }
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      setArticles();
+      const response = await getNewsBySearch(searchQuery);
+      console.log(response);
+      const startIndex = (currentPage - 1) * articlesPerPage;
+      const endIndex = startIndex + articlesPerPage;
+      const articlesForPage = response.slice(startIndex, endIndex);
+      setArticles(articlesForPage);
+      setPageCount(Math.ceil(response.length / articlesPerPage));
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -180,18 +200,45 @@ const UserLanding = () => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
-        <Row xs={1} md={2} lg={3} className="g-4">
-          {articles?.map((article) => (
-            <Col key={article.title}>
-              <NewsCard
-                key={article.title}
-                article={article}
-                brokenNewspaper={brokenNewspaper}
-                sanitizeDescription={sanitizeDescription}
-              />
-            </Col>
-          ))}
-        </Row>
+        <Form onSubmit={handleSearch} style={{paddingBottom:"20px"}}>
+          <Stack direction="horizontal" gap={2}>
+            <FormControl
+              data-testid="search"
+              type="text"
+              placeholder="Search for news"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <Button type="submit" data-testid="search-button">Search</Button>
+          </Stack>
+        </Form>
+        {loading ? (
+          <p>Loading...</p>
+        ) : articles && articles.length === 0 ? (
+          <div style={{alignItems:"center",backgroundSize:"cover"}}>
+          <Card style={{alignItems:"center"}}>
+            <Card.Body>
+              <Card.Title>No articles found</Card.Title>
+              <Card.Text>
+                Try searching for something else or try again later.
+              </Card.Text>
+            </Card.Body>
+          </Card>  
+          </div>
+        ) : (
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {articles?.map((article) => (
+              <Col key={article.title}>
+                <NewsCard
+                  key={article.title}
+                  article={article}
+                  brokenNewspaper={brokenNewspaper}
+                  sanitizeDescription={sanitizeDescription}
+                />
+              </Col>
+            ))}
+          </Row>
+        )}
       </div>
 
       <div className="my-pagination">

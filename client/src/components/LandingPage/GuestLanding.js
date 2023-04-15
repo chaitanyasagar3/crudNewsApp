@@ -1,7 +1,18 @@
 import { useEffect, useState, useCallback } from "react";
 import { getNewsByCategory } from "../../api/news";
+import { getNewsBySearch } from "../../api/news";
 import NewsCard from "./NewsCard";
-import { Row, Col, Nav, Pagination } from "react-bootstrap";
+import {
+  Card,
+  Form,
+  Row,
+  Col,
+  Nav,
+  Pagination,
+  Button,
+  FormControl,
+  Stack,
+} from "react-bootstrap";
 import "../../styles/GuestLanding.css";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
 import useAuth from "../../hooks/useAuth";
@@ -14,16 +25,7 @@ const GuestLanding = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
   const [loading, setLoading] = useState(false);
-
-  const categories = [
-    "general",
-    "business",
-    "entertainment",
-    "health",
-    "science",
-    "sports",
-    "technology",
-  ];
+  const [searchQuery, setSearchQuery] = useState("");
 
   const fetchArticles = useCallback(async () => {
     try {
@@ -53,7 +55,7 @@ const GuestLanding = () => {
       }
     };
     onRefresh();
-  }, [auth.refreshArticles, fetchArticles, auth.setRefreshArticles]);
+  }, [auth.refreshArticles, fetchArticles, auth.setRefreshArticles,auth]);
 
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
@@ -68,6 +70,25 @@ const GuestLanding = () => {
   for (let i = 1; i <= pageCount; i++) {
     pageNumbers.push(i);
   }
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      setArticles();
+      const response = await getNewsBySearch(searchQuery);
+      console.log(response);
+      const startIndex = (currentPage - 1) * articlesPerPage;
+      const endIndex = startIndex + articlesPerPage;
+      const articlesForPage = response.slice(startIndex, endIndex);
+      setArticles(articlesForPage);
+      setPageCount(Math.ceil(response.length / articlesPerPage));
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // let auth = useAuth();
   return (
@@ -164,63 +185,89 @@ const GuestLanding = () => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
+        <Form onSubmit={handleSearch} style={{ paddingBottom: "20px" }}>
+          <Stack direction="horizontal" gap={2}>
+            <FormControl
+              type="text"
+              placeholder="Search for news"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <Button type="submit">Search</Button>
+          </Stack>
+        </Form>
+        {loading ? (
+          <p>Loading...</p>
+        ) : articles.length === 0 ? (
+          <div style={{ alignItems: "center", backgroundSize: "cover" }}>
+            <Card style={{ alignItems: "center" }}>
+              <Card.Body>
+                <Card.Title>No articles found</Card.Title>
+                <Card.Text>
+                  Try searching for something else or try again later.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        ) : (
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {articles?.map((article) => (
+              <Col key={article.title}>
+                <NewsCard
+                  key={article.title}
+                  article={article}
+                  brokenNewspaper={brokenNewspaper}
+                  sanitizeDescription={sanitizeDescription}
+                />
+              </Col>
+            ))}
+          </Row>
+        )}
+      </div>
 
-        <Row xs={1} md={2} lg={3} className="g-4">
-          {articles?.map((article) => (
-            <Col key={article.title}>
-              <NewsCard
-                key={article.title}
-                article={article}
-                brokenNewspaper={brokenNewspaper}
-                sanitizeDescription={sanitizeDescription}
-              />
-            </Col>
-          ))}
-        </Row>
-        <div className="my-pagination">
-          <Pagination>
-            {currentPage > 1 && (
-              <Pagination.Ellipsis key="first" onClick={() => paginate(1)} />
-            )}
-            {currentPage > 1 && (
-              <Pagination.Prev
-                key="prev"
-                onClick={() => paginate(currentPage - 1)}
-              />
-            )}
-            {pageNumbers.map((number) => {
-              if (
-                number === 1 ||
-                number === pageNumbers.length ||
-                (number >= currentPage - 1 && number <= currentPage + 1)
-              ) {
-                return (
-                  <Pagination.Item
-                    key={number}
-                    active={number === currentPage}
-                    onClick={() => paginate(number)}
-                  >
-                    {number}
-                  </Pagination.Item>
-                );
-              } else {
-                return null;
-              }
-            })}
-            {currentPage < pageNumbers.length - 1 && (
-              <Pagination.Next
-                key="next"
-                onClick={() => paginate(currentPage + 1)}
-              />
-            )}
-            {currentPage < pageNumbers.length - 2 && (
-              <Pagination.Ellipsis
-                key="last"
-                onClick={() => paginate(pageNumbers.length)}
-              />
-            )}
-          </Pagination>
-        </div>
+      <div className="my-pagination">
+        <Pagination>
+          {currentPage > 1 && (
+            <Pagination.Ellipsis key="first" onClick={() => paginate(1)} />
+          )}
+          {currentPage > 1 && (
+            <Pagination.Prev
+              key="prev"
+              onClick={() => paginate(currentPage - 1)}
+            />
+          )}
+          {pageNumbers.map((number) => {
+            if (
+              number === 1 ||
+              number === pageNumbers.length ||
+              (number >= currentPage - 1 && number <= currentPage + 1)
+            ) {
+              return (
+                <Pagination.Item
+                  key={number}
+                  active={number === currentPage}
+                  onClick={() => paginate(number)}
+                >
+                  {number}
+                </Pagination.Item>
+              );
+            } else {
+              return null;
+            }
+          })}
+          {currentPage < pageNumbers.length - 1 && (
+            <Pagination.Next
+              key="next"
+              onClick={() => paginate(currentPage + 1)}
+            />
+          )}
+          {currentPage < pageNumbers.length - 2 && (
+            <Pagination.Ellipsis
+              key="last"
+              onClick={() => paginate(pageNumbers.length)}
+            />
+          )}
+        </Pagination>
       </div>
     </>
   );
