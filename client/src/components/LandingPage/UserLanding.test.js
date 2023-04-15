@@ -1,8 +1,9 @@
 import React from "react";
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor, getByTestId } from "@testing-library/react";
 import UserLanding from "./UserLanding";
 import { getNewsByCategory } from "../../api/news";
 import { getNewsByUserPreferences } from "../../api/news";
+import { getNewsBySearch } from "../../api/news";
 import { act } from "react-dom/test-utils";
 import AuthProvider from "../../hoc/Authentication/AuthProvider";
 import useAuth from "../../hooks/useAuth";
@@ -43,6 +44,7 @@ jest.mock("../../hooks/useAuth", () => ({
 jest.mock("../../api/news", () => ({
   getNewsByCategory: jest.fn(),
   getNewsByUserPreferences: jest.fn(),
+  getNewsBySearch: jest.fn(),
 }));
 
 jest.mock("../../api/auth", () => ({
@@ -151,6 +153,19 @@ describe("UserLanding", () => {
       expect(getNewsByCategory).toHaveBeenCalledWith("technology")
     );
   });
+
+  //Test Search Bar
+  test("search bar works", async () => {
+    const { getByTestId } = renderValue;
+    const searchInput = getByTestId("search");
+    const searchButton = getByTestId("search-button");
+    expect(searchInput).toBeInTheDocument();
+    expect(searchButton).toBeInTheDocument();
+    fireEvent.change(searchInput, { target: { value: "tesla" } });
+    fireEvent.click(searchButton);
+    await waitFor(() => expect(getNewsBySearch).toHaveBeenCalledWith("tesla"));
+  });
+
 
   // Test that the refresh button works.
   // test("refreshes news articles on click of refresh button", async () => {
