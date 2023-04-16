@@ -24,7 +24,7 @@ System Test:
 
         Expected results:
 
-    Test Test set preferences
+    Test set preferences
 
         Objective: 
 
@@ -36,7 +36,7 @@ System Test:
 
         Expected results:
 
-    Test Test show merged articles
+    Test show merged articles
 
         Objective: 
 
@@ -48,7 +48,7 @@ System Test:
 
         Expected results:
 
-    Test Test show category articles
+    Test show category articles
 
         Objective: 
 
@@ -60,7 +60,7 @@ System Test:
 
         Expected results:
     
-    Test Test searching
+    Test searching
 
         Objective: System must search keywords in the pool of news articles using a search bar
 
@@ -90,7 +90,7 @@ System Test:
             - Searching for an emoty string brings back the default home screen results.
             - An error message is displayed when a key word is not present in any news article.
 
-    Test Test advanced searching
+    Test advanced searching
 
         Objective: 
 
