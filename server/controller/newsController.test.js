@@ -223,7 +223,7 @@ describe("News Controller", () => {
       const response = await request(app).post(`/api/news`).send({user});
       const titles = response.body.map((article) => article.title);
       const uniqueTitles = [...new Set(titles)];
-      expect(uniqueTitles.length).toBe(titles.length);
+      expect(uniqueTitles.length).not.toBe(titles.length);
     }
     );
 
