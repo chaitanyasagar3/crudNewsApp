@@ -178,19 +178,37 @@ Expected results:
 
 
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    Test Sign Up
 
-   Test Sign Up
+Test ID: 1
+Test case name: Sign Up with valid information test
 
-        Objective: 
+Objective: To ensure that the sign-up functionality allows new users to create an account with valid information, providing a secure and user-friendly registration process.
 
-        Preconditions:
+Preconditions:
 
+    - The system is up and running
+    - All the required external systems and services are available and accessible
 
-        Test steps:
+Test steps:
 
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign-up page of the application.
+    - Enter all required information with valid data (e.g., First Name, Last Name, Username, Password, and Confirm Password).
+    - Click the "Sign Up" or "Register" button to submit the sign-up form.
+    - Verify that the system successfully creates a new user account and redirects the user to the appropriate landing page or sends a confirmation Username, as per the application's workflow.
+    - Check that all components related to sign-up functionality with valid information function correctly under this scenario.
 
-        Expected results:
+Expected results:
+
+    - Regression test data matches.
+    - Sign-up page renders as expected.
+    - The sign-up functionality allows new users to create an account with valid information.
+    - The system successfully creates a new user account and redirects the user to the appropriate landing page or sends a confirmation Username, as per the application's workflow.
+    - All unit tests related to sign-up functionality with valid information pass.
+
 
   Test set preferences
 
