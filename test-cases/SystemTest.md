@@ -118,6 +118,34 @@ Expected results:
     - All unit tests related to sign in functionality with a valid Username and empty password pass.
 
 
+Test ID: 5
+Test case name: Sign In with case-sensitive password test
+
+Objective: To ensure that the sign-in functionality correctly handles case-sensitive passwords, maintaining system security.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+    - A test user account with invalid credentials (Username and Password) is available
+
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign in page of the application.
+    - Enter the valid Username and an incorrect Password with case changes (e.g., if the correct password is "Password123", enter "password123").
+    - Click the "Sign In" button to submit the sign in form.
+    - Verify that the system displays an error message indicating that the credentials provided are incorrect.
+    - Check that all components related to sign in functionality with case-sensitive password function correctly under this scenario.
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign in page renders as expected.
+    - The sign in functionality handles case-sensitive passwords correctly.
+    - The system displays an error message indicating that the credentials provided are incorrect.
+    - All unit tests related to sign in functionality with case-sensitive password pass.
+
 
 
    Test Sign Up
