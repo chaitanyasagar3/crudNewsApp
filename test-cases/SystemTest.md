@@ -61,6 +61,37 @@ Expected results:
     - All unit tests related to sign in functionality with invalid credentials pass.
 
 
+
+Test ID: 3
+Test case name: Sign In with empty Username and password test
+
+Objective: To ensure that the sign-in functionality prevents users from submitting an empty Username and password, enhancing user experience and system security.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+ 
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign in page of the application.
+    - Leave the Username and Password fields empty.
+    - Click the "Sign In" button to submit the sign in form.
+    - Verify that the system displays an error message indicating that both the Username and password fields are required.
+    - Check that all components related to sign in functionality with empty Username and password function correctly under this scenario.
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign in page renders as expected.
+    - The sign in functionality prevents users from submitting an empty Username and password.
+    - The system displays an error message indicating that both the Username and password fields are required.
+    - All unit tests related to sign in functionality with empty Username and password pass.
+
+
+
+
     Test Sign Up
 
         Objective: 
