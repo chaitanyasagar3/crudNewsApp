@@ -92,7 +92,7 @@ Expected results:
 
 
 
-    Test Sign Up
+   Test Sign Up
 
         Objective: 
 
@@ -104,7 +104,7 @@ Expected results:
 
         Expected results:
 
-    Test set preferences
+  Test set preferences
 
         Objective: 
 
@@ -116,7 +116,7 @@ Expected results:
 
         Expected results:
 
-    Test show merged articles
+   Test show merged articles
 
         Objective: 
 
@@ -128,7 +128,7 @@ Expected results:
 
         Expected results:
 
-    Test show category articles
+   Test show category articles
 
         Objective: 
 
@@ -140,7 +140,7 @@ Expected results:
 
         Expected results:
     
-    Test searching
+   Test searching
 
         Objective: System must search keywords in the pool of news articles using a search bar
 
