@@ -32,6 +32,33 @@ Expected results:
     - All unit tests related to sign in functionality with valid credentials pass.
 
 
+Test ID: 2
+Test case name: Sign In with invalid credentials test
+
+Objective: To ensure that the sign-in functionality denies access to users with invalid credentials, maintaining the security and integrity of the system.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+    - A test user account with invalid credentials (Username and Password) is available
+
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign in page of the application.
+    - Enter the invalid Username and Password for the test user account.
+    - Click the "Sign In" button to submit the sign in form.
+    - Verify that the system displays an error message indicating that the credentials provided are incorrect.
+    - Check that all components related to sign in functionality with invalid credentials function correctly under this scenario.
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign in page renders as expected.
+    - The sign in functionality denies access to users with invalid credentials.
+    - The system displays an error message indicating that the credentials provided are incorrect.
+    - All unit tests related to sign in functionality with invalid credentials pass.
 
 
     Test Sign Up
