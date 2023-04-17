@@ -210,6 +210,36 @@ Expected results:
     - All unit tests related to sign-up functionality with valid information pass.
 
 
+Test ID: 2
+Test case name: Sign Up with duplicate Username test
+
+Objective: To ensure that the sign-up functionality prevents users from creating an account with an Username that is already in use, maintaining system integrity.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+    - An existing user account with a known Username
+
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign-up page of the application.
+    - Enter all required information, using the Username of the existing user account.
+    - Click the "Sign Up" or "Register" button to submit the sign-up form.
+    - Verify that the system displays an error message indicating that the Username is already in use.
+    - Check that all components related to sign-up functionality with duplicate Username function correctly under this scenario.
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign-up page renders as expected.
+    - The sign-up functionality prevents users from creating an account with an Username that is already in use.
+    - The system displays an error message indicating that the Username is already in use.
+    - All unit tests related to sign-up functionality with duplicate Username pass.
+
+
+
   Test set preferences
 
         Objective: 
