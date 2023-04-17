@@ -289,6 +289,32 @@ Expected results:
     - The system displays an error message indicating that the password is too weak or does not meet complexity requirements.
     - All unit tests related to sign-up functionality with weak password pass.
 
+Test ID: 5
+Test case name: Sign Up with missing required fields test
+
+Objective: To ensure that the sign-up functionality validates the presence of all required fields, providing a user-friendly registration process and maintaining system integrity.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign-up page of the application.
+    - Enter partial information, leaving one or more required fields empty (e.g., First Name, Last Name, Username, Password, or Confirm Password).
+    - Click the "Sign Up" or "Register" button to submit the sign-up form.
+    - Verify that the system displays an error message indicating that the missing required field(s) must be completed.
+    - Check that all components related to sign-up functionality with missing required fields function correctly under this scenario.
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign-up page renders as expected.
+    - The sign-up functionality validates the presence of all required fields.
+    - The system displays an error message indicating that the missing required field(s) must be completed.
+    - All unit tests related to sign-up functionality with missing required fields pass.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
