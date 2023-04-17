@@ -147,6 +147,38 @@ Expected results:
     - All unit tests related to sign in functionality with case-sensitive password pass.
 
 
+Test ID: 6
+Test case name: Sign In page redirect to Sign Up page test
+
+Objective: To ensure that the sign-in page has a button or link that redirects users to the sign-up page, providing a seamless and user-friendly experience for new users.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign in page of the application.
+    - Locate the button or link that redirects users to the sign-up page (e.g., "Sign Up").
+    - Click the button or link to navigate to the sign-up page.
+    - Verify that the system successfully redirects the user to the sign-up page.
+    - Check that all components related to sign in page redirect to sign up page function correctly under this scenario.
+
+
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign in page renders as expected.
+    - The sign-in page has a button or link that redirects users to the sign-up page.
+    - The system successfully redirects the user to the sign-up page.
+    - All unit tests related to sign in page redirect to sign up page pass.
+
+
+
+
 
    Test Sign Up
 
@@ -225,6 +257,9 @@ Expected results:
             - Other tabs match the default settings.
             - Searching for an emoty string brings back the default home screen results.
             - An error message is displayed when a key word is not present in any news article.
+            
+            
+  
 
     Test advanced searching
 
