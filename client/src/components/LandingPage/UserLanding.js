@@ -28,44 +28,59 @@ const UserLanding = () => {
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const fetchArticles = useCallback(async () => {
-    try {
-      if (auth.user && activeCategory === "home") {
-        const response = await getNewsByUserPreferences(auth.user);
-        const startIndex = (currentPage - 1) * articlesPerPage;
+  const fetchArticles = useCallback(
+    async (search, page, category) => {
+      try {
+        let response;
+        setLoading(true);
+        if (search) {
+          setArticles([]);
+          response = await getNewsBySearch(search);
+        }
+        if (!search && auth.user && category === "home") {
+          response = await getNewsByUserPreferences(auth.user);
+        } 
+        else if(!search && auth.user && category !== "home") {
+          response = await getNewsByCategory(category);
+        }
+        const startIndex = (page - 1) * articlesPerPage;
         const endIndex = startIndex + articlesPerPage;
         const articlesForPage = response.slice(startIndex, endIndex);
         setArticles(articlesForPage);
         setPageCount(Math.ceil(response.length / articlesPerPage));
-      } else {
-        const response = await getNewsByCategory(activeCategory);
-        const startIndex = (currentPage - 1) * articlesPerPage;
-        const endIndex = startIndex + articlesPerPage;
-        const articlesForPage = response.slice(startIndex, endIndex);
-        setArticles(articlesForPage);
-        setPageCount(Math.ceil(response.length / articlesPerPage));
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }, [activeCategory, currentPage, auth.user]);
+    },
+    [auth.user]
+  );
 
   useEffect(() => {
-    fetchArticles();
-  }, [fetchArticles]);
+    fetchArticles(searchQuery, currentPage, activeCategory);
+  }, [fetchArticles, searchQuery, currentPage, activeCategory]);
 
   useEffect(() => {
     const onRefresh = async () => {
       if (auth.refreshArticles) {
-        await fetchArticles();
+        setSearchQuery("");
+        setActiveCategory("general");
+        setCurrentPage(1);
+        await fetchArticles("", 1, "general");
         auth.setRefreshArticles(false);
       }
     };
     onRefresh();
-  }, [auth.refreshArticles, fetchArticles, auth.setRefreshArticles, auth]);
-
+  }, [
+    auth.refreshArticles,
+    fetchArticles,
+    auth.setRefreshArticles,
+    auth,
+    searchQuery,
+    currentPage,
+    activeCategory,
+  ]);
   const sanitizeDescription = (description) => {
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
     return stripped.length > 150 ? stripped.slice(0, 150) + "..." : stripped;
@@ -79,24 +94,9 @@ const UserLanding = () => {
   for (let i = 1; i <= pageCount; i++) {
     pageNumbers.push(i);
   }
-
   const handleSearch = async (e) => {
     e.preventDefault();
-    try {
-      setLoading(true);
-      setArticles();
-      const response = await getNewsBySearch(searchQuery);
-      console.log(response);
-      const startIndex = (currentPage - 1) * articlesPerPage;
-      const endIndex = startIndex + articlesPerPage;
-      const articlesForPage = response.slice(startIndex, endIndex);
-      setArticles(articlesForPage);
-      setPageCount(Math.ceil(response.length / articlesPerPage));
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
+    setSearchQuery(e.target[0].value.trim());
   };
 
   return (
@@ -200,30 +200,30 @@ const UserLanding = () => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
-        <Form onSubmit={handleSearch} style={{paddingBottom:"20px"}}>
+        <Form onSubmit={handleSearch} style={{ paddingBottom: "20px" }}>
           <Stack direction="horizontal" gap={2}>
             <FormControl
               data-testid="search"
               type="text"
               placeholder="Search for news"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <Button type="submit" data-testid="search-button">Search</Button>
+            <Button type="submit" data-testid="search-button">
+              Search
+            </Button>
           </Stack>
         </Form>
         {loading ? (
           <p>Loading...</p>
         ) : articles && articles.length === 0 ? (
-          <div style={{alignItems:"center",backgroundSize:"cover"}}>
-          <Card style={{alignItems:"center"}}>
-            <Card.Body>
-              <Card.Title>No articles found</Card.Title>
-              <Card.Text>
-                Try searching for something else or try again later.
-              </Card.Text>
-            </Card.Body>
-          </Card>  
+          <div style={{ alignItems: "center", backgroundSize: "cover" }}>
+            <Card style={{ alignItems: "center" }}>
+              <Card.Body>
+                <Card.Title>No articles found</Card.Title>
+                <Card.Text>
+                  Try searching for something else or try again later.
+                </Card.Text>
+              </Card.Body>
+            </Card>
           </div>
         ) : (
           <Row xs={1} md={2} lg={3} className="g-4">
