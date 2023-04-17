@@ -262,6 +262,33 @@ Expected results:
     - Regression test data matches.
     - Sign-up page renders as expected
 
+Test ID: 4
+Test case name: Sign Up with weak password test
+
+Objective: To ensure that the sign-up functionality enforces a minimum password complexity, providing a secure registration process and maintaining system integrity.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign-up page of the application.
+    - Enter all required information, using a weak password that does not meet the minimum password complexity requirements (e.g., "password").
+    - Click the "Sign Up" or "Register" button to submit the sign-up form.
+    - Verify that the system displays an error message indicating that the password is too weak or does not meet complexity requirements.
+    - Check that all components related to sign-up functionality with weak password function correctly under this scenario.
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign-up page renders as expected.
+    - The sign-up functionality enforces a minimum password complexity.
+    - The system displays an error message indicating that the password is too weak or does not meet complexity requirements.
+    - All unit tests related to sign-up functionality with weak password pass.
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
