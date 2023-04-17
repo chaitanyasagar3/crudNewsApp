@@ -315,6 +315,33 @@ Expected results:
     - The sign-up functionality validates the presence of all required fields.
     - The system displays an error message indicating that the missing required field(s) must be completed.
     - All unit tests related to sign-up functionality with missing required fields pass.
+Test ID: 6
+Test case name: Successful Sign Up with confirmation message test
+
+Objective: To ensure that the sign-up functionality displays an appropriate confirmation message when a user successfully creates an account, providing a positive user experience and clear communication.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign-up page of the application.
+    - Enter all required information with valid data (e.g., First Name, Last Name, Username, Password, and Confirm Password).
+    - Check the box to agree to the terms and conditions, if applicable.
+    - Click the "Sign Up" or "Register" button to submit the sign-up form.
+    - Verify that the system successfully creates a new user account and displays an appropriate confirmation message (e.g., "Your account has been created successfully" or "A confirmation Username has been sent to your Username").
+    - Check that all components related to sign-up functionality with successful registration and confirmation message function correctly under this scenario.
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign-up page renders as expected.
+    - The sign-up functionality creates a new user account and displays an appropriate confirmation message upon successful registration.
+    - The system successfully creates a new user account and displays the confirmation message (e.g., "Your account has been created successfully" or "A confirmation Username has been sent to your Username").
+    - All unit tests related to sign-up functionality with successful registration and confirmation message pass.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
