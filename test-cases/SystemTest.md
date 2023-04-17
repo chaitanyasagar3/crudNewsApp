@@ -2,15 +2,37 @@ System Test:
 
     Test Sign In
 
-        Objective: 
+   Test ID: 1
+Test case name: Sign In with valid credentials test
 
-        Preconditions:
+Objective: To ensure that the sign in functionality allows users with valid credentials to access the system, providing a secure and user-friendly login process.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+    - A test user account with valid credentials (Username and Password) is available
 
 
-        Test steps:
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign in page of the application.
+    - Enter the valid Username and Password for the test user account.
+    - Click the "Sign In" button to submit the sign in form.
+    - Verify that the system successfully logs the user in and redirects them to the appropriate landing page.
+    - Check that all components related to sign in functionality with valid credentials function correctly under this scenario.
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign in page renders as expected.
+    - The sign in functionality allows users with valid credentials to access the system.
+    - The system successfully logs the user in and redirects them to the appropriate landing page or dashboard.
+    - All unit tests related to sign in functionality with valid credentials pass.
 
 
-        Expected results:
+
 
     Test Sign Up
 
