@@ -2,7 +2,7 @@ System Test:
 
     Test Sign In
 
-   Test ID: 1
+Test ID: 1
 Test case name: Sign In with valid credentials test
 
 Objective: To ensure that the sign in functionality allows users with valid credentials to access the system, providing a secure and user-friendly login process.
@@ -12,7 +12,6 @@ Preconditions:
     - The system is up and running
     - All the required external systems and services are available and accessible
     - A test user account with valid credentials (Username and Password) is available
-
 
 Test steps:
 
@@ -30,7 +29,6 @@ Expected results:
     - The sign in functionality allows users with valid credentials to access the system.
     - The system successfully logs the user in and redirects them to the appropriate landing page or dashboard.
     - All unit tests related to sign in functionality with valid credentials pass.
-
 
 Test ID: 2
 Test case name: Sign In with invalid credentials test
@@ -60,8 +58,6 @@ Expected results:
     - The system displays an error message indicating that the credentials provided are incorrect.
     - All unit tests related to sign in functionality with invalid credentials pass.
 
-
-
 Test ID: 3
 Test case name: Sign In with empty Username and password test
 
@@ -71,7 +67,7 @@ Preconditions:
 
     - The system is up and running
     - All the required external systems and services are available and accessible
- 
+
 Test steps:
 
     - Run all unit tests and check if they match the regression test data recorded before sprint 4.
@@ -108,7 +104,6 @@ Test steps:
     - Verify that the system displays an error message indicating that the password field is required.
     - Check that all components related to sign in functionality with a valid Username and empty password function correctly under this scenario.
 
-
 Expected results:
 
     - Regression test data matches.
@@ -116,7 +111,6 @@ Expected results:
     - The sign in functionality prevents users from submitting a valid Username and empty password.
     - The system displays an error message indicating that the password field is required.
     - All unit tests related to sign in functionality with a valid Username and empty password pass.
-
 
 Test ID: 5
 Test case name: Sign In with case-sensitive password test
@@ -146,7 +140,6 @@ Expected results:
     - The system displays an error message indicating that the credentials provided are incorrect.
     - All unit tests related to sign in functionality with case-sensitive password pass.
 
-
 Test ID: 6
 Test case name: Sign In page redirect to Sign Up page test
 
@@ -166,8 +159,6 @@ Test steps:
     - Verify that the system successfully redirects the user to the sign-up page.
     - Check that all components related to sign in page redirect to sign up page function correctly under this scenario.
 
-
-
 Expected results:
 
     - Regression test data matches.
@@ -176,9 +167,7 @@ Expected results:
     - The system successfully redirects the user to the sign-up page.
     - All unit tests related to sign in page redirect to sign up page pass.
 
-
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
     Test Sign Up
 
@@ -208,7 +197,6 @@ Expected results:
     - The sign-up functionality allows new users to create an account with valid information.
     - The system successfully creates a new user account and redirects the user to the appropriate landing page or sends a confirmation Username, as per the application's workflow.
     - All unit tests related to sign-up functionality with valid information pass.
-
 
 Test ID: 2
 Test case name: Sign Up with duplicate Username test
@@ -315,6 +303,7 @@ Expected results:
     - The sign-up functionality validates the presence of all required fields.
     - The system displays an error message indicating that the missing required field(s) must be completed.
     - All unit tests related to sign-up functionality with missing required fields pass.
+
 Test ID: 6
 Test case name: Successful Sign Up with confirmation message test
 
@@ -343,12 +332,38 @@ Expected results:
     - The system successfully creates a new user account and displays the confirmation message (e.g., "Your account has been created successfully" or "A confirmation Username has been sent to your Username").
     - All unit tests related to sign-up functionality with successful registration and confirmation message pass.
 
--------------------------------------------------------------------------------------------------------------------------------------------------------- 
+---
+
+Test ID: 6
+Test case name:Test Landing Page for Guest User
+
+        Objective:   To verify that the Landing page works as expected for a guest-user
+
+        Preconditions: Server and Client must be up and running.
 
 
-  Test set preferences
+        Test steps:
+        - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+        - Open the home page of the app.
+        - Check if the General tab is selected by default.
+        - Verify that the home screen displays 9 news cards.
+        - Check if the user is able to navigate to the other tabs by clicking on the respective tabs.
+        - Check if the respective category of news is being displayed when the tab is selected.
 
-        Objective: 
+        Expected results:
+        - Regression test data matches.
+        - Home page renders as expected.
+        - General tab is selected by default.
+        - There are 9 news cards as expected.
+        - Other tabs are selectable, and displays the respective category news.
+
+
+
+---
+
+Test show merged articles
+
+        Objective:
 
         Preconditions:
 
@@ -357,28 +372,13 @@ Expected results:
 
 
         Expected results:
-        
--------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
 
-   Test show merged articles
+---
 
-        Objective: 
+Test show category articles
 
-        Preconditions:
-
-
-        Test steps:
-
-
-        Expected results:
-        
--------------------------------------------------------------------------------------------------------------------------------------------------------- 
-
-
-   Test show category articles
-
-        Objective: 
+        Objective:
 
         Preconditions:
 
@@ -387,11 +387,11 @@ Expected results:
 
 
         Expected results:
-        
--------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
-    
-   Test searching
+
+---
+
+Test searching
 
         Objective: System must search keywords in the pool of news articles using a search bar
 
@@ -420,13 +420,14 @@ Expected results:
             - Other tabs match the default settings.
             - Searching for an emoty string brings back the default home screen results.
             - An error message is displayed when a key word is not present in any news article.
-            
-            
- -------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+
+
+---
 
     Test advanced searching
 
-        Objective: 
+        Objective:
 
         Preconditions:
 
