@@ -334,7 +334,7 @@ Expected results:
 
 ---
 
-Test ID: 6
+Test ID: 7
 Test case name:Test Landing Page for Guest User
 
         Objective:   To verify that the Landing page works as expected for a guest-user
@@ -357,37 +357,137 @@ Test case name:Test Landing Page for Guest User
         - There are 9 news cards as expected.
         - Other tabs are selectable, and displays the respective category news.
 
-
-
 ---
 
-Test show merged articles
+Test ID: 8
+Test case name:Test Landing Page for Signed-in User
 
-        Objective:
+        Objective:  To verify that the Landing page works as expected for a signed-in user.
 
-        Preconditions:
+
+        Preconditions: Server and Client must be up and running and user has created an account and is signed in to the app.
+
 
 
         Test steps:
+        -Run all unit tests and check if they match the regression test data recorded before sprint 4.
+        - Open the home page of the app.
+        - Check if the General tab is selected by default
+        - Verify that the home screen displays 9 news cards.
+        - Check if the home page displays settings button
+        - Check if the user is able to navigate to the other tabs by clicking on the respective tabs
+        - Check if the respective category of news is being displayed when the tab is selected
 
 
         Expected results:
-
+        - Regression test data matches.
+        - Home page renders as expected.
+        - General tab is selected by default
+        -There are 9 news cards as expected
+        - The settings button is present and is clickable
+        -Other tabs are selectable, and displays the respective category news.
 
 ---
 
-Test show category articles
+Test ID: 9
+Test case name:Test 'set preferences' feature for signed-in User
 
-        Objective:
+        Objective:  To verify that the setting preferences feature works as expected for a signed-in user.
 
-        Preconditions:
+
+        Preconditions: Server and Client must be up and running and user has created an account and is signed in to the app.
+
 
 
         Test steps:
-
+        -Run all unit tests and check if they match the regression test data recorded before sprint 4.
+        - Open the home page of the app.
+        - Check if the General tab is selected by default
+        - Verify that the home screen displays 9 news cards.
+        - Check if the home page displays settings button
+        - User should be able to click on the settings button
+        - The settings popup should appear displaying checkboxes for various news categories.
+        - The general option is checked by default
+        - The user should be able to select the categories
+        - The user should be able to save the selected categories by clicking the save button
+        - The preferences should be saved and the user should be redirected back to the home screen.
 
         Expected results:
+        - Regression test data matches.
+        - Home page renders as expected.
+        - The settings button is present and is clickable
+        - The settings popover is opened and it is displaying the categories
+        - The general category is selected by default
+        - The user is able to select the categories by checking the box
+        - The user is navigated to the Home Screen on clicking save button
 
+---
+
+Test ID: 10
+Test case name: Test show merged articles
+
+        Objective:  To verify that the home page is showing articles from the categories checked in the settings preferences
+
+
+        Preconditions: Server and Client must be up and running and user has created an account and is signed in to the app.
+
+
+
+        Test steps:
+        -Run all unit tests and check if they match the regression test data recorded before sprint 4.
+        - Open the home page of the app.
+        - Check if the General tab is selected by default
+        - Verify that the home screen displays 9 news cards.
+        - Verify that the Home Screen is displaying the general category news
+        - Check if the home page displays settings button
+        - User should be able to click on the settings button
+        - The settings popup should appear displaying checkboxes for various news categories.
+        - The general option is checked by default
+        - The user should be able to select the categories
+        - The user should be able to save the selected categories by clicking the save button
+        - The preferences should be saved and the user should be redirected back to the home screen.
+        - Verify that the news cards in home tab is belonging to the selected categories only.
+
+        Expected results:
+        - Regression test data matches.
+        - Home page renders as expected.
+        - The settings button is present and is clickable
+        - The settings popover is opened and it is displaying the categories
+        - The general category is selected by default
+        - The user is able to select the categories by checking the box
+        - The user is navigated to the Home Screen on clicking save button
+        - The news cards in home tab is belonging to the selected categories only.
+
+---
+
+Test ID: 11
+Test case name: Test show Category articles
+
+        Objective:  To verify that the user is able to see the respective news articles by navigating the tabs
+
+
+        Preconditions: Server and Client must be up and running and user has created an account and is signed in to the app.
+
+
+
+        Test steps:
+        -Run all unit tests and check if they match the regression test data recorded before sprint 4.
+        - Open the home page of the app.
+        - Check if the General tab is selected by default
+        - Verify that the home screen displays 9 news cards.
+        - Verify that the Home Screen is displaying the general category news
+        - Check if the home page displays various tabs for the respective category
+        - Check if the user is able to click on any of the category tab
+        - Verify that the news cards in the respective tab is belonging to the selected category
+
+        Expected results:
+        - Regression test data matches.
+        - Home page renders as expected.
+        - The settings button is present and is clickable
+        - The settings popover is opened and it is displaying the categories
+        - The general category is selected by default
+        - The user is able to click on the category tab
+        - the news cards in the respective tab is belonging to the selected category
 
 ---
 
@@ -420,8 +520,6 @@ Test searching
             - Other tabs match the default settings.
             - Searching for an emoty string brings back the default home screen results.
             - An error message is displayed when a key word is not present in any news article.
-
-
 
 ---
 
