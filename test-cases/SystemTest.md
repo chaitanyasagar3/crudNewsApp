@@ -238,6 +238,29 @@ Expected results:
     - The system displays an error message indicating that the Username is already in use.
     - All unit tests related to sign-up functionality with duplicate Username pass.
 
+Test ID: 3
+Test case name: Sign Up with mismatched password and confirm password test
+
+Objective: To ensure that the sign-up functionality verifies that the password and confirm password fields match, providing a user-friendly registration process and maintaining system integrity.
+
+Preconditions:
+
+    - The system is up and running
+    - All the required external systems and services are available and accessible
+
+Test steps:
+
+    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+    - Navigate to the sign-up page of the application.
+    - Enter all required information, but enter mismatched values for the password and confirm password fields (e.g., "password123" and "password321").
+    - Click the "Sign Up" or "Register" button to submit the sign-up form.
+    - Verify that the system displays an error message indicating that the password and confirm password fields do not match.
+    - Check that all components related to sign-up functionality with mismatched password and confirm password function correctly under this scenario.
+
+Expected results:
+
+    - Regression test data matches.
+    - Sign-up page renders as expected
 
 
   Test set preferences
