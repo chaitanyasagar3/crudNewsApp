@@ -94,7 +94,7 @@ Test case name: Sign Up with valid and invalid information test
 
 ---
 
-Test ID: 7
+Test ID: 3
 Test case name:Test Landing Page for Guest User
 
         Objective:   To verify that the Landing page works as expected for a guest-user
@@ -119,7 +119,7 @@ Test case name:Test Landing Page for Guest User
 
 ---
 
-Test ID: 8
+Test ID: 4
 Test case name:Test Landing Page for Signed-in User
 
         Objective:  To verify that the Landing page works as expected for a signed-in user.
@@ -149,7 +149,7 @@ Test case name:Test Landing Page for Signed-in User
 
 ---
 
-Test ID: 9
+Test ID: 5
 Test case name:Test 'set preferences' feature for signed-in User
 
         Objective:  To verify that the setting preferences feature works as expected for a signed-in user.
@@ -183,7 +183,7 @@ Test case name:Test 'set preferences' feature for signed-in User
 
 ---
 
-Test ID: 10
+Test ID: 6
 Test case name: Test show merged articles
 
         Objective:  To verify that the home page is showing articles from the categories checked in the settings preferences
@@ -220,7 +220,7 @@ Test case name: Test show merged articles
 
 ---
 
-Test ID: 11
+Test ID: 7
 Test case name: Test show Category articles
 
         Objective:  To verify that the user is able to see the respective news articles by navigating the tabs
