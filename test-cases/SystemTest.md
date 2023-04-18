@@ -171,8 +171,8 @@ Expected results:
 
     Test Sign Up
 
-Test ID: 1
-Test case name: Sign Up with valid information test
+Test ID: 2
+Test case name: Sign Up with valid and invalid information test
 
 Objective: To ensure that the sign-up functionality allows new users to create an account with valid information, providing a secure and user-friendly registration process.
 
@@ -185,7 +185,15 @@ Test steps:
 
     - Run all unit tests and check if they match the regression test data recorded before sprint 4.
     - Navigate to the sign-up page of the application.
-    - Enter all required information with valid data (e.g., First Name, Last Name, Username, Password, and Confirm Password).
+    - Enter all required information with valid data (e.g., First Name, Last Name, Username, Password, and Confirm Password) and submit the form.
+    - Enter all required information, using the Username of the existing user account and submit the form.
+    - Verify that the system displays an error message indicating that the Username is already in use.
+    - Enter all required information, but enter mismatched values for the password and confirm password fields (e.g., "password123" and "password321") and submit the form.
+    - Verify that the system displays an error message indicating that the password and confirm password fields do not match.
+    - Enter all required information, using a weak password that does not meet the minimum password complexity requirements (e.g., "password") and submit the form..
+    - Verify that the system displays an error message indicating that the password is too weak or does not meet complexity requirements.
+    - Enter partial information, leaving one or more required fields empty (e.g.,Username, Password, or Confirm Password)and submit the form.
+    - Verify that the system displays an error message indicating that the missing required field(s) must be completed.
     - Click the "Sign Up" or "Register" button to submit the sign-up form.
     - Verify that the system successfully creates a new user account and redirects the user to the appropriate landing page or sends a confirmation Username, as per the application's workflow.
     - Check that all components related to sign-up functionality with valid information function correctly under this scenario.
@@ -195,142 +203,12 @@ Expected results:
     - Regression test data matches.
     - Sign-up page renders as expected.
     - The sign-up functionality allows new users to create an account with valid information.
+    - The sign-up functionality prevents users from creating an account with an Username that is already in use.
+    - The sign-up functionality enforces a minimum password complexity.
+    - The sign-up functionality validates the presence of all required fields.
     - The system successfully creates a new user account and redirects the user to the appropriate landing page or sends a confirmation Username, as per the application's workflow.
     - All unit tests related to sign-up functionality with valid information pass.
 
-Test ID: 2
-Test case name: Sign Up with duplicate Username test
-
-Objective: To ensure that the sign-up functionality prevents users from creating an account with an Username that is already in use, maintaining system integrity.
-
-Preconditions:
-
-    - The system is up and running
-    - All the required external systems and services are available and accessible
-    - An existing user account with a known Username
-
-Test steps:
-
-    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
-    - Navigate to the sign-up page of the application.
-    - Enter all required information, using the Username of the existing user account.
-    - Click the "Sign Up" or "Register" button to submit the sign-up form.
-    - Verify that the system displays an error message indicating that the Username is already in use.
-    - Check that all components related to sign-up functionality with duplicate Username function correctly under this scenario.
-
-Expected results:
-
-    - Regression test data matches.
-    - Sign-up page renders as expected.
-    - The sign-up functionality prevents users from creating an account with an Username that is already in use.
-    - The system displays an error message indicating that the Username is already in use.
-    - All unit tests related to sign-up functionality with duplicate Username pass.
-
-Test ID: 3
-Test case name: Sign Up with mismatched password and confirm password test
-
-Objective: To ensure that the sign-up functionality verifies that the password and confirm password fields match, providing a user-friendly registration process and maintaining system integrity.
-
-Preconditions:
-
-    - The system is up and running
-    - All the required external systems and services are available and accessible
-
-Test steps:
-
-    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
-    - Navigate to the sign-up page of the application.
-    - Enter all required information, but enter mismatched values for the password and confirm password fields (e.g., "password123" and "password321").
-    - Click the "Sign Up" or "Register" button to submit the sign-up form.
-    - Verify that the system displays an error message indicating that the password and confirm password fields do not match.
-    - Check that all components related to sign-up functionality with mismatched password and confirm password function correctly under this scenario.
-
-Expected results:
-
-    - Regression test data matches.
-    - Sign-up page renders as expected
-
-Test ID: 4
-Test case name: Sign Up with weak password test
-
-Objective: To ensure that the sign-up functionality enforces a minimum password complexity, providing a secure registration process and maintaining system integrity.
-
-Preconditions:
-
-    - The system is up and running
-    - All the required external systems and services are available and accessible
-
-Test steps:
-
-    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
-    - Navigate to the sign-up page of the application.
-    - Enter all required information, using a weak password that does not meet the minimum password complexity requirements (e.g., "password").
-    - Click the "Sign Up" or "Register" button to submit the sign-up form.
-    - Verify that the system displays an error message indicating that the password is too weak or does not meet complexity requirements.
-    - Check that all components related to sign-up functionality with weak password function correctly under this scenario.
-
-Expected results:
-
-    - Regression test data matches.
-    - Sign-up page renders as expected.
-    - The sign-up functionality enforces a minimum password complexity.
-    - The system displays an error message indicating that the password is too weak or does not meet complexity requirements.
-    - All unit tests related to sign-up functionality with weak password pass.
-
-Test ID: 5
-Test case name: Sign Up with missing required fields test
-
-Objective: To ensure that the sign-up functionality validates the presence of all required fields, providing a user-friendly registration process and maintaining system integrity.
-
-Preconditions:
-
-    - The system is up and running
-    - All the required external systems and services are available and accessible
-
-Test steps:
-
-    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
-    - Navigate to the sign-up page of the application.
-    - Enter partial information, leaving one or more required fields empty (e.g., First Name, Last Name, Username, Password, or Confirm Password).
-    - Click the "Sign Up" or "Register" button to submit the sign-up form.
-    - Verify that the system displays an error message indicating that the missing required field(s) must be completed.
-    - Check that all components related to sign-up functionality with missing required fields function correctly under this scenario.
-
-Expected results:
-
-    - Regression test data matches.
-    - Sign-up page renders as expected.
-    - The sign-up functionality validates the presence of all required fields.
-    - The system displays an error message indicating that the missing required field(s) must be completed.
-    - All unit tests related to sign-up functionality with missing required fields pass.
-
-Test ID: 6
-Test case name: Successful Sign Up with confirmation message test
-
-Objective: To ensure that the sign-up functionality displays an appropriate confirmation message when a user successfully creates an account, providing a positive user experience and clear communication.
-
-Preconditions:
-
-    - The system is up and running
-    - All the required external systems and services are available and accessible
-
-Test steps:
-
-    - Run all unit tests and check if they match the regression test data recorded before sprint 4.
-    - Navigate to the sign-up page of the application.
-    - Enter all required information with valid data (e.g., First Name, Last Name, Username, Password, and Confirm Password).
-    - Check the box to agree to the terms and conditions, if applicable.
-    - Click the "Sign Up" or "Register" button to submit the sign-up form.
-    - Verify that the system successfully creates a new user account and displays an appropriate confirmation message (e.g., "Your account has been created successfully" or "A confirmation Username has been sent to your Username").
-    - Check that all components related to sign-up functionality with successful registration and confirmation message function correctly under this scenario.
-
-Expected results:
-
-    - Regression test data matches.
-    - Sign-up page renders as expected.
-    - The sign-up functionality creates a new user account and displays an appropriate confirmation message upon successful registration.
-    - The system successfully creates a new user account and displays the confirmation message (e.g., "Your account has been created successfully" or "A confirmation Username has been sent to your Username").
-    - All unit tests related to sign-up functionality with successful registration and confirmation message pass.
 
 ---
 
