@@ -203,7 +203,35 @@ To verify that When User is not signed in, the landing page should display a lis
 | 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. |The user is able to access the Landing page successfully. | Pass|		
 | 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is able to see the Sign in option | Pass|
 | 3 | Check the landing page for General news category | The user should be able to see the all news from the general category only. | The user is able to see the all news from All category | Failed|		
-| 4 | Check the landing page for other news category | The user should not be able to see the other news category. | The user is able to see the other news category too.| Failed|		
+| 4 | Check the landing page for other news category | The user should not be able to see the other news category. | The user is able to see the other news category too.| Failed|	
+
+
+# Test Case PM_001: Landing page
+* Created By: Deepak
+* Reviewed By:
+* Version: 2.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|  Deepak   | 04/07/2023 | Passed |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - *********|
+
+## Test Scenario
+To verify that When User is not signed in, the landing page should display a list of articles from the NewsAPI “General” category only.
+
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. |The user is able to access the Landing page successfully. | Pass|		
+| 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is able to see the Sign in option | Pass|
+| 3 | Check the landing page for General news category | The user should be able to see the all news from the general category only. | The user is able to see the all news from All category | Pass|		
+| 4 | Check the landing page for other news category | The user should not be able to see the other news category. | The user is able to see the other news category too.| Pass|
 
 # Test Case PM_002: Landing page
 * Created By: Deepak
@@ -574,6 +602,35 @@ To verify that When User is signed in, The list of articles supporting paginatio
 | 7 | Check for the pagination on landing page | The user should be able to see pagination on landing page. |The user should be able to see pagination on landing page | Pass|
 | 8 | Check and Choose any number of article for the pagination on landing page | The user should be able to see the exact number of article they selected for  pagination on landing page. | The user is not able to select and see the exact number of article for  pagination on landing page.| Failed|
 
+# Test Case PM_013: Landing page
+* Created By: Deepak
+* Reviewed By:
+* Version: 2.0
+
+### QA Tester’s Log
+
+| Tester's Name | Date Tested | Test Case |
+| --- | --- | --- |
+|   Deepak  | 04/07/2023 | Passed |
+
+| S # | Prerequisites | Test Data |
+| --- | --- | --- |
+| 1 | The landing page should be accessible and functioning properly.| Username - Deepak1 & Password - ********* |
+
+## Test Scenario
+To verify that When User is signed in, The list of articles supporting pagination and user is able to choose the number of item displayed on each page on Landing page.
+
+### Test Steps:
+| Step # | Step Details | Expected Results | Actual Results | Pass / Fail / Not executed / Suspended |
+| --- | --- | --- | --- | --- |
+| 1 | Navigate to the Landing page. | The user should be able to access the Landing page successfully. |The user should is able to access the Landing page successfully.  | Pass|		
+| 2 | Check the sign in Option on the landing page | The user should be able to see the Sign in option , to verify that the user is not Signed in. |The user is be able to see the Sign in option |Pass |	
+| 3 | Navigate to sign in page and Enter the user name and password details | The user should be able to access the sign in page and enter the username and password and able to submit all details. |The user is able to access the sign in page and enter the username and password and able to submit all details. |Pass |		
+| 4 | Check the landing page for username on the top right | The user should  be able to see their name on the right top of the landing page to verify successfully logged in. | The user is able to see their name on the right top of the landing page| Pass|			
+| 5 | Check for the  Home and category button on landing page | The user should be able to see Home button highlighted  |The user is able to see Home button highlighted | Pass|
+| 6 | Click on any category button on landing page | The user should be able to see selected category button highlighted  | The user is able to see selected category button highlighted |Pass |
+| 7 | Check for the pagination on landing page | The user should be able to see pagination on landing page. |The user should be able to see pagination on landing page | Pass|
+| 8 | Check and Choose any number of article for the pagination on landing page | The user should be able to see the exact number of article they selected for  pagination on landing page. | The user is not able to select and see the exact number of article for  pagination on landing page.| Pass|
 
 
 
