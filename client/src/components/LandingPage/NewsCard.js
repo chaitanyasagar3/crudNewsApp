@@ -1,5 +1,6 @@
 import { Card, Button } from "react-bootstrap";
 import brokenNewspaper from "../../assests/broken-newspapper.png";
+import dayjs from "dayjs";
 
 const NewsCard = ({ article }) => {
   const sanitizeDescription = (description) => {
@@ -24,11 +25,16 @@ const NewsCard = ({ article }) => {
           {article.source && article.source.name}
         </Card.Subtitle>
         <Card.Text>{sanitizeDescription(article.description)}</Card.Text>
+        <br />
         <div className="mt-auto">
           <Button variant="light" href={article.url}>
             Read More
           </Button>
         </div>
+        <br />
+        <Card.Footer className="mb-2 text-muted" style={{borderRadius:"10px"}}>
+          {new dayjs(article.publishedAt).format("DD MMM YYYY HH:mm") + " "}
+        </Card.Footer>
       </Card.Body>
     </Card>
   );

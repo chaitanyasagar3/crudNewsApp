@@ -39,8 +39,7 @@ const UserLanding = () => {
         }
         if (!search && auth.user && category === "home") {
           response = await getNewsByUserPreferences(auth.user);
-        } 
-        else if(!search && auth.user && category !== "home") {
+        } else if (!search && auth.user && category !== "home") {
           response = await getNewsByCategory(category);
         }
         const startIndex = (page - 1) * articlesPerPage;
@@ -96,9 +95,14 @@ const UserLanding = () => {
   }
   const handleSearch = async (e) => {
     e.preventDefault();
-    setSearchQuery(e.target[0].value.trim());
+    const search = e.target[0].value.trim();
+    if (search) {
+      setSearchQuery(search);
+      setCurrentPage(1);
+    } else {
+      window.alert("Please enter a search query");
+    }
   };
-
   return (
     <>
       <div className="userLanding" data-testid="user-landing">
@@ -110,6 +114,7 @@ const UserLanding = () => {
               onClick={() => {
                 setActiveCategory("home");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Home
@@ -122,6 +127,7 @@ const UserLanding = () => {
               onClick={() => {
                 setActiveCategory("general");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               General
@@ -134,6 +140,7 @@ const UserLanding = () => {
               onClick={() => {
                 setActiveCategory("business");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Business
@@ -146,6 +153,7 @@ const UserLanding = () => {
               onClick={() => {
                 setActiveCategory("entertainment");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Entertainment
@@ -158,6 +166,7 @@ const UserLanding = () => {
               onClick={() => {
                 setActiveCategory("health");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Health
@@ -170,6 +179,7 @@ const UserLanding = () => {
               onClick={() => {
                 setActiveCategory("science");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Science
@@ -182,6 +192,7 @@ const UserLanding = () => {
               onClick={() => {
                 setActiveCategory("sports");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Sports
@@ -194,6 +205,7 @@ const UserLanding = () => {
               onClick={() => {
                 setActiveCategory("technology");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Technology
@@ -244,9 +256,6 @@ const UserLanding = () => {
       <div className="my-pagination">
         <Pagination>
           {currentPage > 1 && (
-            <Pagination.Ellipsis key="first" onClick={() => paginate(1)} />
-          )}
-          {currentPage > 1 && (
             <Pagination.Prev
               key="prev"
               onClick={() => paginate(currentPage - 1)}
@@ -256,7 +265,7 @@ const UserLanding = () => {
             if (
               number === 1 ||
               number === pageNumbers.length ||
-              (number >= currentPage - 1 && number <= currentPage + 1)
+              (number >= currentPage - 10 && number <= currentPage + 10)
             ) {
               return (
                 <Pagination.Item
@@ -271,16 +280,10 @@ const UserLanding = () => {
               return null;
             }
           })}
-          {currentPage < pageNumbers.length - 1 && (
+          {currentPage < pageNumbers.length && (
             <Pagination.Next
               key="next"
               onClick={() => paginate(currentPage + 1)}
-            />
-          )}
-          {currentPage < pageNumbers.length - 2 && (
-            <Pagination.Ellipsis
-              key="last"
-              onClick={() => paginate(pageNumbers.length)}
             />
           )}
         </Pagination>

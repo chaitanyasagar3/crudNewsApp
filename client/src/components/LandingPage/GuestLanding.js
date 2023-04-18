@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { getNewsByCategory } from "../../api/news";
 import { getNewsBySearch } from "../../api/news";
 import NewsCard from "./NewsCard";
+
 import {
   Card,
   Form,
@@ -34,7 +35,7 @@ const GuestLanding = () => {
       if (search) {
         setArticles([]);
         response = await getNewsBySearch(search);
-      } else {
+      } else if (!search) {
         response = await getNewsByCategory(category);
       }
       const startIndex = (page - 1) * articlesPerPage;
@@ -89,7 +90,13 @@ const GuestLanding = () => {
   }
   const handleSearch = async (e) => {
     e.preventDefault();
-    setSearchQuery(e.target[0].value.trim());
+    const search = e.target[0].value.trim();
+    if (search) {
+      setSearchQuery(search);
+      setCurrentPage(1);
+    } else {
+      window.alert("Please enter a search query");
+    }
   };
 
   return (
@@ -108,6 +115,7 @@ const GuestLanding = () => {
               onClick={() => {
                 setActiveCategory("general");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               General
@@ -120,6 +128,7 @@ const GuestLanding = () => {
               onClick={() => {
                 setActiveCategory("business");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Business
@@ -132,6 +141,7 @@ const GuestLanding = () => {
               onClick={() => {
                 setActiveCategory("entertainment");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Entertainment
@@ -144,6 +154,7 @@ const GuestLanding = () => {
               onClick={() => {
                 setActiveCategory("health");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Health
@@ -156,6 +167,7 @@ const GuestLanding = () => {
               onClick={() => {
                 setActiveCategory("science");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Science
@@ -168,6 +180,7 @@ const GuestLanding = () => {
               onClick={() => {
                 setActiveCategory("sports");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Sports
@@ -180,6 +193,7 @@ const GuestLanding = () => {
               onClick={() => {
                 setActiveCategory("technology");
                 setCurrentPage(1);
+                setSearchQuery("");
               }}
             >
               Technology
@@ -224,9 +238,6 @@ const GuestLanding = () => {
       <div className="my-pagination">
         <Pagination>
           {currentPage > 1 && (
-            <Pagination.Ellipsis key="first" onClick={() => paginate(1)} />
-          )}
-          {currentPage > 1 && (
             <Pagination.Prev
               key="prev"
               onClick={() => paginate(currentPage - 1)}
@@ -236,7 +247,7 @@ const GuestLanding = () => {
             if (
               number === 1 ||
               number === pageNumbers.length ||
-              (number >= currentPage - 1 && number <= currentPage + 1)
+              (number >= currentPage - 10 && number <= currentPage + 10)
             ) {
               return (
                 <Pagination.Item
@@ -251,16 +262,10 @@ const GuestLanding = () => {
               return null;
             }
           })}
-          {currentPage < pageNumbers.length - 1 && (
+          {currentPage < pageNumbers.length && (
             <Pagination.Next
               key="next"
               onClick={() => paginate(currentPage + 1)}
-            />
-          )}
-          {currentPage < pageNumbers.length - 2 && (
-            <Pagination.Ellipsis
-              key="last"
-              onClick={() => paginate(pageNumbers.length)}
             />
           )}
         </Pagination>
