@@ -2,9 +2,6 @@ System Test:
 
     Test Sign In
 
-Test ID: 1
-Test case name: Sign In with valid and invalid credentials test
-
     Objective: To ensure that the sign in functionality allows users with valid credentials to access the system, providing a secure and user-friendly login process.
 
     Preconditions:
@@ -53,8 +50,6 @@ Test case name: Sign In with valid and invalid credentials test
 
     Test Sign Up
 
-Test ID: 2
-Test case name: Sign Up with valid and invalid information test
 
     Objective: To ensure that the sign-up functionality allows new users to create an account with valid information, providing a secure and user-friendly registration process.
 
