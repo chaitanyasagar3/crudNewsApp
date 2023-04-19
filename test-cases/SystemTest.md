@@ -260,11 +260,12 @@ Test searching
             - Type the word in the search box and click the search button.
             - Check if new articles fetched in the home tab, all consist of the keyword.
             - Change the page and check if new articles fetched in the home tab, all consist of the keyword.
+            - Check the dates for the articles from top to make sure the articles are in descending order starting with the most recent.
             - Delete the keyword and click search.
+            - Check if appropiate error message is displayed. ("Please enter a search query")
             - Check if the new articles in every tab fetched, match the default settings.
             - Enter a keyword with gibrish and special characters that might not be present in any article.
             - Check if an appropiate error message appears.
-            - Delete the keyword and click search.
             - Check if the new articles in every tab fetched, match the default settings.
 
 
@@ -278,14 +279,32 @@ Test searching
 
 ---
 
-    Test advanced searching
+Test advanced searching
 
-        Objective:
+Objective: System must search advanced combinations of keywords in the pool of news articles using a search bar
 
-        Preconditions:
-
-
-        Test steps:
+Preconditions: Server and Client must be up and running.
 
 
-        Expected results:
+Test steps:
+        - Run all unit tests and check if they match the regression test data recorded before sprint 4.
+        - Perform search operation with two keywords seperated by "AND".
+        - Check if new articles, fetched in the home tab, all consist of both the keywords.
+        - Open any article and press "Control + f". Type and search both the keywords to check if both the words are present in the article.
+        - Check the dates for the articles from top to make sure the articles are in descending order starting with the most recent.
+        - Similarly perform searches for "OR" and "NOT" operations.
+                * OR: Any one or both key words should be present in the news articles.
+                * NOT: They key word should not be present in any of the articles.
+        - Choose keywords and use random combinations of parenthesis. EG: (Phone OR Human) AND ex-cop.
+        - Check if new articles, fetched in the home tab, all have appropiate keywords.
+        - Open any article and press "Control + f". Type and search all have appropiate keywords.
+
+
+Expected results:
+        - Unit tests match the pre recorded regression data.
+        - Search yields news articles.
+        - All the news articles have both the keywords.
+        - The news articles are in descending order starting with the most recent.
+        - OR: Any one or both key words should be present in the news articles.
+        - NOT: They key word should not be present in any of the articles.
+        - Different parenthesis searches have no impact on the search and yields desired results. 
