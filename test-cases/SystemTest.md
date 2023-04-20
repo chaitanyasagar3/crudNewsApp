@@ -100,8 +100,13 @@ Test Landing Page
         - Check if the Home tab is selected by default for a signed in user.
         - Check if the settings button is displayed for signed in user.
         - Verify that the home screen displays 9 news cards.
+        - Verify that the user is able to see the refresh button
         - Check if the app is displaying General news when the user is clicking on the General tab.
+        - Check if the user is able to click on the refresh button
+        - Verify that the the page is refreshed and stays on the General tab
         - Check if the app is displaying Business news when the user is clicking on the Business tab.
+        - Check if the user is able to click on the refresh button
+        - Verify that the the page is refreshed and stays on the Business tab
         - Check if the app is displaying Entertainment news when the user is clicking on the Entertainment tab.
         - Check if the app is displaying Health news when the user is clicking on the Health tab.
         - Check if the app is displaying Science news when the user is clicking on the Science tab.
@@ -119,7 +124,11 @@ Test Landing Page
         - Settings button is displayed for the signed-in user.
         - There are 9 news cards as expected.
         - The app is displaying General news when the user is clicking on the General tab.
+        - The user is able to click on the refresh button
+        - The page is refreshed and stays on the General tab
         - The app is displaying Business news when the user is clicking on the Business tab.
+        - The user is able to click on the refresh button
+        - The the page is refreshed and stays on the Business tab
         - The app is displaying Entertainment news when the user is clicking on the Entertainment tab.
         - The app is displaying Health news when the user is clicking on the Health tab.
         - The app is displaying Science news when the user is clicking on the Science tab.
