@@ -257,19 +257,18 @@ Test 'Set Preference' feature
         - The preferences should be saved and the user should be redirected back to the home screen.
 
         Expected results:
-        - Regression test data matches.
-        - Home page renders as expected.
-        - Home tab is selected by default.
-        - The settings button is present and is clickable
-        - The settings popover is opened and it is displaying the categories
-        - The general category is selected by default
-        - Check if the general option is checked by default
-        - The user is able to select a category
-        - The user is able to unselect a category
-        - The user is able to select multiple categories
-        - The user is able to save the selected categories by clicking the save button
-        _ The user is able to dismiss the popover by clicking the cancel button
-        - The preferences is saved and the user is redirected back to the home screen.
+        - Regression test data matches.                                                 :Pass
+        - Home page renders as expected.                                                :Pass
+        - Home tab is selected by default.                                              :Pass
+        - The settings button is present and is clickable                               :Pass
+        - The settings popover is opened and it is displaying the categories            :Pass
+        - The general category is selected by default                                   :Pass
+        - The user is able to select a category                                         :Pass
+        - The user is able to unselect a category                                       :Pass
+        - The user is able to select multiple categories                                :Pass
+        - The user is able to save the selected categories by clicking the save button  :Pass
+        _ The user is able to dismiss the popover by clicking the cancel button         :Pass
+        - The preferences is saved and the user is redirected back to the home screen.  :Pass
 
 ---
 
@@ -299,20 +298,21 @@ Test show merged articles
         - Verify that the Home tab contains news from Health, Business and Sports Categories
 
         Expected results:
-        - Regression test data matches.
-        - Home page renders as expected.
-        - Home tab is selected by default
-        - The home screen displays 9 news cards.
-        - The home page displays settings button
-        - User is able to click on the settings button
-        - General category is checked by default in the settings popover
-        - The Home Tab is displaying the general category news
-        - User is able to click on settings button and select the Health and Business Categories
-        - The preferences are saved by clicking the save button
-        - The Home tab contains news from Health and Business Categories
-        - User is able to click on settings button and select the Sports Categories
-        - The preferences are saved by clicking the save button
-        - The Home tab contains news from Health, Business and Sports Categories
+        - Regression test data matches.                                                 :Pass
+        - Home page renders as expected.                                                :Pass
+        - Home tab is selected by default                                               :Pass
+        - The home screen displays 9 news cards.                                        :Pass
+        - The home page displays settings button                                        :Pass
+        - User is able to click on the settings button                                  :Pass
+        - General category is checked by default in the settings popover                :Pass
+        - The Home Tab is displaying the general category news                          :Pass
+        - User is able to click on settings button and select the Health and            :Pass
+        Business Categories
+        - The preferences are saved by clicking the save button                         :Pass
+        - The Home tab contains news from Health and Business Categories                :Pass
+        - User is able to click on settings button and select the Sports Categories     :Pass
+        - The preferences are saved by clicking the save button                         :Pass
+        - The Home tab contains news from Health, Business and Sports Categories        :Pass
 
 ---
 
@@ -340,11 +340,36 @@ Test searching
 
 
         Expected results:
-            - Regression test data matches.
-            - Home page renders as expected.
-            - The news articles change when enter is clicked with the keyword.
-            - Other tabs match the default settings.
-            - Searching for an emoty string brings back the default home screen results.
-            - An error message is displayed when a key word is not present in any news article.
+            - Regression test data matches.                                                     :Pass
+            - Home page renders as expected.                                                    :Pass
+            - The news articles change when enter is clicked with the keyword.                  :Pass
+            - Other tabs match the default settings.                                            :Pass
+            - Searching for an emoty string brings back the default home screen results.        :Pass
+            - An error message is displayed when a key word is not present in any news article. :Pass
 
 ---
+
+Test advanced searching
+
+Objective: System must search advanced combinations of keywords in the pool of news articles using a search bar
+
+Preconditions: Server and Client must be up and running.
+
+Test steps: - Run all unit tests and check if they match the regression test data recorded before sprint 4. - Perform search operation with two keywords seperated by "AND". - Check if new articles, fetched in the home tab, all consist of both the keywords. - Open any article and press "Control + f". Type and search both the keywords to check if both the words are present in the article. - Check the dates for the articles from top to make sure the articles are in descending order starting with the most recent. - Similarly perform searches for "OR" and "NOT" operations.
+_ OR: Any one or both key words should be present in the news articles.
+_ NOT: They key word should not be present in any of the articles. - Choose keywords and use random combinations of parenthesis. EG: (Phone OR Human) AND ex-cop. - Check if new articles, fetched in the home tab, all have appropiate keywords. - Open any article and press "Control + f". Type and search all have appropiate keywords.
+
+    Results:
+        - Unit tests match the pre recorded regression data.                                                :Pass
+        - Search yields news articles.                                                                      :Pass
+        - All the news articles have both the keywords.                                                     :Pass
+        - The news articles are in descending order starting with the most recent.                          :Pass
+        - OR: Any one or both key words should be present in the news articles.                             :Pass
+        - NOT: They key word should not be present in any of the articles.                                  :Pass
+        - Different parenthesis searches have no impact on the search and yields desired results.           :Fail
+
+    Failed test cases:
+        - Different parenthesis searches have no impact on the search and yields desired results.           :Fail
+
+        Failing condition:
+            Failed to find "ex-cop" Key Word in the article: (Phone Or Human) And ex-cop
