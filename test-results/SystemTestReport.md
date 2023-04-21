@@ -288,13 +288,15 @@ Test advanced searching
                         - Open any article and press "Control + f". Type and search all have appropiate keywords.
 
         Expected results: 
-                - Unit tests match the pre recorded regression data. 
-                - Search yields news articles. 
-                - All the news articles have both the keywords. 
-                - The news articles are in descending order starting with the most recent. 
-                - OR: Any one or both key words should be present in the news articles. 
-                - NOT: They key word should not be present in any of the articles. 
-                - Different parenthesis searches have no impact on the search and yields desired results.
+                       - Unit tests match the pre recorded regression data.                                                :Pass
+                       - Search yields news articles.                                                                      :Pass
+                       - All the news articles have both the keywords.                                                     :Pass
+                       - The news articles are in descending order starting with the most recent.                          :Pass
+                       - OR: Any one or both key words should be present in the news articles.                             :Pass
+                       - NOT: They key word should not be present in any of the articles.                                  :Pass
+                       - Different parenthesis searches have no impact on the search and yields desired results.           :Fail
+
+------
 
 
 Tester: UDITANSHU KHATRI
