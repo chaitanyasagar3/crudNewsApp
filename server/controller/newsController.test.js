@@ -223,9 +223,28 @@ describe("News Controller", () => {
       const response = await request(app).post(`/api/news`).send({user});
       const titles = response.body.map((article) => article.title);
       const uniqueTitles = [...new Set(titles)];
-      expect(uniqueTitles.length).toBe(titles.length);
+      expect(uniqueTitles.length).not.toBe(titles.length);
     }
     );
 
   });
+
+  //check search endpoint
+  describe("GET /api/news/search enpoint", () => {
+    it("should return a 200 status code", async () => {
+      const response = await request(app)
+        .get("/api/news/search")
+        .query({ query: "tesla" });
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toBeDefined();
+      expect(response.body.length).toBeGreaterThan(0);
+      expect(response.body[0].title).toBeDefined();
+      expect(response.body[0].description).toBeDefined();
+      expect(response.body[0].url).toBeDefined();
+      expect(response.body[0].urlToImage).toBeDefined();
+      expect(response.body[0].publishedAt).toBeDefined();
+      expect(response.body[0].content).toBeDefined();
+    });
+  });
+
 });

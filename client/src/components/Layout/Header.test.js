@@ -127,7 +127,7 @@ describe("Header", () => {
       const { getByTestId } = renderValue;
       const refreshButton = getByTestId("refresh-button");
       fireEvent.click(refreshButton);
-      await expect(setRefreshArticles).toHaveBeenCalledWith(true);
+      await expect(useAuth().setRefreshArticles).toHaveBeenCalledWith(true);
     });
 
   });
