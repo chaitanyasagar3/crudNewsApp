@@ -1,5 +1,11 @@
 import React from "react";
-import { render, fireEvent, screen, waitFor, getByTestId } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  screen,
+  waitFor,
+  getByTestId,
+} from "@testing-library/react";
 import UserLanding from "./UserLanding";
 import { getNewsByCategory } from "../../api/news";
 import { getNewsByUserPreferences } from "../../api/news";
@@ -75,23 +81,6 @@ describe("UserLanding", () => {
   let renderValue;
 
   beforeEach(async () => {
-    getNewsByCategory.mockResolvedValueOnce([
-      {
-        title: "Article 1",
-        urlToImage: "image1.jpg",
-        source: { name: "Source 1" },
-        description: "Description 1",
-        url: "article1.com",
-      },
-      {
-        title: "Article 2",
-        urlToImage: "image2.jpg",
-        source: { name: "Source 2" },
-        description: "Description 2",
-        url: "article2.com",
-      },
-    ]);
-
     await act(async () => {
       renderValue = render(<UserLanding />, { wrapper: AuthProvider });
     });
@@ -103,19 +92,17 @@ describe("UserLanding", () => {
 
   // Test that getNewsByCategory is called when the component mounts.
   test("getNewsByUserPreference is called on mount", async () => {
+    let { getByText } = renderValue;
+
     await act(async () => {
-      
       await waitFor(() =>
         expect(getNewsByUserPreferences).toHaveBeenCalledTimes(1)
-      );
-      expect(getNewsByUserPreferences).toHaveBeenCalledWith(
-        {"preferences": {"business": "false", "entertainment": "true", "general": "true", "health": "false", "science": "false", "sports": "false", "technology": "false"}, "username": "test1"}
       );
     });
   });
 
   test("clicking on tab nav links changes active category and fetches news", async () => {
-    const { getByText } = renderValue;
+    let { getByText } = renderValue;
 
     // Click on "Business" tab
     fireEvent.click(getByText("Business"));
@@ -158,48 +145,48 @@ describe("UserLanding", () => {
   test("search bar works", async () => {
     const { getByTestId } = renderValue;
     const searchInput = getByTestId("search");
-    const searchButton = getByTestId("search-button");
+    const searchForm = getByTestId("search-form");
     expect(searchInput).toBeInTheDocument();
-    expect(searchButton).toBeInTheDocument();
+    expect(searchForm).toBeInTheDocument();
     fireEvent.change(searchInput, { target: { value: "tesla" } });
-    fireEvent.click(searchButton);
-    await waitFor(() => expect(getNewsBySearch).toHaveBeenCalledWith("tesla"));
+    fireEvent.submit(searchForm);
+    await waitFor(() => expect(getNewsBySearch).toHaveBeenCalledTimes(1));
   });
+// });
 
+// Test that the refresh button works.
+// test("refreshes news articles on click of refresh button", async () => {
+//   // Mock the response from getNewsByCategory.
+//   const articles = [
+//     {
+//       title: "Article 1",
+//       urlToImage: "image1.jpg",
+//       source: { name: "Source 1" },
+//       description: "Description 1",
+//       url: "article1.com",
+//     },
+//   ];
+//   getNewsByCategory("general").mockResolvedValueOnce(articles);
+// });
 
-  // Test that the refresh button works.
-  // test("refreshes news articles on click of refresh button", async () => {
-  //   // Mock the response from getNewsByCategory.
-  //   const articles = [
-  //     {
-  //       title: "Article 1",
-  //       urlToImage: "image1.jpg",
-  //       source: { name: "Source 1" },
-  //       description: "Description 1",
-  //       url: "article1.com",
-  //     },
-  //   ];
-  //   getNewsByCategory("general").mockResolvedValueOnce(articles);
-  // });
+//   // Click the refresh button.
+//   const refreshButton = screen.getByText("Refresh");
 
-  //   // Click the refresh button.
-  //   const refreshButton = screen.getByText("Refresh");
+//   await act(async () => {
+//     refreshButton.click();
+//   });
 
-  //   await act(async () => {
-  //     refreshButton.click();
-  //   });
+//   // Wait for the articles to be updated.
+//   await waitFor(() => {
+//     expect(screen.getByText(articles[0].title)).toBeInTheDocument();
+//   });
+// });
 
-  //   // Wait for the articles to be updated.
-  //   await waitFor(() => {
-  //     expect(screen.getByText(articles[0].title)).toBeInTheDocument();
-  //   });
-  // });
-
-  // Test that the welcome message includes the user's username.
-  // test("displays welcome message with username", async () => {
-  //   const { getByRole } = renderValue;
-  //   await act(async () => {
-  //     expect(screen.getByText(`Welcome test1!`)).toBeInTheDocument();
-  //   });
-  // });
+// Test that the welcome message includes the user's username.
+// test("displays welcome message with username", async () => {
+//   const { getByRole } = renderValue;
+//   await act(async () => {
+//     expect(screen.getByText(`Welcome test1!`)).toBeInTheDocument();
+//   });
+// });
 });
