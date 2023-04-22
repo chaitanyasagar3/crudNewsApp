@@ -850,7 +850,44 @@ Test Plan
 
    Integration tests:
    Total Tests: 17     Pass: 17    Fail: 0
-   
+
+   Regression Test Data after Development:
+
+   Total Automated Suits: 10     Pass: 10     Fail: 0
+   Total Automated Tests: 47     Pass: 47    Fail: 0
+
+   Unit Tests:
+   Client Side Suites:
+   SignInPage.tst.js:          Total: 11    Pass: 11     Fail: 0
+   SignUpPage.js:              Total: 7     Pass: 7      Fail: 0
+   GuestLanding.test.js:       Total: 2     Pass: 2      Fail: 0
+   LandingPage.test.js:        Total: 2     Pass: 2      Fail: 0
+   NewsCard.test.js:           Total: 2     Pass: 2      Fail: 0
+   UserLanding.test.js:        Total: 2      Pass: 2        Fail:  0
+
+   Header.test.js:             Total: 6     Pass: 5      Fail: 1
+   SettingsModal.test.js:      Total: 4     Pass: 4      Fail: 0
+   Auth.test.js:               Total: 3     Pass: 3      Fail: 0
+   news.test.js:               Total: 3     Pass: 3      Fail: 0
+
+   Server Side Suites:
+   Total Automated Suits: 4    Pass: 4     Fail: 0
+   Total Automated Tests: 28     Pass: 28    Fail: 0
+   NewsController.test.js:     Total: 17     Pass: 17      Fail: 0
+   userController.test.js:     Total: 8     Pass: 8      Fail: 0
+
+   Integration tests:
+   Total Tests: 17     Pass: 17    Fail: 0
+
+   New Unit test Cases for Sprint 4 Functionalities:
+   Server Side Suite:
+   NewsController : News Search API should should return a 200 status code if succefully hit
+   authentication : authentication should should return 401 if no token is provided / should return 401 if an invalid token is provided
+
+   Client Side Suite:
+   news.js: News Axios call should call axios.get with correct params / News Axio call should return articles on success
+   UserLanding.js: If search bar works
+   auth.js: login should make a POST request to login with the correct data / singup should make a POST request to add-user with the correct data/ updatePreference should make a POST request to update-preferences with the correct data
 6. Project Milestones
 
    1.Sprint 1 (Completed)
