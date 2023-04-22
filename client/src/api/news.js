@@ -6,7 +6,6 @@ export const getNewsByCategory = async (category) => {
       params: { category: category },
     });
     const articles = response.data;
-    console.log(articles);
     return articles;
   } catch (error) {
     console.error(error);
@@ -20,7 +19,6 @@ export const getNewsByUserPreferences = async (user) => {
       user,
     });
     const articles = response.data;
-    console.log(articles);
     return articles;
   } catch (error) {
     console.error(error);
@@ -33,7 +31,6 @@ export const getNewsBySearch = async (search) => {
       params: { query : search },
     });
     const articles = response.data;
-    console.log(articles);
     return articles;
   } catch (error) {
     console.error(error);

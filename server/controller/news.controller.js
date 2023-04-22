@@ -6,7 +6,6 @@ const newsController = express.Router();
 newsController.get("/category/", async (req, res) => {
   try {
     const { category } = req.query;
-    console.log(category);
     const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
     const response = await newsapi.v2.everything({
       q: category,
@@ -43,7 +42,6 @@ newsController.post("/", async (req, res) => {
     const categories = Object.keys(user.preferences).filter(
       (category) => user.preferences[category]
     );
-    console.log(categories);
     const response = await Promise.all(
       categories.map((category) =>
         newsapi.v2.everything({

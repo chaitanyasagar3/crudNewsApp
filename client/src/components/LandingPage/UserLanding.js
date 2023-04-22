@@ -27,6 +27,7 @@ const UserLanding = () => {
   const [pageCount, setPageCount] = useState(1);
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   const fetchArticles = useCallback(
     async (search, page, category) => {
@@ -37,9 +38,10 @@ const UserLanding = () => {
           setArticles([]);
           response = await getNewsBySearch(search);
         }
-        if (!search && auth.user && category === "home") {
+        if (!search && category === "home") {
           response = await getNewsByUserPreferences(auth.user);
-        } else if (!search && auth.user && category !== "home") {
+          
+        } else if (!search && category !== "home") {
           response = await getNewsByCategory(category);
         }
         const startIndex = (page - 1) * articlesPerPage;
@@ -48,12 +50,14 @@ const UserLanding = () => {
         setArticles(articlesForPage);
         setPageCount(Math.ceil(response.length / articlesPerPage));
       } catch (error) {
-        console.log(error);
+        if (error.response && error.response.status === 401) {
+          console.log(error);
+        }
       } finally {
         setLoading(false);
       }
     },
-    [auth.user]
+    []
   );
 
   useEffect(() => {
@@ -64,9 +68,9 @@ const UserLanding = () => {
     const onRefresh = async () => {
       if (auth.refreshArticles) {
         setSearchQuery("");
-        setActiveCategory("general");
+        setActiveCategory("home");
         setCurrentPage(1);
-        await fetchArticles("", 1, "general");
+        await fetchArticles("", 1, "home");
         auth.setRefreshArticles(false);
       }
     };
@@ -94,13 +98,19 @@ const UserLanding = () => {
     pageNumbers.push(i);
   }
   const handleSearch = async (e) => {
-    e.preventDefault();
-    const search = e.target[0].value.trim();
-    if (search) {
-      setSearchQuery(search);
-      setCurrentPage(1);
-    } else {
-      window.alert("Please enter a search query");
+    try {
+      e.preventDefault();
+      if (searchInput) {
+        setSearchQuery(searchInput);
+        setCurrentPage(1);
+      } else {
+        window.alert("Please enter a search query");
+      }
+    }
+    catch (error) {
+      if (error.response && error.response.status === 401) {
+        console.log(error);
+      }
     }
   };
   return (
@@ -212,12 +222,18 @@ const UserLanding = () => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
-        <Form onSubmit={handleSearch} style={{ paddingBottom: "20px" }}>
+        <Form data-testid="search-form" onSubmit={handleSearch} style={{ paddingBottom: "20px" }}>
           <Stack direction="horizontal" gap={2}>
             <FormControl
               data-testid="search"
               type="text"
               placeholder="Search for news"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              onBlur={(e) => {
+                setSearchInput(e.target.value.trim());
+              }
+              }
             />
             <Button type="submit" data-testid="search-button">
               Search
