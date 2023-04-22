@@ -837,7 +837,7 @@ Test Plan
    GuestLanding.test.js:       Total: 2     Pass: 2      Fail: 0
    LandingPage.test.js:        Total: 2     Pass: 2      Fail: 0
    NewsCard.test.js:           Total: 2     Pass: 2      Fail: 0
-   UserLanding.test.js:      Total: 2      Pass: 2        Fail:  0
+   UserLanding.test.js:        Total: 2      Pass: 2        Fail:  0
 
    Header.test.js:             Total: 6     Pass: 5      Fail: 1
    SettingsModal.test.js:      Total: 4     Pass: 4      Fail: 0

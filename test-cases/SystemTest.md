@@ -33,16 +33,16 @@ System Test:
 
     Expected results:
 
-    - Regression test data matches.
-    - Sign in page renders as expected.
-    - The sign in functionality allows users with valid credentials to access the system.
-    - The sign in functionality denies access to users with invalid credentials.
-    - The sign in functionality prevents users from submitting an empty Username and password.
-    - The sign in functionality prevents users from submitting a valid Username and empty password.
-    - The sign in functionality handles case-sensitive passwords correctly.
-    - The sign-in page has a button or link that redirects users to the sign-up page.
-    - The system successfully logs the user in and redirects them to the appropriate landing page or dashboard.
-    - All unit tests related to sign in functionality with valid credentials pass.
+    - Regression test data matches.                                                                             
+    - Sign in page renders as expected.                                                                        
+    - The sign in functionality allows users with valid credentials to access the system.                       
+    - The sign in functionality denies access to users with invalid credentials.                                
+    - The sign in functionality prevents users from submitting an empty Username and password.                 
+    - The sign in functionality prevents users from submitting a valid Username and empty password.            
+    - The sign in functionality handles case-sensitive passwords correctly.                                   
+    - The sign-in page has a button or link that redirects users to the sign-up page.                           
+    - The system successfully logs the user in and redirects them to the appropriate landing page or dashboard. 
+    - All unit tests related to sign in functionality with valid credentials pass.                           
 
 ---
 
@@ -75,14 +75,14 @@ System Test:
 
     Expected results:
 
-    - Regression test data matches.
-    - Sign-up page renders as expected.
-    - The sign-up functionality allows new users to create an account with valid information.
-    - The sign-up functionality prevents users from creating an account with an Username that is already in use.
-    - The sign-up functionality enforces a minimum password complexity.
-    - The sign-up functionality validates the presence of all required fields.
-    - The system successfully creates a new user account and redirects the user to the appropriate landing page or sends a confirmation Username, as per the application's workflow.
-    - All unit tests related to sign-up functionality with valid information pass.
+    - Regression test data matches.                                                                                                    
+    - Sign-up page renders as expected.                                                                                                
+    - The sign-up functionality allows new users to create an account with valid information.                                          
+    - The sign-up functionality prevents users from creating an account with an Username that is already in use.                       
+    - The sign-up functionality enforces a minimum password complexity.                                                                
+    - The sign-up functionality validates the presence of all required fields.                                                          
+    - The system successfully creates a new user account and redirects the user to the appropriate landing page or sends a confirmation Username, as per the application's workflow.                                                                                        
+    - All unit tests related to sign-up functionality with valid information pass.                                                     
 
 ---
 
@@ -100,13 +100,8 @@ Test Landing Page
         - Check if the Home tab is selected by default for a signed in user.
         - Check if the settings button is displayed for signed in user.
         - Verify that the home screen displays 9 news cards.
-        - Verify that the user is able to see the refresh button
         - Check if the app is displaying General news when the user is clicking on the General tab.
-        - Check if the user is able to click on the refresh button
-        - Verify that the the page is refreshed and stays on the General tab
         - Check if the app is displaying Business news when the user is clicking on the Business tab.
-        - Check if the user is able to click on the refresh button
-        - Verify that the the page is refreshed and stays on the Business tab
         - Check if the app is displaying Entertainment news when the user is clicking on the Entertainment tab.
         - Check if the app is displaying Health news when the user is clicking on the Health tab.
         - Check if the app is displaying Science news when the user is clicking on the Science tab.
@@ -116,26 +111,22 @@ Test Landing Page
         - Scrolling down the landing page and verify that user can see the page numbers
         - Click on an unselected page number and verify the the user is navigated to the selected page
 
-        Expected results:
-        - Regression test data matches.
-        - Home page renders as expected.
-        - General tab is selected by default for the guest user.
-        - Home tab is selected by default for the signed-in user.
-        - Settings button is displayed for the signed-in user.
-        - There are 9 news cards as expected.
-        - The app is displaying General news when the user is clicking on the General tab.
-        - The user is able to click on the refresh button
-        - The page is refreshed and stays on the General tab
-        - The app is displaying Business news when the user is clicking on the Business tab.
-        - The user is able to click on the refresh button
-        - The the page is refreshed and stays on the Business tab
-        - The app is displaying Entertainment news when the user is clicking on the Entertainment tab.
-        - The app is displaying Health news when the user is clicking on the Health tab.
-        - The app is displaying Science news when the user is clicking on the Science tab.
-        - The app is displaying Sports news when the user is clicking on the Sports tab.
-        - The app is displaying Technology news when the user is clicking on the Technology tab.
-        - User can see the page numbers on scrolling down the landing page
-        - User is navigated to the respective page on clicking a page number
+        Results:
+        - Regression test data matches.                                                                                 
+        - Home page renders as expected.                                                                                
+        - General tab is selected by default for the guest user.                                                        
+        - Home tab is selected by default for the signed-in user.                                                      
+        - Settings button is displayed for the signed-in user.                                                       
+        - There are 9 news cards as expected.                                                                          
+        - The app is displaying General news when the user is clicking on the General tab.                              
+        - The app is displaying Business news when the user is clicking on the Business tab.                           
+        - The app is displaying Entertainment news when the user is clicking on the Entertainment tab.                
+        - The app is displaying Health news when the user is clicking on the Health tab.                                
+        - The app is displaying Science news when the user is clicking on the Science tab.                              
+        - The app is displaying Sports news when the user is clicking on the Sports tab.                               
+        - The app is displaying Technology news when the user is clicking on the Technology tab.                       
+        - User can see the page numbers on scrolling down the landing page                                              
+        - User is navigated to the respective page on clicking a page number                                           
 
 ---
 
@@ -163,20 +154,20 @@ Test 'Set Preference' feature
         _ Verify if the user is able to dismiss the popover by clicking the cancel button
         - The preferences should be saved and the user should be redirected back to the home screen.
 
-        Expected results:
-        - Regression test data matches.
-        - Home page renders as expected.
-        - Home tab is selected by default.
-        - The settings button is present and is clickable
-        - The settings popover is opened and it is displaying the categories
-        - The general category is selected by default
-        - Check if the general option is checked by default
-        - The user is able to select a category
-        - The user is able to unselect a category
-        - The user is able to select multiple categories
-        - The user is able to save the selected categories by clicking the save button
-        _ The user is able to dismiss the popover by clicking the cancel button
-        - The preferences is saved and the user is redirected back to the home screen.
+        Results:
+        - Regression test data matches.                                                                         
+        - Home page renders as expected.                                                                        
+        - Home tab is selected by default.                                                                      
+        - The settings button is present and is clickable                                                       
+        - The settings popover is opened and it is displaying the categories                                    
+        - The general category is selected by default                                                           
+        - Check if the general option is checked by default                                                     
+        - The user is able to select a category                                                                 
+        - The user is able to unselect a category                                                               
+        - The user is able to select multiple categories                                                      
+        - The user is able to save the selected categories by clicking the save button                         
+        _ The user is able to dismiss the popover by clicking the cancel button                                
+        - The preferences is saved and the user is redirected back to the home screen.                      
 
 ---
 
@@ -206,20 +197,20 @@ Test show merged articles
         - Verify that the Home tab contains news from Health, Business and Sports Categories
 
         Expected results:
-        - Regression test data matches.
-        - Home page renders as expected.
-        - Home tab is selected by default
-        - The home screen displays 9 news cards.
-        - The home page displays settings button
-        - User is able to click on the settings button
-        - General category is checked by default in the settings popover
-        - The Home Tab is displaying the general category news
-        - User is able to click on settings button and select the Health and Business Categories
-        - The preferences are saved by clicking the save button
-        - The Home tab contains news from Health and Business Categories
-        - User is able to click on settings button and select the Sports Categories
-        - The preferences are saved by clicking the save button
-        - The Home tab contains news from Health, Business and Sports Categories
+        - Regression test data matches.                                                                         
+        - Home page renders as expected.                                                                        
+        - Home tab is selected by default                                                                       
+        - The home screen displays 9 news cards.                                                                
+        - The home page displays settings button                                                                
+        - User is able to click on the settings button                                                          
+        - General category is checked by default in the settings popover                                        
+        - The Home Tab is displaying the general category news                                                  
+        - User is able to click on settings button and select the Health and Business Categories                
+        - The preferences are saved by clicking the save button                                                 
+        - The Home tab contains news from Health and Business Categories                                        
+        - User is able to click on settings button and select the Sports Categories                             
+        - The preferences are saved by clicking the save button                                                 
+        - The Home tab contains news from Health, Business and Sports Categories                                
 
 ---
 
