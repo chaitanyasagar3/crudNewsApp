@@ -1,3 +1,5 @@
+# SYSTEM TEST REPORT
+
 Tester: Deepak
 
 Date - 04/21/2023
@@ -288,8 +290,6 @@ Test advanced searching
 
 ---
 
-
-
 Tester: UDITANSHU KHATRI
 TEST: System Test
 
@@ -568,8 +568,6 @@ Test searching
 
 ---
 
-
-
 Tester: RINI JOSEPH
 TEST: System Test
 
@@ -836,7 +834,7 @@ Objective: System must search advanced combinations of keywords in the pool of n
 Preconditions: Server and Client must be up and running.
 
 Test steps: - Run all unit tests and check if they match the regression test data recorded before sprint 4. - Perform search operation with two keywords seperated by "AND". - Check if new articles, fetched in the home tab, all consist of both the keywords. - Open any article and press "Control + f". Type and search both the keywords to check if both the words are present in the article. - Check the dates for the articles from top to make sure the articles are in descending order starting with the most recent. - Similarly perform searches for "OR" and "NOT" operations.
-_ OR: Any one or both key words should be present in the news articles.
+_OR: Any one or both key words should be present in the news articles.
 _ NOT: They key word should not be present in any of the articles. - Choose keywords and use random combinations of parenthesis. EG: (Phone OR Human) AND ex-cop. - Check if new articles, fetched in the home tab, all have appropiate keywords. - Open any article and press "Control + f". Type and search all have appropiate keywords.
 
     Results:
@@ -857,10 +855,6 @@ _ NOT: They key word should not be present in any of the articles. - Choose keyw
 ---
 
 ---
-
-
-
-
 Tester: Chaitanya
 Date: 04/23/2023
 TEST: System Test
@@ -898,17 +892,17 @@ System Test:
 
     Expected results:
 
-    - Regression test data matches.                                                                      :
-    - Sign in page renders as expected.                                                                  :
-    - The sign in functionality allows users with valid credentials to access the system.                :
-    - The sign in functionality denies access to users with invalid credentials.                         :
-    - The sign in functionality prevents users from submitting an empty Username and password.           :
-    - The sign in functionality prevents users from submitting a valid Username and empty password.      :
-    - The sign in functionality handles case-sensitive passwords correctly.                              :
-    - The sign-in page has a button or link that redirects users to the sign-up page.                    :
-    - The system successfully logs the user in and redirects them to the appropriate landing page or     :
+    - Regression test data matches.                                                                      :Pass
+    - Sign in page renders as expected.                                                                  :Pass
+    - The sign in functionality allows users with valid credentials to access the system.                :Pass
+    - The sign in functionality denies access to users with invalid credentials.                         :Pass
+    - The sign in functionality prevents users from submitting an empty Username and password.           :Pass
+    - The sign in functionality prevents users from submitting a valid Username and empty password.      :Pass
+    - The sign in functionality handles case-sensitive passwords correctly.                              :Pass
+    - The sign-in page has a button or link that redirects users to the sign-up page.                    :Pass
+    - The system successfully logs the user in and redirects them to the appropriate landing page or     :Pass
      dashboard.
-    - All unit tests related to sign in functionality with valid credentials pass.                       :
+    - All unit tests related to sign in functionality with valid credentials pass.                       :Pass
 
 ---
 
@@ -940,16 +934,16 @@ System Test:
 
     Expected results:
 
-    - Regression test data matches.                                                                     :
-    - Sign-up page renders as expected.                                                                 :
-    - The sign-up functionality allows new users to create an account with valid information.           :
-    - The sign-up functionality prevents users from creating an account with an Username that           :
+    - Regression test data matches.                                                                     :Pass
+    - Sign-up page renders as expected.                                                                 :Pass
+    - The sign-up functionality allows new users to create an account with valid information.           :Pass
+    - The sign-up functionality prevents users from creating an account with an Username that           :Pass
     is already in use.
-    - The sign-up functionality enforces a minimum password complexity.                                 :
-    - The sign-up functionality validates the presence of all required fields.                          :
-    - The system successfully creates a new user account and redirects the user to the appropriate      :
+    - The sign-up functionality enforces a minimum password complexity.                                 :Pass
+    - The sign-up functionality validates the presence of all required fields.                          :Pass
+    - The system successfully creates a new user account and redirects the user to the appropriate      :Pass
      landing page or sends a confirmation Username, as per the application's workflow.
-    - All unit tests related to sign-up functionality with valid information pass.                      :
+    - All unit tests related to sign-up functionality with valid information pass.                      :Pass
 
 ---
 
@@ -983,29 +977,29 @@ Test Landing Page
         - Click on an unselected page number and verify the the user is navigated to the selected page
 
     Expected results:
-        - Regression test data matches.                                                                 :
-        - Home page renders as expected.                                                                :
-        - General tab is selected by default for the guest user.                                        :
-        - Home tab is selected by default for the signed-in user.                                       :
-        - Settings button is displayed for the signed-in user.                                          :
-        - There are 9 news cards as expected.                                                           :
-        - The app is displaying General news when the user is clicking on the General tab.              :
-        - The user is able to click on the refresh button                                               :
-        - The page is refreshed and stays on the General tab                                            :
-        - The app is displaying Business news when the user is clicking on the Business tab.            :
-        - The user is able to click on the refresh button                                               :
-        - The the page is refreshed and stays on the Business tab                                       :
-        - The app is displaying Entertainment news when the user is clicking on the Entertainment tab.  :
-        - The app is displaying Health news when the user is clicking on the Health tab.                :
-        - The app is displaying Science news when the user is clicking on the Science tab.              :
-        - The app is displaying Sports news when the user is clicking on the Sports tab.                :
-        - The app is displaying Technology news when the user is clicking on the Technology tab.        :
-        - User can see the page numbers on scrolling down the landing page                              :
-        - User is navigated to the respective page on clicking a page number                            :
+        - Regression test data matches.                                                                 :Pass
+        - Home page renders as expected.                                                                :Pass
+        - General tab is selected by default for the guest user.                                        :Pass
+        - Home tab is selected by default for the signed-in user.                                       :Pass
+        - Settings button is displayed for the signed-in user.                                          :Pass
+        - There are 9 news cards as expected.                                                           :Pass
+        - The app is displaying General news when the user is clicking on the General tab.              :Pass
+        - The user is able to click on the refresh button                                               :Pass
+        - The page is refreshed and stays on the General tab                                            :Fail
+        - The app is displaying Business news when the user is clicking on the Business tab.            :Pass
+        - The user is able to click on the refresh button                                               :Pass
+        - The the page is refreshed and stays on the Business tab                                       :Fail
+        - The app is displaying Entertainment news when the user is clicking on the Entertainment tab.  :Pass
+        - The app is displaying Health news when the user is clicking on the Health tab.                :Pass
+        - The app is displaying Science news when the user is clicking on the Science tab.              :Pass
+        - The app is displaying Sports news when the user is clicking on the Sports tab.                :Pass
+        - The app is displaying Technology news when the user is clicking on the Technology tab.        :Pass
+        - User can see the page numbers on scrolling down the landing page                              :Pass
+        - User is navigated to the respective page on clicking a page number                            :Pass
 
     Failed test cases:
-         - The page is refreshed and stays on the General tab                                            :
-         - The the page is refreshed and stays on the Business tab                                       :
+         - The page is refreshed and stays on the General tab                                            :Fail
+         - The the page is refreshed and stays on the Business tab                                       :Fail
     Failing condition:
             Failed to refresh the page while staying on the seleced tab on clicking the "refresh" button, on clicking refresh the tab chnages to General.
 
@@ -1034,18 +1028,18 @@ Test 'Set Preference' feature
         - The preferences should be saved and the user should be redirected back to the home screen.
 
     Expected results:
-        - Regression test data matches.                                                 :
-        - Home page renders as expected.                                                :
-        - Home tab is selected by default.                                              :
-        - The settings button is present and is clickable                               :
-        - The settings popover is opened and it is displaying the categories            :
-        - The general category is selected by default                                   :
-        - The user is able to select a category                                         :
-        - The user is able to unselect a category                                       :
-        - The user is able to select multiple categories                                :
-        - The user is able to save the selected categories by clicking the save button  :
-        _ The user is able to dismiss the popover by clicking the cancel button         :
-        - The preferences is saved and the user is redirected back to the home screen.  :
+        - Regression test data matches.                                                 :Pass
+        - Home page renders as expected.                                                :Pass
+        - Home tab is selected by default.                                              :Pass
+        - The settings button is present and is clickable                               :Pass
+        - The settings popover is opened and it is displaying the categories            :Pass
+        - The general category is selected by default                                   :Pass
+        - The user is able to select a category                                         :Pass
+        - The user is able to unselect a category                                       :Pass
+        - The user is able to select multiple categories                                :Pass
+        - The user is able to save the selected categories by clicking the save button  :Pass
+        _ The user is able to dismiss the popover by clicking the cancel button         :Pass
+        - The preferences is saved and the user is redirected back to the home screen.  :Pass
 
 ---
 
@@ -1072,21 +1066,21 @@ Test show merged articles
         - Verify that the Home tab contains news from Health, Business and Sports Categories
 
     Expected results:
-        - Regression test data matches.                                                 :
-        - Home page renders as expected.                                                :
-        - Home tab is selected by default                                               :
-        - The home screen displays 9 news cards.                                        :
-        - The home page displays settings button                                        :
-        - User is able to click on the settings button                                  :
-        - General category is checked by default in the settings popover                :
-        - The Home Tab is displaying the general category news                          :
-        - User is able to click on settings button and select the Health and            :
+        - Regression test data matches.                                                 :Pass
+        - Home page renders as expected.                                                :Pass
+        - Home tab is selected by default                                               :Pass
+        - The home screen displays 9 news cards.                                        :Pass
+        - The home page displays settings button                                        :Pass
+        - User is able to click on the settings button                                  :Pass
+        - General category is checked by default in the settings popover                :Pass
+        - The Home Tab is displaying the general category news                          :Pass
+        - User is able to click on settings button and select the Health and            :Pass
         Business Categories
-        - The preferences are saved by clicking the save button                         :
-        - The Home tab contains news from Health and Business Categories                :
-        - User is able to click on settings button and select the Sports Categories     :
-        - The preferences are saved by clicking the save button                         :
-        - The Home tab contains news from Health, Business and Sports Categories        :
+        - The preferences are saved by clicking the save button                         :Pass
+        - The Home tab contains news from Health and Business Categories                :Pass
+        - User is able to click on settings button and select the Sports Categories     :Pass
+        - The preferences are saved by clicking the save button                         :Pass
+        - The Home tab contains news from Health, Business and Sports Categories        :Pass
 
 ---
 
@@ -1112,12 +1106,12 @@ Test searching
             - Check if the new articles in every tab fetched, match the default settings.
 
     Expected results:
-            - Regression test data matches.                                                     :
-            - Home page renders as expected.                                                    :
-            - The news articles change when enter is clicked with the keyword.                  :
-            - Other tabs match the default settings.                                            :
-            - Searching for an emoty string brings back the default home screen results.        :
-            - An error message is displayed when a key word is not present in any news article. :
+            - Regression test data matches.                                                     :Pass
+            - Home page renders as expected.                                                    :Pass
+            - The news articles change when enter is clicked with the keyword.                  :Pass
+            - Other tabs match the default settings.                                            :Pass
+            - Searching for an emoty string brings back the default home screen results.        :Pass
+            - An error message is displayed when a key word is not present in any news article. :Pass
 
 ---
 
@@ -1128,21 +1122,20 @@ Objective: System must search advanced combinations of keywords in the pool of n
 Preconditions: Server and Client must be up and running.
 
 Test steps: - Run all unit tests and check if they match the regression test data recorded before sprint 4. - Perform search operation with two keywords seperated by "AND". - Check if new articles, fetched in the home tab, all consist of both the keywords. - Open any article and press "Control + f". Type and search both the keywords to check if both the words are present in the article. - Check the dates for the articles from top to make sure the articles are in descending order starting with the most recent. - Similarly perform searches for "OR" and "NOT" operations.
-_ OR: Any one or both key words should be present in the news articles.
+_OR: Any one or both key words should be present in the news articles.
 _ NOT: They key word should not be present in any of the articles. - Choose keywords and use random combinations of parenthesis. EG: (Phone OR Human) AND ex-cop. - Check if new articles, fetched in the home tab, all have appropiate keywords. - Open any article and press "Control + f". Type and search all have appropiate keywords.
 
     Results:
-        - Unit tests match the pre recorded regression data.                                                :
-        - Search yields news articles.                                                                      :
-        - All the news articles have both the keywords.                                                     :
-        - The news articles are in descending order starting with the most recent.                          :
-        - OR: Any one or both key words should be present in the news articles.                             :
-        - NOT: They key word should not be present in any of the articles.                                  :
-
-    - Different parenthesis searches have no impact on the search and yields desired results.           :
+        - Unit tests match the pre recorded regression data.                                                :Pass
+        - Search yields news articles.                                                                      :Pass
+        - All the news articles have both the keywords.                                                     :Pass
+        - The news articles are in descending order starting with the most recent.                          :Pass
+        - OR: Any one or both key words should be present in the news articles.                             :Pass
+        - NOT: They key word should not be present in any of the articles.                                  :Pass
+        - Different parenthesis searches have no impact on the search and yields desired results.           :Fail
 
     Failed test cases:
-        - Different parenthesis searches have no impact on the search and yields desired results.           :
+        - Different parenthesis searches have no impact on the search and yields desired results.           :Fail
 
     Failing condition:
             Failed to find "ex-cop" Key Word in the article: (Phone Or Human) And ex-cop
