@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 
 const NewsCard = ({ article }) => {
   const sanitizeDescription = (description) => {
+    if (!description) return "";
     const stripped = description.replace(/(<([^>]+)>)/gi, "");
     return stripped.length > 150 ? stripped.slice(0, 150) + "..." : stripped;
   };
